@@ -1,0 +1,227 @@
+/* Contact CTA & Project Inquiry Styles */
+.contact-section {
+  background-color: var(--charcoal);
+  color: var(--ivory);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-header {
+  max-width: 720px;
+  margin-bottom: 4.5rem;
+}
+
+.contact-section .section-tag {
+  color: var(--sand);
+}
+
+.contact-section .section-tag::after {
+  background-color: var(--sand);
+}
+
+.contact-section .section-title {
+  color: var(--ivory);
+}
+
+.contact-section .section-lead {
+  color: var(--sand);
+  opacity: 0.9;
+}
+
+/* Two Column Layout: Inquiry Form Left, Studio Hubs Right */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+@media (min-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1.35fr 1fr;
+    gap: 6rem;
+  }
+}
+
+/* Consultation Form Card */
+.contact-form-box {
+  background-color: rgba(245, 241, 232, 0.04);
+  border: 1px solid rgba(245, 241, 232, 0.12);
+  padding: clamp(2rem, 4vw, 3.5rem);
+  border-radius: 2px;
+}
+
+.form-group-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 650px) {
+  .form-group-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sand);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(245, 241, 232, 0.2);
+  border-radius: 2px;
+  color: var(--ivory);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--ivory);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.form-select option {
+  background-color: var(--charcoal);
+  color: var(--ivory);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: 1.15rem;
+  background-color: var(--ivory);
+  color: var(--charcoal);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: all var(--transition-fast);
+  margin-top: 1rem;
+}
+
+.form-submit-btn:hover {
+  background-color: var(--sand);
+  transform: translateY(-2px);
+}
+
+/* Success Confirmation State */
+.inquiry-success-box {
+  background-color: rgba(139, 146, 123, 0.2);
+  border: 1px solid var(--sage);
+  padding: 3rem 2rem;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.inquiry-success-title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--ivory);
+  margin-bottom: 1rem;
+}
+
+.inquiry-success-text {
+  color: var(--sand);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto 2rem;
+}
+
+/* Right Column: Studio Locations */
+.studio-hubs-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+}
+
+.studio-hubs-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: var(--ivory);
+  margin-bottom: 1.5rem;
+}
+
+.studio-hub-card {
+  border-bottom: 1px solid rgba(245, 241, 232, 0.12);
+  padding-bottom: 2rem;
+}
+
+.studio-hub-card:last-child {
+  border-bottom: none;
+}
+
+.hub-city-name {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--ivory);
+  margin-bottom: 0.35rem;
+}
+
+.hub-atelier-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 0.75rem;
+}
+
+.hub-address-text {
+  font-size: 0.88rem;
+  color: rgba(245, 241, 232, 0.75);
+  line-height: 1.6;
+  margin-bottom: 0.85rem;
+}
+
+.hub-contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-size: 0.8rem;
+  color: var(--sand);
+}
+
+.hub-contact-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color var(--transition-fast);
+}
+
+.hub-contact-links a:hover {
+  color: var(--ivory);
+}

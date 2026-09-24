@@ -1,0 +1,179 @@
+/* Services Section Styles */
+.services-section {
+  background-color: var(--cream);
+  position: relative;
+}
+
+.services-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .services-header {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.services-list-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Service Row Accordion Item */
+.service-accordion-item {
+  border-top: 1px solid var(--border-light);
+  transition: background-color var(--transition-fast);
+}
+
+.service-accordion-item:last-child {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.service-header-trigger {
+  width: 100%;
+  padding: clamp(1.75rem, 3vw, 2.5rem) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  gap: 1.5rem;
+}
+
+.service-title-group {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+  flex: 1;
+}
+
+.service-num {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  color: var(--taupe);
+  min-width: 32px;
+}
+
+.service-main-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.5vw, 2.3rem);
+  font-weight: 400;
+  color: var(--charcoal);
+  letter-spacing: -0.01em;
+  transition: color var(--transition-fast);
+}
+
+.service-accordion-item:hover .service-main-heading {
+  color: var(--earth);
+}
+
+.service-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--charcoal);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.service-accordion-item.open .service-icon-box {
+  background-color: var(--charcoal);
+  color: var(--ivory);
+  transform: rotate(45deg);
+}
+
+/* Expanded Service Drawer */
+.service-details-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  opacity: 0;
+}
+
+.service-accordion-item.open .service-details-panel {
+  max-height: 800px;
+  opacity: 1;
+}
+
+.service-inner-content {
+  padding-bottom: 3rem;
+  padding-left: clamp(2rem, 4.5vw, 4.5rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 850px) {
+  .service-inner-content {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.service-tagline-text {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--charcoal);
+  margin-bottom: 1rem;
+}
+
+.service-desc-text {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--earth);
+  margin-bottom: 1.75rem;
+}
+
+.service-meta-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--earth-light);
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-light);
+}
+
+.service-scope-col h4,
+.service-deliverables-col h4 {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin-bottom: 1rem;
+}
+
+.service-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.service-checklist li {
+  font-size: 0.875rem;
+  color: var(--earth);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  line-height: 1.5;
+}
+
+.service-checklist svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--sage);
+}

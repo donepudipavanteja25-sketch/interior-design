@@ -1,0 +1,227 @@
+/* Hero Section Styles */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+  padding-top: clamp(6rem, 12vw, 9rem);
+  overflow: hidden;
+  background-color: var(--charcoal);
+  color: var(--ivory);
+}
+
+.hero-background-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.04);
+  animation: heroScale 14s ease-out infinite alternate;
+  filter: brightness(0.92) contrast(1.03);
+}
+
+@keyframes heroScale {
+  0% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1.07);
+  }
+}
+
+/* Cinematic Atmospheric Gradients */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: linear-gradient(
+    180deg,
+    rgba(22, 20, 18, 0.45) 0%,
+    rgba(22, 20, 18, 0.15) 40%,
+    rgba(22, 20, 18, 0.72) 100%
+  );
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+}
+
+.hero-inner {
+  max-width: 1100px;
+}
+
+.hero-tagline-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 1.5rem;
+  opacity: 0.95;
+}
+
+.hero-tagline-label::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background-color: var(--sand);
+}
+
+.hero-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.75rem, 6.8vw, 6.2rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ivory);
+  margin-bottom: 1.75rem;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-heading span {
+  display: block;
+}
+
+.hero-heading em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.hero-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: flex-end;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .hero-bottom-grid {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.hero-description {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(245, 241, 232, 0.88);
+  max-width: 580px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+}
+
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.1rem 2.25rem;
+  background-color: var(--ivory);
+  color: var(--charcoal);
+  font-family: var(--font-sans);
+  font-size: 0.78125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+}
+
+.hero-btn-primary:hover {
+  background-color: var(--sand);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.1rem 2.25rem;
+  background-color: rgba(245, 241, 232, 0.08);
+  backdrop-filter: blur(8px);
+  color: var(--ivory);
+  border: 1px solid rgba(245, 241, 232, 0.4);
+  font-family: var(--font-sans);
+  font-size: 0.78125rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+}
+
+.hero-btn-secondary:hover {
+  background-color: var(--ivory);
+  color: var(--charcoal);
+  border-color: var(--ivory);
+  transform: translateY(-2px);
+}
+
+/* Scroll Indicator */
+.hero-scroll-cue {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  margin-top: 3.5rem;
+  color: rgba(245, 241, 232, 0.7);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  transition: color var(--transition-fast);
+}
+
+.hero-scroll-cue:hover {
+  color: var(--ivory);
+}
+
+.hero-scroll-arrow {
+  animation: bounceDown 2s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes bounceDown {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(6px);
+  }
+  60% {
+    transform: translateY(3px);
+  }
+}

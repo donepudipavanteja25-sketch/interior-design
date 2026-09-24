@@ -1,0 +1,241 @@
+/* Design Philosophy & Tactile Materials Styles */
+.philosophy-section {
+  background-color: var(--ivory);
+  position: relative;
+}
+
+.philosophy-header {
+  max-width: 760px;
+  margin-bottom: 4.5rem;
+}
+
+/* Philosophy 4-Pillars Grid */
+.philosophy-pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-bottom: 5.5rem;
+}
+
+@media (min-width: 768px) {
+  .philosophy-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3.5rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .philosophy-pillars-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.pillar-card {
+  border-top: 1px solid var(--border-light);
+  padding-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.pillar-number {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--taupe);
+  margin-bottom: 1.25rem;
+}
+
+.pillar-title {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.01em;
+}
+
+.pillar-lead {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.pillar-desc {
+  font-size: 0.875rem;
+  color: var(--earth-light);
+  line-height: 1.7;
+}
+
+/* Tactile Materiality Showcase */
+.materials-showcase-box {
+  background-color: var(--cream);
+  border-radius: 2px;
+  padding: clamp(2rem, 4vw, 4rem);
+  box-shadow: var(--shadow-subtle);
+}
+
+.materials-section-tag {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.materials-main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 300;
+  color: var(--charcoal);
+  margin-bottom: 2rem;
+}
+
+/* Material Tab Selector */
+.material-selector-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 1.5rem;
+}
+
+.material-tab-btn {
+  padding: 0.65rem 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--charcoal);
+  background-color: transparent;
+  border: 1px solid var(--border-light);
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+}
+
+.material-tab-btn:hover {
+  background-color: var(--sand);
+}
+
+.material-tab-btn.active {
+  background-color: var(--charcoal);
+  color: var(--ivory);
+  border-color: var(--charcoal);
+}
+
+/* Selected Material Detail View */
+.material-detail-panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .material-detail-panel {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+  }
+}
+
+.material-preview-frame {
+  position: relative;
+  height: clamp(280px, 32vw, 400px);
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: var(--sand);
+}
+
+.material-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.material-preview-frame:hover .material-preview-img {
+  transform: scale(1.05);
+}
+
+.material-preview-origin {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background-color: rgba(39, 37, 33, 0.8);
+  color: var(--ivory);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 0.8rem;
+  border-radius: 2px;
+}
+
+.material-content-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.material-category-tag {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.material-name {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 0.75rem;
+}
+
+.material-sensory {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--earth-light);
+  margin-bottom: 1.25rem;
+}
+
+.material-desc {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--earth);
+  margin-bottom: 1.5rem;
+}
+
+.material-specs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-light);
+}
+
+@media (min-width: 600px) {
+  .material-specs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.spec-title {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin-bottom: 0.35rem;
+}
+
+.spec-text {
+  font-size: 0.85rem;
+  color: var(--charcoal);
+  line-height: 1.5;
+}

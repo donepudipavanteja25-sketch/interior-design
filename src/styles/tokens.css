@@ -1,0 +1,124 @@
+:root {
+  /* Warm Sandstone & Travertine Palette (Default) */
+  --ivory: #DFD5C4;
+  --cream: #D2C4B0;
+  --sand: #C2B198;
+  --stone: #AC9A81;
+  --taupe: #86745F;
+  --sage: #6E775F;
+  --sage-light: #8A947B;
+  --sage-subtle: #D3D7CB;
+  --earth: #372D24;
+  --earth-light: #524538;
+  --charcoal: #1D1A17;
+  --charcoal-soft: #2C2723;
+  --white: #E9E2D4;
+  --border-light: rgba(55, 45, 36, 0.16);
+  --border-subtle: rgba(55, 45, 36, 0.09);
+  --border-dark: rgba(223, 213, 196, 0.16);
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Typography Scale */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 2rem;       /* 32px */
+  --text-4xl: 2.75rem;    /* 44px */
+  --text-5xl: 3.75rem;    /* 60px */
+  --text-6xl: 4.75rem;    /* 76px */
+  --text-display: clamp(2.5rem, 5.5vw + 1rem, 6.5rem);
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  --space-3xl: 9rem;
+
+  /* Transitions */
+  --transition-fast: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-medium: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Elevations */
+  --shadow-subtle: 0 4px 20px rgba(29, 26, 23, 0.05);
+  --shadow-card: 0 10px 30px rgba(29, 26, 23, 0.08);
+  --shadow-modal: 0 25px 60px rgba(29, 26, 23, 0.22);
+
+  /* Layout */
+  --container-max: 1380px;
+  --container-narrow: 1040px;
+  --header-height: 88px;
+  --header-height-scrolled: 72px;
+}
+
+/* Theme: Moody Architectural Dark */
+[data-theme="moody-dark"] {
+  --ivory: #1E1C19;
+  --cream: #272420;
+  --sand: #3A352F;
+  --stone: #554E46;
+  --taupe: #9B9184;
+  --sage: #8A9878;
+  --sage-light: #A1AD8E;
+  --sage-subtle: #2D3228;
+  --earth: #DCD4C7;
+  --earth-light: #B8ADA0;
+  --charcoal: #F5EFE6;
+  --charcoal-soft: #E2DBD0;
+  --white: #272420;
+  --border-light: rgba(245, 239, 230, 0.14);
+  --border-subtle: rgba(245, 239, 230, 0.08);
+  --border-dark: rgba(245, 239, 230, 0.2);
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.2);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-modal: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Theme: Muted Sage & Olive Mineral */
+[data-theme="muted-sage"] {
+  --ivory: #D6DAD0;
+  --cream: #C8CEC0;
+  --sand: #B8BFAD;
+  --stone: #9CA590;
+  --taupe: #727C65;
+  --sage: #535F48;
+  --sage-light: #6C7A60;
+  --sage-subtle: #E2E6DD;
+  --earth: #2F362A;
+  --earth-light: #4A5543;
+  --charcoal: #1A2016;
+  --charcoal-soft: #283023;
+  --white: #E2E6DD;
+  --border-light: rgba(47, 54, 42, 0.16);
+  --border-subtle: rgba(47, 54, 42, 0.08);
+  --border-dark: rgba(214, 218, 208, 0.2);
+}
+
+/* Theme: Warm Terracotta & Sand */
+[data-theme="terracotta"] {
+  --ivory: #DAC9BE;
+  --cream: #CEBAAD;
+  --sand: #BEA798;
+  --stone: #A98E7E;
+  --taupe: #836758;
+  --sage: #7A695C;
+  --sage-light: #9B8678;
+  --sage-subtle: #EDE0D7;
+  --earth: #3F2B21;
+  --earth-light: #5A4033;
+  --charcoal: #251812;
+  --charcoal-soft: #38251D;
+  --white: #E8D9CF;
+  --border-light: rgba(63, 43, 33, 0.16);
+  --border-subtle: rgba(63, 43, 33, 0.08);
+  --border-dark: rgba(218, 201, 190, 0.2);
+}

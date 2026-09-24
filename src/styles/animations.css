@@ -1,0 +1,90 @@
+/* Scroll-driven Sliding & Reveal Animations */
+
+.reveal {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+}
+
+/* Sliding Directions */
+.reveal-up {
+  transform: translateY(48px);
+}
+
+.reveal-down {
+  transform: translateY(-48px);
+}
+
+.reveal-left {
+  transform: translateX(-52px);
+}
+
+.reveal-right {
+  transform: translateX(52px);
+}
+
+.reveal-scale {
+  transform: scale(0.93) translateY(30px);
+}
+
+/* Revealed State: Smooth luxury easing when sliding into view */
+.reveal.is-revealed {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Stagger Delays when entering view */
+.reveal.is-revealed.delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal.is-revealed.delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal.is-revealed.delay-3 {
+  transition-delay: 0.3s;
+}
+
+.reveal.is-revealed.delay-4 {
+  transition-delay: 0.4s;
+}
+
+.reveal.is-revealed.delay-5 {
+  transition-delay: 0.5s;
+}
+
+/* Duration options */
+.reveal.is-revealed.duration-slow {
+  transition-duration: 1.25s;
+}
+
+/* Parallax subtle floating effect */
+.float-subtle {
+  animation: floatSubtle 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatSubtle {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-up,
+  .reveal-down,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
