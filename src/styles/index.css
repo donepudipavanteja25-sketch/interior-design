@@ -1,5 +1,6 @@
 @import './tokens.css';
 @import './animations.css';
+@import './pages.css';
 
 /* Modern Reset */
 *, *::before, *::after {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { projectsData, type Project } from '../data/projects';
 import { ProjectModal } from './ProjectModal';
@@ -94,13 +95,23 @@ export const Projects: React.FC<ProjectsProps> = ({ onStartProjectWithRef }) => 
             </article>
           ))}
         </div>
+
+        {/* View All Projects Link */}
+        <div style={{ textAlign: 'center', marginTop: '4rem' }}>
+          <Link to="/projects" className="btn-secondary">
+            View All Architectural Works <ArrowUpRight size={15} />
+          </Link>
+        </div>
       </div>
 
       {/* Case Study Modal */}
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
-        onStartProjectWithRef={onStartProjectWithRef}
+        onStartProjectWithRef={(title: string) => {
+          setSelectedProject(null);
+          onStartProjectWithRef(title);
+        }}
       />
     </section>
   );

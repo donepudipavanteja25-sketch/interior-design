@@ -27,11 +27,13 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  useEffect(() => {
+  const [prevPreset, setPrevPreset] = useState(presetScopeOrProject);
+  if (presetScopeOrProject !== prevPreset) {
+    setPrevPreset(presetScopeOrProject);
     if (presetScopeOrProject) {
       setFormData((prev) => ({ ...prev, scope: presetScopeOrProject }));
     }
-  }, [presetScopeOrProject]);
+  }
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

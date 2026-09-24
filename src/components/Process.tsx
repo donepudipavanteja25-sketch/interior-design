@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
 import { processSteps } from '../data/studio';
 import '../styles/process.css';
 
@@ -39,6 +41,12 @@ export const Process: React.FC = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+          <Link to="/process" className="btn-secondary">
+            Full Methodology & Timeline Guide <ArrowUpRight size={14} />
+          </Link>
         </div>
       </div>
     </section>

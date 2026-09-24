@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { journalArticles, type JournalArticle } from '../data/journal';
 import { JournalModal } from './JournalModal';
 import '../styles/journal.css';
@@ -61,6 +62,12 @@ export const Journal: React.FC = () => {
               </div>
             </article>
           ))}
+        </div>
+
+        <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+          <Link to="/journal" className="btn-secondary">
+            All Architectural Essays <ArrowUpRight size={14} />
+          </Link>
         </div>
       </div>
 

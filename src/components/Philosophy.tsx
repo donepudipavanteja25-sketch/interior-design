@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
 import { philosophyPillars, materialsData, type MaterialItem } from '../data/philosophy';
 import '../styles/philosophy.css';
 
@@ -82,6 +84,13 @@ export const Philosophy: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Link to Philosophy Page */}
+        <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+          <Link to="/philosophy" className="btn-secondary">
+            Explore Full Materiality Lab & Manifesto <ArrowUpRight size={14} />
+          </Link>
         </div>
       </div>
     </section>

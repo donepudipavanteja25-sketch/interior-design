@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import '../styles/studio.css';
 
@@ -23,9 +24,9 @@ export const StudioIntro: React.FC = () => {
               Founded on the belief that environment shapes human emotion, we reject trend-driven clutter in favor of quiet architectural proportions, tactile natural stones, and unvarnished timbers that deepen in character alongside the people who inhabit them.
             </p>
 
-            <a href="#philosophy" className="studio-cta" id="discover-studio-cta">
+            <Link to="/studio" className="studio-cta" id="discover-studio-cta">
               Discover the Studio <ArrowRight size={15} />
-            </a>
+            </Link>
 
             {/* Metrics Bar */}
             <div className="studio-metrics-row">

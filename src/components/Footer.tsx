@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUp, ArrowRight, Check } from 'lucide-react';
 import '../styles/footer.css';
 
@@ -23,7 +24,9 @@ export const Footer: React.FC = () => {
         <div className="footer-top-grid">
           {/* Brand Col */}
           <div className="footer-brand-col">
-            <span className="footer-brand-name">VERDÉ & FORM</span>
+            <Link to="/" className="footer-brand-name">
+              VERDÉ & FORM
+            </Link>
             <p className="footer-tagline">
               Spaces shaped by nature, designed for living. Refined residential and boutique architectural sanctuaries.
             </p>
@@ -35,17 +38,17 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Navigation Links */}
+          {/* Navigation Links with React Router */}
           <div>
             <div className="footer-col-title">Navigation</div>
             <ul className="footer-nav-list">
-              <li className="footer-nav-item"><a href="#studio">The Studio</a></li>
-              <li className="footer-nav-item"><a href="#projects">Selected Work</a></li>
-              <li className="footer-nav-item"><a href="#philosophy">Our Philosophy</a></li>
-              <li className="footer-nav-item"><a href="#services">Disciplines</a></li>
-              <li className="footer-nav-item"><a href="#process">Our Methodology</a></li>
-              <li className="footer-nav-item"><a href="#journal">Design Essays</a></li>
-              <li className="footer-nav-item"><a href="#contact">Contact Atelier</a></li>
+              <li className="footer-nav-item"><Link to="/studio">The Studio</Link></li>
+              <li className="footer-nav-item"><Link to="/projects">Selected Work</Link></li>
+              <li className="footer-nav-item"><Link to="/philosophy">Our Philosophy</Link></li>
+              <li className="footer-nav-item"><Link to="/services">Disciplines</Link></li>
+              <li className="footer-nav-item"><Link to="/process">Our Methodology</Link></li>
+              <li className="footer-nav-item"><Link to="/journal">Design Essays</Link></li>
+              <li className="footer-nav-item"><Link to="/contact">Contact Atelier</Link></li>
             </ul>
           </div>
 
@@ -54,16 +57,22 @@ export const Footer: React.FC = () => {
             <div className="footer-col-title">Practice Ateliers</div>
             <ul className="footer-nav-list">
               <li className="footer-nav-item">
-                <span style={{ color: 'var(--ivory)', display: 'block', fontWeight: 500 }}>Hyderabad</span>
-                <span style={{ fontSize: '0.8rem', color: 'var(--taupe)' }}>Jubilee Hills, Rd 36</span>
+                <Link to="/contact" style={{ display: 'block' }}>
+                  <span style={{ color: 'var(--ivory)', display: 'block', fontWeight: 500 }}>Hyderabad</span>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--taupe)' }}>Jubilee Hills, Rd 36</span>
+                </Link>
               </li>
               <li className="footer-nav-item" style={{ marginTop: '0.5rem' }}>
-                <span style={{ color: 'var(--ivory)', display: 'block', fontWeight: 500 }}>Mumbai</span>
-                <span style={{ fontSize: '0.8rem', color: 'var(--taupe)' }}>Kala Ghoda Arts District</span>
+                <Link to="/contact" style={{ display: 'block' }}>
+                  <span style={{ color: 'var(--ivory)', display: 'block', fontWeight: 500 }}>Mumbai</span>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--taupe)' }}>Kala Ghoda Arts District</span>
+                </Link>
               </li>
               <li className="footer-nav-item" style={{ marginTop: '0.5rem' }}>
-                <span style={{ color: 'var(--ivory)', display: 'block', fontWeight: 500 }}>Goa</span>
-                <span style={{ fontSize: '0.8rem', color: 'var(--taupe)' }}>Assagao Village</span>
+                <Link to="/contact" style={{ display: 'block' }}>
+                  <span style={{ color: 'var(--ivory)', display: 'block', fontWeight: 500 }}>Goa</span>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--taupe)' }}>Assagao Village</span>
+                </Link>
               </li>
             </ul>
           </div>

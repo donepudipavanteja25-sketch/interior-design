@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Plus, Check, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Plus, Check, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { servicesData } from '../data/services';
 import '../styles/services.css';
 
@@ -117,6 +118,13 @@ export const Services: React.FC<ServicesProps> = ({ onSelectServiceForInquiry })
               </div>
             );
           })}
+        </div>
+
+        {/* View All Services Link */}
+        <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+          <Link to="/services" className="btn-secondary">
+            View All Disciplines & Deliverables <ArrowUpRight size={14} />
+          </Link>
         </div>
       </div>
     </section>

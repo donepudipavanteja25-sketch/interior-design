@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { StudioIntro } from './components/StudioIntro';
-import { Projects } from './components/Projects';
-import { Philosophy } from './components/Philosophy';
-import { Services } from './components/Services';
-import { VisualBreak } from './components/VisualBreak';
-import { Process } from './components/Process';
-import { Journal } from './components/Journal';
-import { Testimonial } from './components/Testimonial';
-import { ContactCTA } from './components/ContactCTA';
-import { ConsultationModal } from './components/ConsultationModal';
 import { Footer } from './components/Footer';
+import { ConsultationModal } from './components/ConsultationModal';
+import { ScrollToTop } from './components/ScrollToTop';
+import { HomePage } from './pages/HomePage';
+import { StudioPage } from './pages/StudioPage';
+import { ProjectsPage } from './pages/ProjectsPage';
+import { PhilosophyPage } from './pages/PhilosophyPage';
+import { ServicesPage } from './pages/ServicesPage';
+import { ProcessPage } from './pages/ProcessPage';
+import { JournalPage } from './pages/JournalPage';
+import { ContactPage } from './pages/ContactPage';
 import { useScrollReveal } from './hooks/useScrollReveal';
 
 export const App: React.FC = () => {
@@ -39,39 +39,66 @@ export const App: React.FC = () => {
 
   return (
     <div className="verde-form-app">
-      {/* Sticky Header Navigation */}
+      {/* Scroll restoration on route change */}
+      <ScrollToTop />
+
+      {/* Persistent Sticky Navbar */}
       <Navbar onOpenConsultation={() => handleOpenConsultation()} />
 
-      <main>
-        {/* Cinematic Hero */}
-        <Hero onOpenConsultation={() => handleOpenConsultation()} />
-
-        {/* Studio Introduction */}
-        <StudioIntro />
-
-        {/* Selected Work / Projects */}
-        <Projects onStartProjectWithRef={handleStartProjectWithRef} />
-
-        {/* Design Philosophy & Tactile Materials */}
-        <Philosophy />
-
-        {/* Full Architectural & Interior Disciplines */}
-        <Services onSelectServiceForInquiry={handleSelectServiceForInquiry} />
-
-        {/* Full-width Atmosphere Break */}
-        <VisualBreak />
-
-        {/* 4-Phase Architectural Methodology */}
-        <Process />
-
-        {/* Design Journal & Essays */}
-        <Journal />
-
-        {/* Client Praise & Critical Acclaim */}
-        <Testimonial />
-
-        {/* Project Inquiry & Studio Locations */}
-        <ContactCTA initialServiceOrProject={inquiryPreset} />
+      <main id="main-content">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
+                onOpenConsultation={handleOpenConsultation}
+                onStartProjectWithRef={handleStartProjectWithRef}
+                onSelectServiceForInquiry={handleSelectServiceForInquiry}
+              />
+            }
+          />
+          <Route
+            path="/studio"
+            element={<StudioPage onOpenConsultation={() => handleOpenConsultation()} />}
+          />
+          <Route
+            path="/projects"
+            element={
+              <ProjectsPage
+                onStartProjectWithRef={handleStartProjectWithRef}
+                onOpenConsultation={() => handleOpenConsultation()}
+              />
+            }
+          />
+          <Route path="/work" element={<Navigate to="/projects" replace />} />
+          <Route
+            path="/philosophy"
+            element={<PhilosophyPage onOpenConsultation={() => handleOpenConsultation()} />}
+          />
+          <Route
+            path="/services"
+            element={
+              <ServicesPage
+                onSelectServiceForInquiry={handleSelectServiceForInquiry}
+                onOpenConsultation={() => handleOpenConsultation()}
+              />
+            }
+          />
+          <Route
+            path="/process"
+            element={<ProcessPage onOpenConsultation={() => handleOpenConsultation()} />}
+          />
+          <Route
+            path="/journal"
+            element={<JournalPage onOpenConsultation={() => handleOpenConsultation()} />}
+          />
+          <Route
+            path="/contact"
+            element={<ContactPage initialPreset={inquiryPreset} />}
+          />
+          {/* Catch-all redirect to Home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
 
       {/* Editorial Footer */}

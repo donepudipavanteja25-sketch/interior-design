@@ -8,14 +8,14 @@
 .studio-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3.5rem;
+  gap: 3rem;
   align-items: center;
 }
 
 @media (min-width: 992px) {
   .studio-grid {
     grid-template-columns: 1.15fr 1fr;
-    gap: 5.5rem;
+    gap: 5rem;
   }
 }
 
@@ -27,27 +27,27 @@
 
 .studio-heading {
   font-family: var(--font-serif);
-  font-size: clamp(2.25rem, 4.2vw, 3.8rem);
+  font-size: clamp(2rem, 3.8vw, 3.6rem);
   font-weight: 300;
   line-height: 1.15;
   color: var(--charcoal);
   letter-spacing: -0.015em;
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
 }
 
 .studio-paragraph {
-  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
-  line-height: 1.85;
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  line-height: 1.8;
   color: var(--earth);
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
   font-weight: 300;
 }
 
 .studio-secondary-text {
-  font-size: 0.95rem;
-  line-height: 1.8;
+  font-size: 0.92rem;
+  line-height: 1.75;
   color: var(--taupe);
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .studio-cta {
@@ -64,6 +64,7 @@
   padding-bottom: 6px;
   width: fit-content;
   transition: all var(--transition-fast);
+  text-decoration: none;
 }
 
 .studio-cta::after {
@@ -91,10 +92,17 @@
 .studio-metrics-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 3.5rem;
-  padding-top: 2.5rem;
+  gap: 1.25rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
   border-top: 1px solid var(--border-light);
+}
+
+@media (max-width: 540px) {
+  .studio-metrics-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 .metric-number {
@@ -108,14 +116,14 @@
 
 .metric-label {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--taupe);
   font-weight: 500;
 }
 
-/* Right Image Column (Editorial Asymmetric Layout) */
+/* Right Image Column */
 .studio-image-col {
   position: relative;
 }
@@ -130,7 +138,7 @@
 
 .studio-image {
   width: 100%;
-  height: clamp(380px, 48vw, 580px);
+  height: clamp(340px, 45vw, 560px);
   object-fit: cover;
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -141,26 +149,26 @@
 
 .studio-image-badge {
   position: absolute;
-  bottom: 1.5rem;
-  left: 1.5rem;
+  bottom: 1.25rem;
+  left: 1.25rem;
   background-color: var(--ivory);
-  padding: 1rem 1.4rem;
+  padding: 0.85rem 1.25rem;
   border-radius: 2px;
   border-left: 2px solid var(--sage);
-  max-width: 280px;
+  max-width: calc(100% - 2.5rem);
 }
 
 .studio-badge-title {
   font-family: var(--font-serif);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: var(--charcoal);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 .studio-badge-desc {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--earth);
   line-height: 1.4;
 }

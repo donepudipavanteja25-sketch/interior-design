@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, ArrowDown } from 'lucide-react';
 import '../styles/hero.css';
 
@@ -40,9 +41,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
               </p>
 
               <div className="hero-actions">
-                <a href="#projects" className="hero-btn-primary" id="hero-explore-work-btn">
+                <Link to="/projects" className="hero-btn-primary" id="hero-explore-work-btn">
                   Explore Our Work <ArrowRight size={15} />
-                </a>
+                </Link>
                 <button
                   onClick={onOpenConsultation}
                   className="hero-btn-secondary"
@@ -53,13 +54,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
               </div>
             </div>
 
-            <div style={{ justifySelf: 'flex-start' }}>
-              <a href="#studio" className="hero-scroll-cue" aria-label="Scroll to explore studio">
+            <div className="hero-scroll-cue-wrapper">
+              <Link to="/studio" className="hero-scroll-cue" aria-label="Explore the studio">
                 <span>SCROLL TO EXPLORE</span>
                 <span className="hero-scroll-arrow">
                   <ArrowDown size={14} />
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
