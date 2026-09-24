@@ -17,6 +17,8 @@ html {
   background-color: var(--ivory);
   color: var(--charcoal);
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -26,7 +28,17 @@ body {
   color: var(--charcoal);
   background-color: var(--ivory);
   overflow-x: hidden;
-  selection-background-color: var(--sand);
+  max-width: 100%;
+  width: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
 }
 
 ::selection {

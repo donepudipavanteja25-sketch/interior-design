@@ -53,6 +53,23 @@ export const ThemeSwitcher: React.FC = () => {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    const handleThemeChange = (e: Event) => {
+      const customEvent = e as CustomEvent<string>;
+      if (customEvent.detail && customEvent.detail !== activeTheme) {
+        setActiveTheme(customEvent.detail);
+      }
+    };
+    window.addEventListener('themechange', handleThemeChange);
+    return () => window.removeEventListener('themechange', handleThemeChange);
+  }, [activeTheme]);
+
+  const selectTheme = (themeId: string) => {
+    setActiveTheme(themeId);
+    setIsOpen(false);
+    window.dispatchEvent(new CustomEvent('themechange', { detail: themeId }));
+  };
+
   const currentThemeObj = themes.find((t) => t.id === activeTheme) || themes[0];
 
   return (
@@ -64,7 +81,8 @@ export const ThemeSwitcher: React.FC = () => {
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
-        aria-label="Select color palette"
+        aria-label={`Select atmosphere palette. Current: ${currentThemeObj.name}`}
+        title={`Atmosphere: ${currentThemeObj.name}`}
         id="palette-dropdown-btn"
       >
         <Palette size={13} style={{ opacity: 0.85 }} />
@@ -72,7 +90,7 @@ export const ThemeSwitcher: React.FC = () => {
           className="theme-current-dot"
           style={{ backgroundColor: currentThemeObj.color }}
         />
-        <span>{currentThemeObj.name}</span>
+        <span className="theme-dropdown-label">{currentThemeObj.name}</span>
         <ChevronDown size={13} className="theme-chevron" />
       </button>
 
@@ -86,10 +104,7 @@ export const ThemeSwitcher: React.FC = () => {
                 key={theme.id}
                 type="button"
                 className={`theme-dropdown-item ${isSelected ? 'active' : ''}`}
-                onClick={() => {
-                  setActiveTheme(theme.id);
-                  setIsOpen(false);
-                }}
+                onClick={() => selectTheme(theme.id)}
                 role="option"
                 aria-selected={isSelected}
               >

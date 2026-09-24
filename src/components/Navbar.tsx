@@ -140,6 +140,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
         </ul>
 
         <div className="mobile-menu-footer">
+          <div className="mobile-menu-palette-row">
+            <span className="mobile-menu-palette-title">Atmosphere</span>
+            <ThemeSwitcher />
+          </div>
+
           <button
             onClick={() => {
               setMobileMenuOpen(false);
