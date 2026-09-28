@@ -10,6 +10,7 @@ interface ThemeOption {
 }
 
 const themes: ThemeOption[] = [
+  { id: 'vriksha-sea-blue', name: 'Sea Blue & Orange', color: '#006994', description: 'Official Vriksha Sea Blue (#006994) & Vibrant Orange' },
   { id: 'nexora-modern', name: 'Nexora Slate', color: '#F26522', description: 'Deep slate, crisp white & architectural orange' },
   { id: 'warm-sandstone', name: 'Sandstone', color: '#DFD5C4', description: 'Warm sand & honed travertine' },
   { id: 'moody-dark', name: 'Dark Atelier', color: '#0B1320', description: 'Deep midnight slate & vibrant orange' },
@@ -18,12 +19,12 @@ const themes: ThemeOption[] = [
 ];
 
 export const ThemeSwitcher: React.FC = () => {
-  const [activeTheme, setActiveTheme] = useState<string>('nexora-modern');
+  const [activeTheme, setActiveTheme] = useState<string>('vriksha-sea-blue');
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (activeTheme === 'nexora-modern') {
+    if (activeTheme === 'vriksha-sea-blue') {
       document.documentElement.removeAttribute('data-theme');
     } else {
       document.documentElement.setAttribute('data-theme', activeTheme);

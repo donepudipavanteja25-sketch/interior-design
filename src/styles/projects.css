@@ -71,9 +71,45 @@
 
 @media (min-width: 1024px) {
   .projects-editorial-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.75rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
   }
+}
+
+.project-category-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.35rem 0.75rem;
+  background-color: var(--accent);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.project-details-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.85rem;
+  color: var(--earth-light);
+  margin-top: 0.4rem;
+}
+
+.project-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.project-icon {
+  color: var(--brand-blue);
 }
 
 /* Project Card Base */

@@ -1,0 +1,144 @@
+/* Green Construction Section - Dark Blue Theme */
+.green-construction-section {
+  background-color: #063F57;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.green-construction-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .green-construction-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4.5rem;
+  }
+}
+
+.green-content-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.green-eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.green-heading {
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.green-body {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.15vw, 1.1rem);
+  line-height: 1.7;
+  color: #DCE4E9;
+  margin-bottom: 2.5rem;
+}
+
+.green-practices-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+@media (min-width: 600px) {
+  .green-practices-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 1.75rem;
+  }
+}
+
+.green-practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.green-practice-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.green-practice-title {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.35rem;
+}
+
+.green-practice-desc {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #CBD5E1;
+  margin: 0;
+}
+
+/* Right Visual */
+.green-visual-col {
+  position: relative;
+}
+
+.green-image-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.green-image {
+  width: 100%;
+  height: clamp(380px, 45vw, 520px);
+  object-fit: cover;
+  display: block;
+}
+
+/* Small Orange Feature Block */
+.green-orange-block {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--accent);
+  color: #FFFFFF;
+  padding: 1.25rem 1.75rem;
+}
+
+.green-orange-text {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.15vw, 1.1rem);
+  font-weight: 700;
+  line-height: 1.4;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: 0.01em;
+}

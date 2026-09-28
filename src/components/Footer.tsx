@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUp, ArrowRight, Check } from 'lucide-react';
+import { ArrowUp, ArrowRight, Check, Phone, Mail, MapPin, Clock } from 'lucide-react';
 import '../styles/footer.css';
 
 export const Footer: React.FC = () => {
@@ -18,113 +18,146 @@ export const Footer: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="footer-wrapper">
       <div className="container">
         <div className="footer-top-grid">
-          {/* Brand Col */}
+          {/* Brand Col with white logo container */}
           <div className="footer-brand-col">
-            <Link to="/" className="footer-brand-name">
-              VERDÉ & FORM
+            <Link to="/" className="footer-logo-badge" aria-label="Vriksha Home">
+              <img
+                src="/images/vriksha-logo-transparent.png"
+                alt="Vriksha Constructions & Interior Designers"
+                className="footer-vriksha-logo"
+              />
             </Link>
+
             <p className="footer-tagline">
-              Spaces shaped by nature, designed for living. Refined residential and boutique architectural sanctuaries.
+              Creating beautiful, functional and lasting spaces for a better tomorrow.
             </p>
+
             <div className="footer-social-links">
-              <a href="#" className="footer-social-link" aria-label="Instagram">Instagram</a>
-              <a href="#" className="footer-social-link" aria-label="Pinterest">Pinterest</a>
-              <a href="#" className="footer-social-link" aria-label="Architectural Digest">AD Pro</a>
-              <a href="#" className="footer-social-link" aria-label="LinkedIn">LinkedIn</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer-social-link" aria-label="Instagram">
+                Instagram
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="footer-social-link" aria-label="Facebook">
+                Facebook
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="footer-social-link" aria-label="LinkedIn">
+                LinkedIn
+              </a>
             </div>
           </div>
 
-          {/* Navigation Links with React Router */}
+          {/* Quick Navigation Links */}
           <div>
             <div className="footer-col-title">Navigation</div>
             <ul className="footer-nav-list">
-              <li className="footer-nav-item"><Link to="/studio">The Studio</Link></li>
-              <li className="footer-nav-item"><Link to="/projects">Selected Work</Link></li>
-              <li className="footer-nav-item"><Link to="/philosophy">Our Philosophy</Link></li>
-              <li className="footer-nav-item"><Link to="/services">Disciplines</Link></li>
-              <li className="footer-nav-item"><Link to="/process">Our Methodology</Link></li>
-              <li className="footer-nav-item"><Link to="/journal">Design Essays</Link></li>
+              <li className="footer-nav-item"><Link to="/">Home</Link></li>
+              <li className="footer-nav-item"><Link to="/about">About Vriksha</Link></li>
+              <li className="footer-nav-item"><Link to="/services">Services</Link></li>
+              <li className="footer-nav-item"><Link to="/projects">Featured Projects</Link></li>
+              <li className="footer-nav-item"><Link to="/construction-solutions">Construction Solutions</Link></li>
+              <li className="footer-nav-item"><Link to="/process">Our Process</Link></li>
+              <li className="footer-nav-item"><Link to="/testimonials">Client Testimonials</Link></li>
               <li className="footer-nav-item"><Link to="/contact">Contact Atelier</Link></li>
             </ul>
           </div>
 
-          {/* Studio Locations */}
+          {/* All Service Links */}
           <div>
-            <div className="footer-col-title">Practice Ateliers</div>
+            <div className="footer-col-title">Construction & Design</div>
             <ul className="footer-nav-list">
               <li className="footer-nav-item">
-                <Link to="/contact" style={{ display: 'block' }}>
-                  <span style={{ color: 'var(--ivory)', display: 'block', fontWeight: 500 }}>Hyderabad</span>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--taupe)' }}>Jubilee Hills, Rd 36</span>
-                </Link>
+                <Link to="/services">Residential Construction</Link>
               </li>
-              <li className="footer-nav-item" style={{ marginTop: '0.5rem' }}>
-                <Link to="/contact" style={{ display: 'block' }}>
-                  <span style={{ color: 'var(--ivory)', display: 'block', fontWeight: 500 }}>Mumbai</span>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--taupe)' }}>Kala Ghoda Arts District</span>
-                </Link>
+              <li className="footer-nav-item">
+                <Link to="/services">Commercial Construction</Link>
               </li>
-              <li className="footer-nav-item" style={{ marginTop: '0.5rem' }}>
-                <Link to="/contact" style={{ display: 'block' }}>
-                  <span style={{ color: 'var(--ivory)', display: 'block', fontWeight: 500 }}>Goa</span>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--taupe)' }}>Assagao Village</span>
-                </Link>
+              <li className="footer-nav-item">
+                <Link to="/services">Interior Design</Link>
+              </li>
+              <li className="footer-nav-item">
+                <Link to="/services">Renovation & Remodeling</Link>
+              </li>
+              <li className="footer-nav-item">
+                <Link to="/construction-solutions">MS Box Shuttering</Link>
+              </li>
+              <li className="footer-nav-item">
+                <Link to="/construction-solutions">PVC Shuttering</Link>
+              </li>
+              <li className="footer-nav-item">
+                <Link to="/construction-solutions">Sustainable Base Build</Link>
               </li>
             </ul>
           </div>
 
-          {/* Newsletter / The Gazette */}
-          <div className="footer-newsletter-col">
-            <div className="footer-col-title">The Architectural Journal</div>
-            <p>
-              Receive seasonal dispatches on spatial design, natural materiality, and private residence reveals.
-            </p>
+          {/* Contact Information */}
+          <div className="footer-contact-col">
+            <div className="footer-col-title">Hyderabad Headquarters</div>
+            <ul className="footer-contact-list">
+              <li className="footer-contact-item">
+                <MapPin size={16} className="footer-contact-icon" />
+                <span>Road No. 36, Jubilee Hills & Hitec City Corridor, Hyderabad, Telangana 500033</span>
+              </li>
+              <li className="footer-contact-item">
+                <Phone size={16} className="footer-contact-icon" />
+                <a href="tel:+919989382877" className="footer-contact-link">+91 99893 82877</a>
+              </li>
+              <li className="footer-contact-item">
+                <Mail size={16} className="footer-contact-icon" />
+                <a href="mailto:contact@vrikshaconstructions.com" className="footer-contact-link">contact@vrikshaconstructions.com</a>
+              </li>
+              <li className="footer-contact-item">
+                <Clock size={16} className="footer-contact-icon" />
+                <span>Monday – Saturday: 9:00 AM – 7:00 PM IST</span>
+              </li>
+            </ul>
 
-            {subscribed ? (
-              <div className="newsletter-feedback">
-                <Check size={14} style={{ display: 'inline', marginRight: 4 }} />
-                Thank you for subscribing to our dispatches.
-              </div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="newsletter-form">
-                <div className="newsletter-input-group">
-                  <input
-                    type="email"
-                    required
-                    placeholder="Enter your email address"
-                    className="newsletter-input"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    aria-label="Email for newsletter"
-                  />
-                  <button type="submit" className="newsletter-submit-btn" aria-label="Subscribe to dispatches">
-                    <ArrowRight size={16} />
-                  </button>
+            {/* Newsletter dispatch */}
+            <div className="footer-newsletter-wrap">
+              <div className="footer-sub-label">Project Inquiries & Updates</div>
+              {subscribed ? (
+                <div className="newsletter-feedback">
+                  <Check size={14} style={{ display: 'inline', marginRight: 4 }} />
+                  Thank you. Our team will keep you updated.
                 </div>
-              </form>
-            )}
+              ) : (
+                <form onSubmit={handleSubscribe} className="newsletter-form">
+                  <div className="newsletter-input-group">
+                    <input
+                      type="email"
+                      required
+                      placeholder="Enter email for brochure"
+                      className="newsletter-input"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <button type="submit" className="newsletter-btn" aria-label="Subscribe">
+                      <ArrowRight size={14} />
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Footer Bottom Bar with Legal Links and Dynamic Year */}
         <div className="footer-bottom-bar">
-          <div>
-            © {new Date().getFullYear()} VERDÉ & FORM INTERIOR ARCHITECTURE STUDIO. ALL RIGHTS RESERVED.
-          </div>
-
           <div className="footer-legal-links">
-            <a href="#" style={{ color: 'inherit' }}>Privacy Policy</a>
-            <a href="#" style={{ color: 'inherit' }}>Terms of Practice</a>
-            <a href="#" style={{ color: 'inherit' }}>Editorial Inquiries</a>
+            <span>© {currentYear} Vriksha Constructions & Interior Designers. All rights reserved.</span>
+            <span className="footer-divider-dot">•</span>
+            <Link to="/privacy" className="footer-bottom-link">Privacy Policy</Link>
+            <span className="footer-divider-dot">•</span>
+            <Link to="/terms" className="footer-bottom-link">Terms and Conditions</Link>
           </div>
 
-          <button onClick={scrollToTop} className="back-to-top-btn" aria-label="Back to top of page">
-            <span>Back to Top</span>
-            <ArrowUp size={14} />
+          <button onClick={scrollToTop} className="footer-back-to-top" aria-label="Scroll back to top">
+            <span>BACK TO TOP</span>
+            <ArrowUp size={13} />
           </button>
         </div>
       </div>

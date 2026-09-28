@@ -1,29 +1,45 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle2, Phone, Mail, MapPin } from 'lucide-react';
-import { studioLocations } from '../data/studio';
+import { ArrowRight, CheckCircle2, Phone, Mail, MapPin, MessageSquare } from 'lucide-react';
 import '../styles/contact.css';
 
 interface ContactCTAProps {
   initialServiceOrProject?: string;
+  onOpenConsultation?: () => void;
 }
 
-export const ContactCTA: React.FC<ContactCTAProps> = ({ initialServiceOrProject }) => {
+export const ContactCTA: React.FC<ContactCTAProps> = ({
+  initialServiceOrProject,
+  onOpenConsultation
+}) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    spaceType: 'Residential Villa',
-    scope: initialServiceOrProject || 'Full-Scope Interior Design',
-    area: '3,000 – 6,000 sq. ft',
+    projectType: initialServiceOrProject || 'Residential Construction',
+    budget: '50 Lakhs – 1 Crore',
     location: 'Hyderabad',
-    message: ''
+    notes: ''
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [whatsappUrl, setWhatsappUrl] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email) return;
+    if (!formData.name || !formData.phone) return;
+
+    const message = `*Project Enquiry - Vriksha Constructions*\n\n` +
+      `*Name:* ${formData.name}\n` +
+      `*Phone/WhatsApp:* ${formData.phone}\n` +
+      `*Email:* ${formData.email || 'Not provided'}\n` +
+      `*Project Type:* ${formData.projectType}\n` +
+      `*Estimated Budget:* ${formData.budget}\n` +
+      `*Location:* ${formData.location}\n` +
+      `*Notes:* ${formData.notes || 'None'}`;
+
+    const url = `https://wa.me/919989382877?text=${encodeURIComponent(message)}`;
+    setWhatsappUrl(url);
+    window.open(url, '_blank');
     setIsSubmitted(true);
   };
 
@@ -32,54 +48,75 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialServiceOrProject 
       <div className="container">
         {/* Section Header */}
         <div className="contact-header reveal reveal-up">
-          <span className="section-tag">COMMENCE A CONVERSATION</span>
+          <span className="section-tag">START YOUR PROJECT</span>
           <h2 className="section-title">
-            Ready to bring calm, intentional design to your space?
+            Have a space in mind? Let’s build it well.
           </h2>
-          <p className="section-lead" style={{ marginTop: '1rem' }}>
-            We accept a limited number of commissions each calendar year to ensure uncompromised architectural dedication to every sanctuary.
+          <p className="section-lead" style={{ marginTop: '0.75rem' }}>
+            Tell us what you are planning and we will help you understand the right construction approach, materials and next steps.
           </p>
+
+          {/* Direct Actions */}
+          <div className="contact-header-actions">
+            {onOpenConsultation && (
+              <button
+                type="button"
+                onClick={onOpenConsultation}
+                className="btn-primary"
+                id="cta-get-quote-btn"
+              >
+                Get a Quote <ArrowRight size={15} />
+              </button>
+            )}
+
+            <a
+              href="tel:+919989382877"
+              className="btn-secondary contact-call-btn"
+              id="cta-call-btn"
+            >
+              <Phone size={15} style={{ marginRight: 6 }} /> Call +91 99893 82877
+            </a>
+          </div>
         </div>
 
         <div className="contact-grid">
-          {/* Inquiry Form Column */}
+          {/* Inquiry Form Column with WhatsApp Submission */}
           <div className="contact-form-box reveal reveal-left delay-1">
             {isSubmitted ? (
               <div className="inquiry-success-box">
-                <CheckCircle2 size={44} color="var(--sage)" style={{ margin: '0 auto 1.25rem' }} />
-                <h3 className="inquiry-success-title">Your Inquiry is Received</h3>
+                <CheckCircle2 size={44} color="var(--accent)" style={{ margin: '0 auto 1.25rem' }} />
+                <h3 className="inquiry-success-title">Quotation Inquiry Formatted!</h3>
                 <p className="inquiry-success-text">
-                  Thank you, {formData.name}. Our principal design team will review your project parameters ({formData.spaceType} in {formData.location}) and contact you within 48 business hours to arrange an introductory consultation.
+                  Thank you, {formData.name}. Your project details have been prepared and sent via WhatsApp to our team at <strong>+91 99893 82877</strong>.
                 </p>
-                <button
-                  className="btn-light"
-                  onClick={() => {
-                    setIsSubmitted(false);
-                    setFormData({
-                      name: '',
-                      email: '',
-                      phone: '',
-                      spaceType: 'Residential Villa',
-                      scope: 'Full-Scope Interior Design',
-                      area: '3,000 – 6,000 sq. ft',
-                      location: 'Hyderabad',
-                      message: ''
-                    });
-                  }}
-                >
-                  Send Another Inquiry
-                </button>
+                <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary"
+                  >
+                    <MessageSquare size={15} style={{ marginRight: 6 }} /> Open WhatsApp Again
+                  </a>
+                  <button
+                    type="button"
+                    className="btn-secondary"
+                    onClick={() => setIsSubmitted(false)}
+                  >
+                    Edit Details
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} id="consultation-form">
                 <div className="form-group-row">
                   <div className="form-field">
-                    <label className="form-label" htmlFor="client-name">Your Full Name *</label>
+                    <label className="form-label" htmlFor="client-name">Full Name *</label>
                     <input
                       type="text"
                       id="client-name"
                       required
-                      placeholder="e.g. Anand Mahindra"
+                      placeholder="e.g. Ramesh Kumar"
                       className="form-input"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -87,129 +124,141 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialServiceOrProject 
                   </div>
 
                   <div className="form-field">
-                    <label className="form-label" htmlFor="client-email">Email Address *</label>
-                    <input
-                      type="email"
-                      id="client-email"
-                      required
-                      placeholder="e.g. anand@domain.com"
-                      className="form-input"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group-row">
-                  <div className="form-field">
-                    <label className="form-label" htmlFor="client-phone">Phone Number</label>
+                    <label className="form-label" htmlFor="client-phone">WhatsApp / Phone *</label>
                     <input
                       type="tel"
                       id="client-phone"
-                      placeholder="+91 98490 12345"
+                      required
+                      placeholder="e.g. +91 99893 82877"
                       className="form-input"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     />
                   </div>
+                </div>
+
+                <div className="form-group-row">
+                  <div className="form-field">
+                    <label className="form-label" htmlFor="client-email">Email Address</label>
+                    <input
+                      type="email"
+                      id="client-email"
+                      placeholder="e.g. ramesh@domain.com"
+                      className="form-input"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    />
+                  </div>
 
                   <div className="form-field">
-                    <label className="form-label" htmlFor="space-type">Typology</label>
+                    <label className="form-label" htmlFor="project-type">Project Type</label>
                     <select
-                      id="space-type"
+                      id="project-type"
                       className="form-select"
-                      value={formData.spaceType}
-                      onChange={(e) => setFormData({ ...formData, spaceType: e.target.value })}
+                      value={formData.projectType}
+                      onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                     >
-                      <option value="Residential Villa">Private Residential Villa</option>
-                      <option value="Holiday Residence">Tropical Holiday Residence</option>
-                      <option value="Urban Apartment">High-Rise Apartment / Penthouse</option>
-                      <option value="Heritage Restoration">Heritage Restoration & Bungalow</option>
-                      <option value="Boutique Commercial">Boutique Commercial & Gallery</option>
+                      <option value="Residential Construction">Residential Construction</option>
+                      <option value="Commercial Construction">Commercial Construction</option>
+                      <option value="Interior Design">Interior Design</option>
+                      <option value="Renovation & Remodeling">Renovation & Remodeling</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="form-group-row">
                   <div className="form-field">
-                    <label className="form-label" htmlFor="project-scope">Design Scope</label>
+                    <label className="form-label" htmlFor="project-budget">Estimated Budget</label>
                     <select
-                      id="project-scope"
+                      id="project-budget"
                       className="form-select"
-                      value={formData.scope}
-                      onChange={(e) => setFormData({ ...formData, scope: e.target.value })}
+                      value={formData.budget}
+                      onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                     >
-                      <option value="Interior Architecture & Spatial Planning">Interior Architecture & Spatial Planning</option>
-                      <option value="Full-Scope Interior Design">Full-Scope Interior Design</option>
-                      <option value="Bespoke Furniture & Lighting Curation">Bespoke Furniture & Lighting Curation</option>
-                      <option value="Heritage Renovation & Adaptive Reuse">Heritage Renovation & Adaptive Reuse</option>
-                      <option value="Turnkey Styling & Art Advisory">Turnkey Styling & Art Advisory</option>
+                      <option value="₹10 Lakhs – ₹25 Lakhs">₹10 Lakhs – ₹25 Lakhs</option>
+                      <option value="₹25 Lakhs – ₹50 Lakhs">₹25 Lakhs – ₹50 Lakhs</option>
+                      <option value="₹50 Lakhs – ₹1 Crore">₹50 Lakhs – ₹1 Crore</option>
+                      <option value="₹1 Crore – ₹2 Crores">₹1 Crore – ₹2 Crores</option>
+                      <option value="₹2 Crores – ₹3 Crores+">₹2 Crores – ₹3 Crores+</option>
                     </select>
                   </div>
 
                   <div className="form-field">
-                    <label className="form-label" htmlFor="project-location">Location</label>
-                    <select
+                    <label className="form-label" htmlFor="project-location">Location in Hyderabad</label>
+                    <input
+                      type="text"
                       id="project-location"
-                      className="form-select"
+                      placeholder="e.g. Jubilee Hills, Gachibowli, Kokapet"
+                      className="form-input"
                       value={formData.location}
                       onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                    >
-                      <option value="Hyderabad">Hyderabad</option>
-                      <option value="Mumbai">Mumbai</option>
-                      <option value="Goa">Goa</option>
-                      <option value="Bengaluru">Bengaluru</option>
-                      <option value="Delhi NCR">Delhi NCR</option>
-                      <option value="International">International / Other</option>
-                    </select>
+                    />
                   </div>
                 </div>
 
-                <div className="form-field">
-                  <label className="form-label" htmlFor="project-message">Project Vision & Details</label>
+                <div className="form-field" style={{ marginBottom: '1.75rem' }}>
+                  <label className="form-label" htmlFor="project-notes">Project Notes & Specifications</label>
                   <textarea
-                    id="project-message"
+                    id="project-notes"
+                    rows={4}
+                    placeholder="Tell us about your plot size, shuttering requirements, design preferences or estimated start date..."
                     className="form-textarea"
-                    placeholder="Tell us about the property, your timeline expectations, and how you envision living in the space..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    value={formData.notes}
+                    onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                   />
                 </div>
 
-                <button type="submit" className="form-submit-btn" id="submit-inquiry-btn">
-                  Submit Project Inquiry <ArrowRight size={15} />
+                <button
+                  type="submit"
+                  className="btn-primary"
+                  style={{ width: '100%', justifyContent: 'center' }}
+                  id="submit-inquiry-whatsapp-btn"
+                >
+                  <MessageSquare size={16} style={{ marginRight: 6 }} /> Send via WhatsApp <ArrowRight size={16} />
                 </button>
               </form>
             )}
           </div>
 
-          {/* Right Column: Studio Locations & Contact Info */}
-          <div className="studio-hubs-col reveal reveal-right delay-2">
-            <div>
-              <h3 className="studio-hubs-title">Our Practice Ateliers</h3>
-              <p style={{ color: 'var(--sand)', fontSize: '0.9rem', marginBottom: '2rem', opacity: 0.85 }}>
-                We welcome prospective clients to our material libraries by private appointment.
+          {/* Right Column: Office Location & Quick Contact */}
+          <div className="contact-info-col reveal reveal-right delay-2">
+            <div className="contact-info-card">
+              <h3 className="contact-card-title">Hyderabad Headquarters</h3>
+              <p className="contact-card-desc">
+                Visit our design center or connect directly with our engineering team for on-site feasibility audits.
               </p>
-            </div>
 
-            {studioLocations.map((hub) => (
-              <div key={hub.city} className="studio-hub-card">
-                <h4 className="hub-city-name">{hub.city} Atelier</h4>
-                <div className="hub-atelier-label">{hub.name}</div>
-                <div className="hub-address-text">
-                  <MapPin size={14} style={{ display: 'inline', marginRight: 6, verticalAlign: 'text-bottom' }} />
-                  {hub.address}, {hub.district}
+              <div className="contact-details-list">
+                <div className="contact-detail-row">
+                  <MapPin size={18} className="contact-detail-icon" />
+                  <div>
+                    <strong>Office Address:</strong>
+                    <span>Road No. 36, Jubilee Hills & Hitec City Corridor, Hyderabad, Telangana 500033</span>
+                  </div>
                 </div>
-                <div className="hub-contact-links">
-                  <a href={`tel:${hub.phone}`}>
-                    <Phone size={13} /> {hub.phone}
-                  </a>
-                  <a href={`mailto:${hub.email}`}>
-                    <Mail size={13} /> {hub.email}
-                  </a>
+
+                <div className="contact-detail-row">
+                  <Phone size={18} className="contact-detail-icon" />
+                  <div>
+                    <strong>Direct Helpline:</strong>
+                    <a href="tel:+919989382877">+91 99893 82877</a>
+                  </div>
+                </div>
+
+                <div className="contact-detail-row">
+                  <Mail size={18} className="contact-detail-icon" />
+                  <div>
+                    <strong>Official Email:</strong>
+                    <a href="mailto:contact@vrikshaconstructions.com">contact@vrikshaconstructions.com</a>
+                  </div>
                 </div>
               </div>
-            ))}
+
+              <div className="contact-hours-box">
+                <strong>Working Hours:</strong>
+                <span>Monday – Saturday: 9:00 AM – 7:00 PM IST</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

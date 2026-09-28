@@ -1,8 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowUpRight, Award, Compass, Sparkles, Feather } from 'lucide-react';
-import { StudioIntro } from '../components/StudioIntro';
-import { studioLocations } from '../data/studio';
+import { ArrowRight, ShieldCheck, HeartHandshake, Layers, Leaf } from 'lucide-react';
 import '../styles/pages.css';
 
 interface StudioPageProps {
@@ -10,187 +7,159 @@ interface StudioPageProps {
 }
 
 export const StudioPage: React.FC<StudioPageProps> = ({ onOpenConsultation }) => {
-  const teamMembers = [
+  const values = [
     {
-      name: 'Maya Lin-Sen',
-      role: 'Founder & Principal Architect',
-      credentials: 'M.Arch, AA London · Fellow of Architectural Heritage',
-      bio: 'Trained at the Architectural Association in London and apprenticed in Kyoto, Maya shapes residential sanctuaries that celebrate silence, atmospheric natural lighting, and honest material permanence.',
-      image: '/images/studio.jpg'
+      icon: ShieldCheck,
+      title: 'Quality Craftsmanship',
+      desc: 'Uncompromising engineering standards, high-tolerance shuttering formwork, and premium grade raw materials sourced exclusively from certified manufacturers.'
     },
     {
-      name: 'Vikramaditya Rao',
-      role: 'Partner & Director of Interior Architecture',
-      credentials: 'B.Arch CEPT · Master of Craft & Joinery',
-      bio: 'Specializing in tectonic joinery, raw limestones, and tactile millwork, Vikramaditya oversees detailing across our private residential commissions in Mumbai, Hyderabad, and Goa.',
-      image: '/images/willow.jpg'
+      icon: HeartHandshake,
+      title: 'Client-Centric Approach',
+      desc: 'Clear communication, transparent milestone budgeting, and dedicated supervision ensuring your vision and lifestyle remain at the heart of every decision.'
     },
     {
-      name: 'Elena Rostova',
-      role: 'Director of Materiality & Curation',
-      credentials: 'MA Material Ecology, Basel',
-      bio: 'Elena curates our library of rare mineral plasters, reclaimed architectural timbers, unlacquered bronzes, and handcrafted textiles directly with multi-generational European and Indian craft guilds.',
-      image: '/images/material-travertine.jpg'
-    }
-  ];
-
-  const distinctions = [
-    {
-      icon: Award,
-      title: 'Architectural Digest Top 50',
-      year: '2024 · 2025',
-      desc: 'Named among the most influential architectural & interior design studios in South Asia.'
+      icon: Layers,
+      title: 'End-to-End Solutions',
+      desc: 'One accountable team from initial soil feasibility, architectural drawings, and civil shuttering to custom millwork, lighting automation, and final handover.'
     },
     {
-      icon: Compass,
-      title: 'Wallpaper* Design Award',
-      year: '2024 Finalist',
-      desc: 'Recognized for Quiet Luxury & Environmental Craftsmanship in Residential Architecture.'
-    },
-    {
-      icon: Sparkles,
-      title: 'Dezeen Awards Shortlist',
-      year: '2023 · Assagao Residence',
-      desc: 'Celebrated for innovative use of vernacular laterite and natural thermal microclimates.'
-    },
-    {
-      icon: Feather,
-      title: 'Elle Décor Atelier Honors',
-      year: '2023',
-      desc: 'Best Bespoke Furniture & Architectural Joinery Collection for Private Commissions.'
+      icon: Leaf,
+      title: 'Sustainable Construction Commitment',
+      desc: 'Climate-responsive orientation, passive daylighting, reusable shuttering systems, and rainwater harvesting that enhance long-term building performance.'
     }
   ];
 
   return (
-    <div className="studio-page-container">
-      {/* Editorial Page Header */}
-      <section className="page-header">
+    <div className="subpage studio-page-wrapper">
+      {/* 1. Large Architectural Hero */}
+      <section className="page-hero-section">
         <div className="container">
-          <div className="page-header-content">
-            <nav className="page-breadcrumb" aria-label="Breadcrumb">
-              <Link to="/">Home</Link>
-              <span className="page-breadcrumb-sep">/</span>
-              <span>The Studio</span>
-            </nav>
-            <h1 className="page-header-title">The Architecture of Solitude & Light</h1>
-            <p className="page-header-lead">
-              Founded on the belief that spaces shape the soul. We practice quiet architecture,
-              where light, raw minerals, and proportion cultivate a sanctuary from the relentless pace of modern life.
+          <div className="page-hero-content reveal reveal-up">
+            <span className="section-tag">ABOUT VRIKSHA CONSTRUCTIONS</span>
+            <h1 className="page-hero-title">
+              Crafting Enduring Spaces with Purpose & Precision
+            </h1>
+            <p className="page-hero-lead">
+              “At Vriksha, we create spaces that inspire, with a perfect balance of aesthetics, functionality and long-lasting quality. From homes to offices, we bring your vision to life with thoughtful design and expert execution.”
             </p>
           </div>
         </div>
       </section>
 
-      {/* Main Studio Introduction Component */}
-      <StudioIntro />
-
-      {/* Architectural Leadership Section */}
-      <section className="studio-team-section">
+      {/* 2. Vriksha Story & Stats */}
+      <section className="section-padding" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="container">
-          <div className="section-header-block">
-            <span className="section-tag">Leadership</span>
-            <h2 className="section-title">The Minds Behind the Space</h2>
-            <p className="section-lead">
-              An interdisciplinary collective of architects, interior architects, master millworkers, and material researchers united by a devotion to quiet luxury.
-            </p>
-          </div>
+          <div className="two-column-narrative">
+            <div className="narrative-left reveal reveal-left">
+              <span className="section-tag">OUR JOURNEY</span>
+              <h2 className="section-title">The Vriksha Story</h2>
+              <p className="narrative-paragraph">
+                Founded in Hyderabad, Vriksha Constructions & Interior Designers was established on a single powerful conviction: that modern construction should never force a compromise between aesthetic elegance, engineering durability, and environmental responsibility.
+              </p>
+              <p className="narrative-paragraph">
+                Over the past half-decade, our practice has grown into a multidisciplinary construction and design house serving homeowners, visionary entrepreneurs, and commercial leaders across Telangana. Whether engineering cantilevered hillside villas or corporate headquarters, we eliminate the friction between designers, structural engineers, and contractors by bringing everyone together under one accountable roof.
+              </p>
 
-          <div className="studio-team-grid">
-            {teamMembers.map((member) => (
-              <div key={member.name} className="team-member-card">
-                <div className="team-member-photo-frame">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="team-member-photo"
-                    loading="lazy"
-                  />
+              {/* Statistics */}
+              <div className="studio-page-stats-grid">
+                <div className="studio-stat-box">
+                  <div className="stat-value">50+</div>
+                  <div className="stat-label">Projects Completed</div>
                 </div>
-                <h3 className="team-member-name">{member.name}</h3>
-                <span className="team-member-role">{member.role}</span>
-                <p className="team-member-bio">{member.bio}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Studio Ateliers Across India */}
-      <section className="studio-spaces-section">
-        <div className="container">
-          <div className="section-header-block">
-            <span className="section-tag">Sanctuaries</span>
-            <h2 className="section-title">Our Physical Ateliers</h2>
-            <p className="section-lead">
-              Three contemplative design sanctuaries where clients meet with architects and interact with raw stones, full-scale timber mockups, and natural textiles.
-            </p>
-          </div>
-
-          <div className="studio-spaces-grid">
-            {studioLocations.map((loc) => (
-              <div key={loc.city} className="space-card">
-                <div className="space-image-frame">
-                  <img
-                    src={
-                      loc.city === 'Hyderabad'
-                        ? '/images/studio.jpg'
-                        : loc.city === 'Mumbai'
-                        ? '/images/stone-sage.jpg'
-                        : '/images/casa-terra.jpg'
-                    }
-                    alt={`${loc.city} Atelier`}
-                    className="space-image"
-                    loading="lazy"
-                  />
+                <div className="studio-stat-box">
+                  <div className="stat-value">100+</div>
+                  <div className="stat-label">Happy Clients</div>
                 </div>
-                <div className="space-info">
-                  <h3 className="space-city">{loc.city}</h3>
-                  <span className="space-tag">{loc.name}</span>
-                  <p className="space-desc">{loc.address}, {loc.district}</p>
+                <div className="studio-stat-box">
+                  <div className="stat-value">5+</div>
+                  <div className="stat-label">Years of Experience</div>
                 </div>
               </div>
-            ))}
+            </div>
+
+            <div className="narrative-right reveal reveal-right delay-1">
+              <div className="narrative-image-frame">
+                <img
+                  src="/images/about_architecture_studio.jpg"
+                  alt="Vriksha Architecture and Construction Studio in Hyderabad"
+                  className="narrative-img"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Distinctions & Awards */}
+      {/* 3. Mission & Vision */}
       <section className="section-padding" style={{ backgroundColor: 'var(--ivory)' }}>
         <div className="container">
-          <div className="section-header-block" style={{ marginBottom: '3.5rem' }}>
-            <span className="section-tag">Recognition</span>
-            <h2 className="section-title">Awards & Critical Accolades</h2>
-          </div>
+          <div className="mission-vision-grid">
+            <div className="mission-card reveal reveal-up">
+              <span className="mission-tag">OUR MISSION</span>
+              <h3 className="mission-title">To build with integrity, innovation, and lasting beauty.</h3>
+              <p className="mission-desc">
+                We strive to elevate living standards across Hyderabad through durable construction techniques, high-efficiency shuttering systems, and bespoke interior craftsmanship that enrich human lives while respecting natural resources.
+              </p>
+            </div>
 
-          <div className="philosophy-pillars-grid">
-            {distinctions.map((d) => (
-              <div key={d.title} className="pillar-card">
-                <d.icon size={26} color="var(--sage)" style={{ marginBottom: '1.25rem' }} />
-                <span className="pillar-number">{d.year}</span>
-                <h3 className="pillar-title" style={{ fontSize: '1.35rem' }}>{d.title}</h3>
-                <p className="pillar-desc">{d.desc}</p>
-              </div>
-            ))}
+            <div className="mission-card reveal reveal-up delay-1">
+              <span className="mission-tag">OUR VISION</span>
+              <h3 className="mission-title">The premier turnkey construction partner in Telangana.</h3>
+              <p className="mission-desc">
+                To be celebrated as the benchmark for accountable, sustainable construction and thoughtful interior design—delivering enduring structures that inspire pride for generations to come.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Bottom CTA Banner */}
-      <section className="page-cta-banner">
+      {/* 4. Core Values */}
+      <section className="section-padding" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="container">
-          <div className="page-cta-inner">
-            <span className="page-cta-tag">Engage With Verdé & Form</span>
-            <h2 className="page-cta-heading">Commission a Private Sanctuary</h2>
-            <p className="page-cta-desc">
-              We take on a strictly limited roster of 6 to 8 residential commissions each year to ensure uncompromising artisanal devotion.
+          <div className="section-header-center reveal reveal-up">
+            <span className="section-tag">GUIDING PRINCIPLES</span>
+            <h2 className="section-title">The Values That Shape Every Build</h2>
+          </div>
+
+          <div className="values-grid">
+            {values.map((v, idx) => {
+              const IconComp = v.icon;
+              return (
+                <div key={v.title} className={`value-card reveal reveal-up delay-${idx + 1}`}>
+                  <div className="value-icon-box">
+                    <IconComp size={22} />
+                  </div>
+                  <h3 className="value-title">{v.title}</h3>
+                  <p className="value-desc">{v.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Final Quote CTA */}
+      <section className="section-padding final-page-cta">
+        <div className="container text-center">
+          <div className="reveal reveal-up" style={{ maxWidth: 750, margin: '0 auto' }}>
+            <h2 className="section-title" style={{ color: '#FFFFFF' }}>
+              Have a space in mind? Let’s build it well.
+            </h2>
+            <p style={{ color: '#DCE4E9', fontSize: '1.05rem', margin: '1rem 0 2rem', lineHeight: 1.6 }}>
+              Connect directly with our Hyderabad directors to review site drawings, explore shuttering solutions, or schedule a consultation.
             </p>
-            <div className="page-cta-buttons">
-              <button onClick={onOpenConsultation} className="btn-light">
-                Request Studio Consultation <ArrowUpRight size={16} />
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <button
+                type="button"
+                onClick={onOpenConsultation}
+                className="btn-primary"
+              >
+                Get a Quote <ArrowRight size={15} />
               </button>
-              <Link to="/projects" className="btn-secondary" style={{ borderColor: 'var(--ivory)', color: 'var(--ivory)' }}>
-                Explore Selected Works
-              </Link>
+              <a href="tel:+919989382877" className="btn-secondary">
+                Call +91 99893 82877
+              </a>
             </div>
           </div>
         </div>

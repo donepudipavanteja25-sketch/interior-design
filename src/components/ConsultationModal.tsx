@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle2, ArrowRight } from 'lucide-react';
+import { X, CheckCircle2, ArrowRight, MessageSquare, Phone } from 'lucide-react';
 import '../styles/modal.css';
 import '../styles/contact.css';
 
@@ -16,24 +16,23 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 }) => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phone: '',
-    spaceType: 'Residential Villa',
-    scope: presetScopeOrProject || 'Full-Scope Interior Design',
+    email: '',
+    projectType: presetScopeOrProject || 'Residential Construction',
+    budgetLakhs: 50, // Slider from 10 to 300 (₹10 Lakhs to ₹3 Crores+)
     location: 'Hyderabad',
-    timeline: 'Immediate (Next 1–3 Months)',
     notes: ''
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [whatsappUrl, setWhatsappUrl] = useState('');
 
-  const [prevPreset, setPrevPreset] = useState(presetScopeOrProject);
-  if (presetScopeOrProject !== prevPreset) {
-    setPrevPreset(presetScopeOrProject);
+  // Sync preset if passed
+  useEffect(() => {
     if (presetScopeOrProject) {
-      setFormData((prev) => ({ ...prev, scope: presetScopeOrProject }));
+      setFormData((prev) => ({ ...prev, projectType: presetScopeOrProject }));
     }
-  }
+  }, [presetScopeOrProject]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -51,9 +50,31 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
   if (!isOpen) return null;
 
+  const formatBudgetText = (lakhs: number) => {
+    if (lakhs >= 300) return '₹3 Crores+';
+    if (lakhs >= 100) return `₹${(lakhs / 100).toFixed(1)} Crores`;
+    return `₹${lakhs} Lakhs`;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email) return;
+    if (!formData.name || !formData.phone) return;
+
+    const formattedBudget = formatBudgetText(formData.budgetLakhs);
+    const message =
+      `*New Project Quotation Request - Vriksha Constructions*\n\n` +
+      `*Client Name:* ${formData.name}\n` +
+      `*WhatsApp / Phone:* ${formData.phone}\n` +
+      `*Email:* ${formData.email || 'Not provided'}\n` +
+      `*Project Type:* ${formData.projectType}\n` +
+      `*Estimated Budget:* ${formattedBudget}\n` +
+      `*Project Location:* ${formData.location || 'Hyderabad'}\n` +
+      `*Project Notes:* ${formData.notes || 'None'}\n\n` +
+      `_Submitted via Vriksha Constructions Website Quotation Modal_`;
+
+    const url = `https://wa.me/919989382877?text=${encodeURIComponent(message)}`;
+    setWhatsappUrl(url);
+    window.open(url, '_blank');
     setIsSubmitted(true);
   };
 
@@ -63,144 +84,288 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
       onClick={onClose}
       role="dialog"
       aria-modal="true"
-      aria-labelledby="consultation-modal-title"
+      aria-labelledby="quotation-modal-title"
     >
       <div
         className="modal-container"
-        style={{ maxWidth: 740, backgroundColor: 'var(--charcoal)', color: 'var(--ivory)' }}
+        style={{
+          maxWidth: 720,
+          backgroundColor: '#FFFFFF',
+          color: 'var(--earth)',
+          borderRadius: '6px',
+          boxShadow: '0 25px 60px rgba(6, 63, 87, 0.35)'
+        }}
         onClick={(e) => e.stopPropagation()}
       >
         <button
+          type="button"
           className="modal-close-trigger"
           onClick={onClose}
-          aria-label="Close consultation modal"
-          style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', color: 'var(--ivory)' }}
+          aria-label="Close quotation modal"
+          style={{
+            backgroundColor: 'var(--ivory)',
+            color: 'var(--charcoal)',
+            border: '1px solid var(--border-light)'
+          }}
         >
           <X size={20} />
         </button>
 
         <div style={{ padding: 'clamp(2rem, 5vw, 3.5rem)' }}>
-          <span className="section-tag" style={{ color: 'var(--sand)' }}>PRIVATE CONSULTATION</span>
-          <h2 id="consultation-modal-title" style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: 'var(--ivory)', marginBottom: '0.75rem' }}>
-            Commence Your Project Journey
+          <span className="section-tag">PROJECT QUOTATION</span>
+          <h2
+            id="quotation-modal-title"
+            style={{
+              fontFamily: 'var(--font-sans)',
+              fontSize: 'clamp(1.8rem, 3vw, 2.4rem)',
+              fontWeight: 800,
+              color: 'var(--charcoal)',
+              marginBottom: '0.5rem',
+              letterSpacing: '-0.02em'
+            }}
+          >
+            Get an Accurate Project Estimate
           </h2>
-          <p style={{ color: 'var(--sand)', fontSize: '0.9rem', marginBottom: '2rem', opacity: 0.85 }}>
-            Share your project parameters with Verdé & Form. We will connect directly with you to schedule a confidential design audit.
+          <p
+            style={{
+              color: 'var(--earth-light)',
+              fontSize: '0.95rem',
+              marginBottom: '2rem',
+              lineHeight: 1.6
+            }}
+          >
+            Share your requirements and we will connect via WhatsApp with budget guidance, structural formwork feasibility, and architectural recommendations.
           </p>
 
           {isSubmitted ? (
-            <div className="inquiry-success-box" style={{ background: 'rgba(255, 255, 255, 0.05)' }}>
-              <CheckCircle2 size={44} color="var(--sage)" style={{ margin: '0 auto 1.25rem' }} />
-              <h3 className="inquiry-success-title">Thank You, {formData.name}</h3>
-              <p className="inquiry-success-text">
-                Your consultation request has been submitted to our Studio Director. We will review your vision for {formData.spaceType} ({formData.scope}) and contact you within 48 hours.
-              </p>
-              <button
-                className="btn-light"
-                onClick={() => {
-                  setIsSubmitted(false);
-                  onClose();
+            <div
+              className="inquiry-success-box"
+              style={{
+                background: 'var(--ivory)',
+                border: '1px solid var(--border-light)',
+                borderRadius: '4px',
+                padding: '2.5rem 2rem',
+                textAlign: 'center'
+              }}
+            >
+              <CheckCircle2
+                size={48}
+                color="var(--accent)"
+                style={{ margin: '0 auto 1.25rem' }}
+              />
+              <h3
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '1.45rem',
+                  fontWeight: 700,
+                  color: 'var(--charcoal)',
+                  marginBottom: '0.75rem'
                 }}
               >
-                Close Window
-              </button>
+                Quotation Ready on WhatsApp
+              </h3>
+              <p
+                style={{
+                  color: 'var(--earth-light)',
+                  fontSize: '0.95rem',
+                  lineHeight: 1.6,
+                  maxWidth: 500,
+                  margin: '0 auto 2rem'
+                }}
+              >
+                Thank you, <strong>{formData.name}</strong>. Your project parameters for{' '}
+                <strong>{formData.projectType}</strong> have been formatted for our engineering team at{' '}
+                <strong>+91 99893 82877</strong>.
+              </p>
+
+              <div
+                style={{
+                  display: 'flex',
+                  gap: '1rem',
+                  justifyContent: 'center',
+                  flexWrap: 'wrap'
+                }}
+              >
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+                >
+                  <MessageSquare size={16} /> Open WhatsApp Again
+                </a>
+                <button
+                  type="button"
+                  className="btn-secondary"
+                  onClick={onClose}
+                >
+                  Close Window
+                </button>
+              </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id="modal-quotation-form">
               <div className="form-group-row">
                 <div className="form-field">
-                  <label className="form-label">Full Name *</label>
+                  <label className="form-label" htmlFor="modal-name">
+                    Full Name *
+                  </label>
                   <input
                     type="text"
+                    id="modal-name"
                     required
-                    placeholder="e.g. Priya Reddy"
+                    placeholder="e.g. Ramesh Kumar"
                     className="form-input"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   />
                 </div>
-                <div className="form-field">
-                  <label className="form-label">Email Address *</label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="e.g. priya@domain.com"
-                    className="form-input"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  />
-                </div>
-              </div>
 
-              <div className="form-group-row">
                 <div className="form-field">
-                  <label className="form-label">Phone Number</label>
+                  <label className="form-label" htmlFor="modal-phone">
+                    WhatsApp / Phone Number *
+                  </label>
                   <input
                     type="tel"
-                    placeholder="+91 98490 12345"
+                    id="modal-phone"
+                    required
+                    placeholder="e.g. +91 99893 82877"
                     className="form-input"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   />
                 </div>
-                <div className="form-field">
-                  <label className="form-label">Location</label>
-                  <select
-                    className="form-select"
-                    value={formData.location}
-                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                  >
-                    <option value="Hyderabad">Hyderabad</option>
-                    <option value="Mumbai">Mumbai</option>
-                    <option value="Goa">Goa</option>
-                    <option value="Bengaluru">Bengaluru</option>
-                    <option value="Other">Other Region / International</option>
-                  </select>
-                </div>
               </div>
 
               <div className="form-group-row">
                 <div className="form-field">
-                  <label className="form-label">Typology</label>
-                  <select
-                    className="form-select"
-                    value={formData.spaceType}
-                    onChange={(e) => setFormData({ ...formData, spaceType: e.target.value })}
-                  >
-                    <option value="Residential Villa">Private Residential Villa</option>
-                    <option value="Holiday Residence">Tropical Holiday Residence</option>
-                    <option value="Urban Apartment">Penthouse / Urban Apartment</option>
-                    <option value="Heritage Restoration">Heritage Restoration</option>
-                    <option value="Boutique Commercial">Boutique Commercial</option>
-                  </select>
+                  <label className="form-label" htmlFor="modal-email">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="modal-email"
+                    placeholder="e.g. ramesh@domain.com"
+                    className="form-input"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  />
                 </div>
+
                 <div className="form-field">
-                  <label className="form-label">Target Timeline</label>
+                  <label className="form-label" htmlFor="modal-project-type">
+                    Project Type
+                  </label>
                   <select
+                    id="modal-project-type"
                     className="form-select"
-                    value={formData.timeline}
-                    onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
+                    value={formData.projectType}
+                    onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                   >
-                    <option value="Immediate (Next 1–3 Months)">Immediate (Next 1–3 Months)</option>
-                    <option value="3–6 Months">3–6 Months</option>
-                    <option value="Planning Phase (6+ Months)">Planning Phase (6+ Months)</option>
+                    <option value="Residential Construction">Residential Construction</option>
+                    <option value="Commercial Construction">Commercial Construction</option>
+                    <option value="Interior Design">Interior Design</option>
+                    <option value="Renovation & Remodeling">Renovation & Remodeling</option>
                   </select>
                 </div>
               </div>
 
+              {/* Budget Slider: ₹10 Lakhs to ₹3 Crores+ */}
+              <div className="form-field" style={{ marginBottom: '1.5rem' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'baseline',
+                    marginBottom: '0.65rem'
+                  }}
+                >
+                  <label className="form-label" htmlFor="modal-budget" style={{ margin: 0 }}>
+                    Estimated Budget Range
+                  </label>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-sans)',
+                      fontWeight: 700,
+                      color: 'var(--brand-blue)',
+                      fontSize: '1rem'
+                    }}
+                  >
+                    {formatBudgetText(formData.budgetLakhs)}
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  id="modal-budget"
+                  min={10}
+                  max={300}
+                  step={5}
+                  value={formData.budgetLakhs}
+                  onChange={(e) =>
+                    setFormData({ ...formData, budgetLakhs: Number(e.target.value) })
+                  }
+                  style={{
+                    width: '100%',
+                    accentColor: 'var(--accent)',
+                    cursor: 'pointer'
+                  }}
+                />
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    fontSize: '0.75rem',
+                    color: 'var(--earth-light)',
+                    marginTop: '0.35rem'
+                  }}
+                >
+                  <span>₹10 Lakhs</span>
+                  <span>₹1 Crore</span>
+                  <span>₹2 Crores</span>
+                  <span>₹3 Crores+</span>
+                </div>
+              </div>
+
               <div className="form-field">
-                <label className="form-label">Project Vision & Space Parameters</label>
+                <label className="form-label" htmlFor="modal-location">
+                  Project Location & Notes
+                </label>
                 <textarea
+                  id="modal-location"
+                  rows={3}
+                  placeholder="Location in Hyderabad (e.g. Jubilee Hills, Kokapet), approximate area in sq.ft, or specific shuttering/interior requirements..."
                   className="form-textarea"
-                  placeholder="Describe your architectural aspirations, preferred natural materials, or specific spaces..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                 />
               </div>
 
-              <button type="submit" className="form-submit-btn">
-                Send Consultation Request <ArrowRight size={15} />
-              </button>
+              <div style={{ marginTop: '1.75rem' }}>
+                <button
+                  type="submit"
+                  className="btn-primary"
+                  style={{ width: '100%', justifyContent: 'center' }}
+                  id="modal-submit-whatsapp-btn"
+                >
+                  <MessageSquare size={16} style={{ marginRight: 6 }} /> Get Quote via WhatsApp <ArrowRight size={16} />
+                </button>
+              </div>
+
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  fontSize: '0.8rem',
+                  color: 'var(--earth-light)',
+                  marginTop: '1rem'
+                }}
+              >
+                <Phone size={13} style={{ color: 'var(--accent)' }} />
+                <span>Or call directly: <a href="tel:+919989382877" style={{ color: 'var(--brand-blue)', fontWeight: 600 }}>+91 99893 82877</a></span>
+              </div>
             </form>
           )}
         </div>

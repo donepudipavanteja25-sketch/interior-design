@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowUpRight, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { ArrowUpRight, ArrowRight, MapPin, Maximize2, Calendar } from 'lucide-react';
 import { projectsData, type Project } from '../data/projects';
 import { ProjectModal } from '../components/ProjectModal';
 import '../styles/projects.css';
@@ -15,141 +15,122 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({
   onStartProjectWithRef,
   onOpenConsultation
 }) => {
+  const { id } = useParams<{ id?: string }>();
   const [activeFilter, setActiveFilter] = useState<string>('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const categories = ['All', 'Residential', 'Holiday Residence', 'Apartment'];
+  useEffect(() => {
+    if (id) {
+      const found = projectsData.find((p) => p.id === id);
+      if (found) {
+        setSelectedProject(found);
+      }
+    }
+  }, [id]);
+
+  const categories = ['All', 'Residential', 'Commercial', 'Interior Design'];
 
   const filteredProjects =
     activeFilter === 'All'
       ? projectsData
       : projectsData.filter((p) => p.category === activeFilter);
 
-  const handleOpenProject = (project: Project) => {
-    setSelectedProject(project);
-  };
-
-  const handleCloseProject = () => {
-    setSelectedProject(null);
-  };
-
   return (
-    <div className="projects-page-container">
-      {/* Page Header */}
-      <section className="page-header">
+    <div className="subpage projects-page-wrapper">
+      {/* Hero */}
+      <section className="page-hero-section">
         <div className="container">
-          <div className="page-header-content">
-            <nav className="page-breadcrumb" aria-label="Breadcrumb">
-              <Link to="/">Home</Link>
-              <span className="page-breadcrumb-sep">/</span>
-              <span>Selected Works</span>
-            </nav>
-            <h1 className="page-header-title">Spaces Designed to Evolve With Time</h1>
-            <p className="page-header-lead">
-              Every commission is an exploration of topography, sunlight, and raw mineral permanence.
-              Explore our architectural archives across India.
+          <div className="page-hero-content reveal reveal-up">
+            <span className="section-tag">PROJECT PORTFOLIO</span>
+            <h1 className="page-hero-title">Built with Care. Designed to Last.</h1>
+            <p className="page-hero-lead">
+              Discover our architectural villas, corporate headquarters, and bespoke interior sanctuaries engineered across Hyderabad and Telangana.
             </p>
           </div>
         </div>
       </section>
 
       {/* Projects Gallery Section */}
-      <section className="projects-section section-padding">
+      <section className="section-padding" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="container">
-          {/* Header & Filter Tabs */}
-          <div className="projects-header-wrapper">
-            <div className="projects-intro-left">
-              <span className="section-tag">Portfolio</span>
-              <h2 className="section-title">Architectural Archives</h2>
-            </div>
-
-            {/* Category Filter Tabs */}
-            <div className="projects-filter-bar" role="tablist" aria-label="Project Categories">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  role="tab"
-                  aria-selected={activeFilter === cat}
-                  onClick={() => setActiveFilter(cat)}
-                  className={`filter-btn ${activeFilter === cat ? 'active' : ''}`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
+          {/* Filter Bar */}
+          <div
+            className="projects-filter-bar reveal reveal-up"
+            role="tablist"
+            aria-label="Filter projects by category"
+            style={{ marginBottom: '3rem', justifyContent: 'center' }}
+          >
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                role="tab"
+                aria-selected={activeFilter === cat}
+                className={`filter-btn ${activeFilter === cat ? 'active' : ''}`}
+                onClick={() => setActiveFilter(cat)}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
 
-          {/* Even, Pristine Architectural Grid */}
+          {/* Projects Grid */}
           <div className="projects-editorial-grid">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, idx) => (
               <article
                 key={project.id}
-                className="project-card"
-                onClick={() => handleOpenProject(project)}
+                className={`project-card reveal reveal-up delay-${(idx % 3) + 1}`}
+                onClick={() => setSelectedProject(project)}
+                role="button"
                 tabIndex={0}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    handleOpenProject(project);
+                    setSelectedProject(project);
                   }
                 }}
                 aria-label={`View details for ${project.title}`}
               >
                 <div className="project-image-box">
+                  <span className="project-category-badge">{project.category}</span>
                   <img
                     src={project.image}
-                    alt={project.title}
+                    alt={`${project.title} - ${project.location}`}
                     className="project-img"
                     loading="lazy"
                   />
-                  <div className="project-number-badge">{project.number}</div>
                   <div className="project-hover-pill">
-                    <span>Explore Case Study</span>
-                    <ArrowUpRight size={14} />
+                    View Project <ArrowUpRight size={13} />
                   </div>
                 </div>
 
                 <div className="project-meta-box">
                   <div className="project-header-row">
                     <h3 className="project-title">{project.title}</h3>
-                    <span className="project-location">{project.location}</span>
+                    <div className="project-arrow-circle" aria-hidden="true">
+                      <ArrowUpRight size={14} />
+                    </div>
                   </div>
-                  <p className="project-subtitle">{project.subtitle}</p>
-                  <div className="project-tag-row">
-                    <span>{project.category}</span>
-                    <span className="project-tag-bullet"></span>
-                    <span>{project.area}</span>
-                    <span className="project-tag-bullet"></span>
-                    <span>Completed {project.year}</span>
+
+                  <p style={{ fontSize: '0.88rem', color: 'var(--earth-light)', lineHeight: 1.5, margin: '0.5rem 0 1rem' }}>
+                    {project.subtitle}
+                  </p>
+
+                  <div className="project-details-row">
+                    <span className="project-detail-item">
+                      <MapPin size={13} className="project-icon" /> {project.location}
+                    </span>
+                    <span className="project-tag-bullet">•</span>
+                    <span className="project-detail-item">
+                      <Maximize2 size={13} className="project-icon" /> {project.area}
+                    </span>
+                    <span className="project-tag-bullet">•</span>
+                    <span className="project-detail-item">
+                      <Calendar size={13} className="project-icon" /> {project.year}
+                    </span>
                   </div>
                 </div>
               </article>
             ))}
-          </div>
-
-          {/* Architectural Metrics Bar */}
-          <div
-            className="studio-metrics-row"
-            style={{
-              marginTop: '5rem',
-              backgroundColor: 'var(--ivory)',
-              padding: 'clamp(2rem, 4vw, 3rem)',
-              borderRadius: '2px',
-              border: '1px solid var(--border-light)'
-            }}
-          >
-            <div className="metric-col">
-              <div className="metric-number">148k+</div>
-              <div className="metric-label">Square Feet Curated</div>
-            </div>
-            <div className="metric-col">
-              <div className="metric-number">100%</div>
-              <div className="metric-label">Natural Materials</div>
-            </div>
-            <div className="metric-col">
-              <div className="metric-number">48</div>
-              <div className="metric-label">Completed Sanctuaries</div>
-            </div>
           </div>
         </div>
       </section>
@@ -157,29 +138,34 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({
       {/* Case Study Modal */}
       <ProjectModal
         project={selectedProject}
-        onClose={handleCloseProject}
+        onClose={() => setSelectedProject(null)}
         onStartProjectWithRef={(title: string) => {
-          handleCloseProject();
+          setSelectedProject(null);
           onStartProjectWithRef(title);
         }}
       />
 
-      {/* Bottom CTA Banner */}
-      <section className="page-cta-banner">
-        <div className="container">
-          <div className="page-cta-inner">
-            <span className="page-cta-tag">Begin Your Journey</span>
-            <h2 className="page-cta-heading">Ready to Shape Your Residence?</h2>
-            <p className="page-cta-desc">
-              Whether you are planning a new architectural build, an urban penthouse renovation, or a bespoke holiday retreat, our partners are ready to listen.
+      {/* Final Quote CTA */}
+      <section className="section-padding final-page-cta">
+        <div className="container text-center">
+          <div className="reveal reveal-up" style={{ maxWidth: 720, margin: '0 auto' }}>
+            <h2 className="section-title" style={{ color: '#FFFFFF' }}>
+              Have a plot or property in mind?
+            </h2>
+            <p style={{ color: '#DCE4E9', fontSize: '1.05rem', margin: '1rem 0 2rem' }}>
+              Connect with our principal architects and engineering directors to bring your project into focus.
             </p>
-            <div className="page-cta-buttons">
-              <button onClick={onOpenConsultation} className="btn-light">
-                Start a Project Consultation <ArrowRight size={16} />
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <button
+                type="button"
+                onClick={onOpenConsultation}
+                className="btn-primary"
+              >
+                Get a Quote <ArrowRight size={15} />
               </button>
-              <Link to="/process" className="btn-secondary" style={{ borderColor: 'var(--ivory)', color: 'var(--ivory)' }}>
-                View Our 4-Phase Methodology
-              </Link>
+              <a href="tel:+919989382877" className="btn-secondary">
+                Call +91 99893 82877
+              </a>
             </div>
           </div>
         </div>

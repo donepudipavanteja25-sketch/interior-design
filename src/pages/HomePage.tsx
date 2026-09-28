@@ -1,14 +1,13 @@
 import React from 'react';
 import { Hero } from '../components/Hero';
-import { PartnerRibbon } from '../components/PartnerRibbon';
 import { PillarsShowcase } from '../components/PillarsShowcase';
-import { Projects } from '../components/Projects';
 import { StudioIntro } from '../components/StudioIntro';
-import { Philosophy } from '../components/Philosophy';
+import { ConstructionSystems } from '../components/ConstructionSystems';
+import { PartnerRibbon } from '../components/PartnerRibbon';
+import { GreenConstruction } from '../components/GreenConstruction';
+import { Projects } from '../components/Projects';
 import { Services } from '../components/Services';
-import { VisualBreak } from '../components/VisualBreak';
 import { Process } from '../components/Process';
-import { Journal } from '../components/Journal';
 import { Testimonial } from '../components/Testimonial';
 import { ContactCTA } from '../components/ContactCTA';
 
@@ -25,41 +24,38 @@ export const HomePage: React.FC<HomePageProps> = ({
 }) => {
   return (
     <>
-      {/* Cinematic Hero */}
+      {/* 1. Large Photographic Hero Section with 3 Rotating Slides */}
       <Hero onOpenConsultation={() => onOpenConsultation()} />
 
-      {/* Brand & Client Partner Ribbon */}
-      <PartnerRibbon />
-
-      {/* 3-Pillar Architectural Disciplines Showcase */}
+      {/* 2. Three Feature Cards Directly Below Hero with Shared Button to /construction-solutions */}
       <PillarsShowcase onSelectServiceForInquiry={onSelectServiceForInquiry} />
 
-      {/* Selected Work / Featured Projects */}
-      <Projects onStartProjectWithRef={onStartProjectWithRef} />
-
-      {/* About the Studio & Experience Stats */}
+      {/* 3. About Vriksha with 50+ Projects, 100+ Clients, 5+ Years, and Blue Info Block */}
       <StudioIntro />
 
-      {/* Design Philosophy & Tactile Materials */}
-      <Philosophy />
+      {/* 4. Construction Systems Summary: MS Box, PVC, and Mivan Comparison */}
+      <ConstructionSystems />
 
-      {/* Architectural & Interior Disciplines */}
+      {/* 5. Brand Partner Carousel in the Middle of the Page with Real Brand Logos */}
+      <PartnerRibbon />
+
+      {/* 6. Green Construction Section: Dark Blue 2-Column with 4 Practices & Orange Block */}
+      <GreenConstruction />
+
+      {/* 7. Featured Projects: Modern Villa, Corporate Office, Luxury Apartment */}
+      <Projects onStartProjectWithRef={onStartProjectWithRef} />
+
+      {/* 8. Services: Complete Solutions Under One Roof (Residential, Commercial, Interior, Renovation) */}
       <Services onSelectServiceForInquiry={onSelectServiceForInquiry} />
 
-      {/* Full-width Atmosphere Break */}
-      <VisualBreak />
-
-      {/* 4-Phase Architectural Methodology */}
+      {/* 9. Process: 4 Steps (Consultation, Design & Plan, Build & Execute, Handover) */}
       <Process />
 
-      {/* Design Journal & Essays */}
-      <Journal />
-
-      {/* Client Praise & Critical Acclaim */}
+      {/* 10. Testimonial: Full-width Blue Hero Quote + Client Reviews */}
       <Testimonial />
 
-      {/* Project Inquiry & Studio Locations */}
-      <ContactCTA />
+      {/* 11. Final CTA: "Have a space in mind? Let's build it well." + Get a Quote & Call +91 99893 82877 */}
+      <ContactCTA onOpenConsultation={() => onOpenConsultation()} />
     </>
   );
 };

@@ -1,30 +1,37 @@
-:root {
-  /* Nexora Architectural Slate & Vibrant Orange Palette (Default) */
-  --accent: #F26522;
-  --accent-hover: #D9480F;
-  --accent-light: #FF8542;
-  --accent-subtle: #FFF4ED;
-  --accent-glow: 0 4px 20px rgba(242, 101, 34, 0.3);
+:root,
+[data-theme="vriksha-sea-blue"] {
+  /* Vriksha Official Brand Palette: Sea Blue & Vibrant Orange */
+  --accent: #E55A22;
+  --accent-hover: #D04812;
+  --accent-light: #FF7B47;
+  --accent-subtle: #FFF2EB;
+  --accent-glow: 0 4px 20px rgba(229, 90, 34, 0.3);
+
+  /* Primary Blue Brand Tokens */
+  --brand-blue: #075F82;
+  --brand-sea-blue: #006994;
+  --brand-dark-blue: #063F57;
+  --brand-hover-blue: #064F6C;
 
   /* Surfaces & Canvas */
-  --ivory: #F8FAFC;         /* Clean, luminous light slate page background */
-  --cream: #FFFFFF;         /* Pure crisp white card/surface background */
-  --sand: #F1F5F9;          /* Subtle light slate neutral surface */
-  --stone: #E2E8F0;         /* Fine border & divider tone */
-  --taupe: #F26522;         /* Vibrant orange accent for tags & highlights */
-  --sage: #F26522;          /* Accent orange for badges, checkmarks & active states */
-  --sage-light: #FB923C;
-  --sage-subtle: #FFF4ED;
-  --earth: #334155;         /* Crisp slate body text */
-  --earth-light: #64748B;   /* Slate secondary/muted text */
-  --charcoal: #0F172A;      /* Deep modern architectural slate */
-  --charcoal-soft: #1E293B; /* Secondary dark slate */
+  --ivory: #F5F8FA;         /* Light architectural background */
+  --cream: #FFFFFF;         /* Crisp white surface/card */
+  --sand: #EDF3F7;          /* Soft slate blue-tinted surface */
+  --stone: #DCE4E9;         /* Light border & divider tone */
+  --taupe: #E55A22;         /* Vibrant orange accent */
+  --sage: #075F82;          /* Primary blue for badges, checkmarks & active states */
+  --sage-light: #006994;    /* Sea blue */
+  --sage-subtle: #EBF4F8;
+  --earth: #0F172A;         /* Main text */
+  --earth-light: #475569;   /* Secondary text */
+  --charcoal: #063F57;      /* Deep brand dark blue */
+  --charcoal-soft: #0F172A; /* Secondary deep tone */
   --white: #FFFFFF;
 
   /* Borders */
-  --border-light: #E2E8F0;
+  --border-light: #DCE4E9;
   --border-medium: #CBD5E1;
-  --border-subtle: #F1F5F9;
+  --border-subtle: #EDF3F7;
   --border-dark: rgba(255, 255, 255, 0.15);
 
   /* Typography */
@@ -68,6 +75,39 @@
   --container-narrow: 1040px;
   --header-height: 88px;
   --header-height-scrolled: 72px;
+}
+
+/* Theme: Nexora Architectural Slate & Orange */
+[data-theme="nexora-modern"] {
+  --accent: #F26522;
+  --accent-hover: #D9480F;
+  --accent-light: #FF8542;
+  --accent-subtle: #FFF4ED;
+  --accent-glow: 0 4px 20px rgba(242, 101, 34, 0.3);
+  --brand-blue: #0F172A;
+  --brand-sea-blue: #1E293B;
+  --brand-dark-blue: #0F172A;
+  --brand-hover-blue: #334155;
+  --ivory: #F8FAFC;
+  --cream: #FFFFFF;
+  --sand: #F1F5F9;
+  --stone: #E2E8F0;
+  --taupe: #F26522;
+  --sage: #F26522;
+  --sage-light: #FB923C;
+  --sage-subtle: #FFF4ED;
+  --earth: #334155;
+  --earth-light: #64748B;
+  --charcoal: #0F172A;
+  --charcoal-soft: #1E293B;
+  --white: #FFFFFF;
+  --border-light: #E2E8F0;
+  --border-medium: #CBD5E1;
+  --border-subtle: #F1F5F9;
+  --border-dark: rgba(255, 255, 255, 0.15);
+  --shadow-subtle: 0 4px 20px rgba(15, 23, 42, 0.04);
+  --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-modal: 0 25px 60px rgba(15, 23, 42, 0.25);
 }
 
 /* Theme: Moody Architectural Dark */

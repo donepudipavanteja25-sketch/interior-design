@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <rect width="200" height="60" rx="6" fill="#FFFFFF"/>
+  <circle cx="30" cy="30" r="16" fill="#008542"/>
+  <path d="M22 30 L30 20 L38 30 L30 40 Z" fill="#FFD100"/>
+  <text x="54" y="31" font-family="Arial, sans-serif" font-size="17" font-weight="900" fill="#008542">SHREE</text>
+  <text x="54" y="45" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#D32F2F" letter-spacing="1.5">TMT STEEL</text>
+</svg>

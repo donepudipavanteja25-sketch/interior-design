@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <rect width="200" height="60" rx="6" fill="#FFFFFF"/>
+  <path d="M16 38 C18 20 28 14 36 20 C42 24 38 34 26 36 Z" fill="#E41B13"/>
+  <circle cx="36" cy="22" r="6" fill="#FFC20E"/>
+  <text x="50" y="34" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#E41B13">asian</text>
+  <text x="98" y="34" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#222222">paints</text>
+  <text x="50" y="47" font-family="Arial, sans-serif" font-size="9" font-weight="600" fill="#777777" letter-spacing="1">COLOUR EXPERTS</text>
+</svg>

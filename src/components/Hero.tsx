@@ -1,98 +1,201 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowDown, Compass, ShieldCheck, Users } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Compass, ShieldCheck, Users } from 'lucide-react';
 import '../styles/hero.css';
 
 interface HeroProps {
   onOpenConsultation: () => void;
 }
 
+const slides = [
+  {
+    id: 'slide-1',
+    eyebrow: 'Sustainable construction · thoughtful interiors',
+    heading: 'Building Better. Living Greener.',
+    description:
+      'End-to-end construction and interior solutions shaped around your vision, delivered with durable materials, efficient planning and responsible building practices.',
+    image: '/images/hero_hillside_infinity_villa.jpg',
+    alt: 'Vriksha Sustainable Architectural Villa in Hyderabad with natural infinity pool and concrete canopy'
+  },
+  {
+    id: 'slide-2',
+    eyebrow: 'Homes · workplaces · turnkey delivery',
+    heading: 'Spaces Built Around Your Life.',
+    description:
+      'From structure to final finish, Vriksha brings design, engineering and execution together under one accountable team.',
+    image: '/images/hero_modern_villa.jpg',
+    alt: 'Modern residential villa architecture with cantilevered concrete and double-height glazing'
+  },
+  {
+    id: 'slide-3',
+    eyebrow: 'Hyderabad · Telangana',
+    heading: 'Strong Foundations. Lasting Value.',
+    description:
+      'We create high-performing residential and commercial spaces with clear communication, careful supervision and uncompromising quality.',
+    image: '/images/hero_commercial_foundation.jpg',
+    alt: 'Commercial structure engineered with precision formwork and high-strength concrete foundation'
+  }
+];
+
 export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  }, []);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 6500);
+    return () => clearInterval(timer);
+  }, [nextSlide, isPaused]);
+
   return (
-    <section className="hero-section" id="hero">
-      {/* Background Architectural Visual */}
+    <section
+      className="hero-section"
+      id="hero"
+      aria-label="Vriksha Architectural Showcase"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Background Architectural Visuals - Original Natural Colors */}
       <div className="hero-background-wrapper">
-        <img
-          src="/images/hero.jpg"
-          alt="Verdé & Form Architectural Living Space with Travertine Stone and Natural Sunlight"
-          className="hero-background-image"
-          fetchPriority="high"
-          loading="eager"
-        />
-        <div className="hero-overlay" />
+        {slides.map((slide, index) => (
+          <div
+            key={slide.id}
+            className={`hero-slide-bg ${index === currentSlide ? 'active' : ''}`}
+            aria-hidden={index !== currentSlide}
+          >
+            <img
+              src={slide.image}
+              alt={slide.alt}
+              className="hero-background-image"
+              fetchPriority={index === 0 ? 'high' : 'auto'}
+              loading={index === 0 ? 'eager' : 'lazy'}
+            />
+          </div>
+        ))}
+        {/* Subtle, neutral contrast layer without color tint or gradient fade */}
+        <div className="hero-subtle-scrim" />
       </div>
 
       <div className="container hero-content">
         <div className="hero-inner">
-          <div className="hero-tagline-label reveal reveal-down">
-            INTERIORS / CONSTRUCTION / BETTER LIVING
+          {/* Eyebrow Label */}
+          <div className="hero-tagline-label">
+            {slides[currentSlide].eyebrow}
           </div>
 
-          <h1 className="hero-heading reveal reveal-up delay-1">
-            <span>Spaces Designed</span>
-            <span>for a Brighter</span>
-            <span><em>Tomorrow</em></span>
+          {/* Main Heading with subtle text shadow */}
+          <h1 className="hero-heading">
+            {slides[currentSlide].heading}
           </h1>
 
-          <div className="hero-bottom-grid reveal reveal-up delay-2">
+          <div className="hero-bottom-grid">
             <div>
               <p className="hero-description">
-                We create beautiful, functional spaces through thoughtful design and reliable construction, turning your vision into reality.
+                {slides[currentSlide].description}
               </p>
 
+              {/* Action Buttons: Clean buttons that do not inherit text shadow */}
               <div className="hero-actions">
                 <button
+                  type="button"
                   onClick={onOpenConsultation}
                   className="hero-btn-primary"
-                  id="hero-get-consultation-btn"
+                  id="hero-get-quote-btn"
+                  aria-label="Get a Quote"
                 >
-                  Get Free Consultation <ArrowRight size={15} />
+                  Get a Quote <ArrowRight size={16} />
                 </button>
-                <Link to="/projects" className="hero-btn-secondary" id="hero-view-work-btn">
-                  View Our Work
+
+                <Link
+                  to="/projects"
+                  className="hero-btn-secondary"
+                  id="hero-explore-projects-btn"
+                >
+                  Explore Projects
                 </Link>
               </div>
             </div>
 
-            <div className="hero-scroll-cue-wrapper">
-              <Link to="/studio" className="hero-scroll-cue" aria-label="Explore the studio">
-                <span>SCROLL TO EXPLORE</span>
-                <span className="hero-scroll-arrow">
-                  <ArrowDown size={14} />
-                </span>
-              </Link>
+            {/* Slider Controls: Arrows & Indicators */}
+            <div className="hero-controls-box">
+              <div className="hero-nav-arrows">
+                <button
+                  type="button"
+                  onClick={prevSlide}
+                  className="hero-arrow-btn"
+                  aria-label="Previous slide"
+                >
+                  <ChevronLeft size={18} />
+                </button>
+                <button
+                  type="button"
+                  onClick={nextSlide}
+                  className="hero-arrow-btn"
+                  aria-label="Next slide"
+                >
+                  <ChevronRight size={18} />
+                </button>
+              </div>
+
+              <div className="hero-dots-row" role="tablist" aria-label="Hero slides">
+                {slides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    role="tab"
+                    aria-selected={idx === currentSlide}
+                    aria-label={`Go to slide ${idx + 1}`}
+                    onClick={() => setCurrentSlide(idx)}
+                    className={`hero-dot ${idx === currentSlide ? 'active' : ''}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Key Value Props Bar from Nexora Design */}
-          <div className="hero-value-props reveal reveal-up delay-3">
+          {/* Key Value Props Bar */}
+          <div className="hero-value-props">
             <div className="hero-prop-item">
               <div className="hero-prop-icon">
-                <Compass size={18} />
+                <Compass size={20} />
               </div>
               <div className="hero-prop-text">
                 <strong>Creative Design</strong>
-                <span>Tailored to You</span>
+                <span>Tailored to Your Lifestyle</span>
               </div>
             </div>
+
             <div className="hero-prop-divider" />
+
             <div className="hero-prop-item">
               <div className="hero-prop-icon">
-                <ShieldCheck size={18} />
+                <ShieldCheck size={20} />
               </div>
               <div className="hero-prop-text">
                 <strong>Quality Construction</strong>
-                <span>Built to Last</span>
+                <span>MS Box & PVC Precision</span>
               </div>
             </div>
+
             <div className="hero-prop-divider" />
+
             <div className="hero-prop-item">
               <div className="hero-prop-icon">
-                <Users size={18} />
+                <Users size={20} />
               </div>
               <div className="hero-prop-text">
-                <strong>End-to-End Support</strong>
-                <span>From Concept to Completion</span>
+                <strong>Accountable Team</strong>
+                <span>Concept to Final Handover</span>
               </div>
             </div>
           </div>

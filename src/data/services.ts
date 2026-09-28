@@ -8,117 +8,100 @@ export interface Service {
   deliverables: string[];
   idealFor: string;
   timeline: string;
+  image?: string;
 }
 
 export const servicesData: Service[] = [
   {
-    id: 'interior-architecture',
+    id: 'residential-construction',
     number: '01',
-    title: 'Interior Architecture & Spatial Planning',
-    tagline: 'Sculpting the bones of your sanctuary before a single piece of furniture arrives.',
-    description: 'We re-examine spatial flows, volumetric proportions, structural opportunities, and natural daylight orientation. From moving load-bearing partitions to sculpting bespoke architectural staircases and recessed ceiling light pockets, we craft the core canvas of your home.',
+    title: 'Residential Construction',
+    tagline: 'Custom architectural villas and enduring residences built for generations.',
+    description: 'We build high-performance custom homes and contemporary villas that combine structural integrity, bioclimatic design, and turnkey craftsmanship. From soil feasibility and foundation to structural glazing and final finishes, our engineering team manages every milestone with strict accountability.',
     scope: [
-      'Comprehensive 2D Spatial Layouts & Micro-Zoning',
-      'Structural Wall Reconfiguration & Civil Coordination',
-      'Lighting Architecture & Reflected Ceiling Plans (RCP)',
-      'MEP (Mechanical, Electrical, Plumbing) Coordination',
-      'Custom Staircases & Architectural Portal Detailing'
+      'Custom Architectural Villas & Independent Residences',
+      'Structural Engineering, Soil Feasibility & Foundation Work',
+      'Bioclimatic Orientation & Energy-Efficient Planning',
+      'High-Grade Glazing, Fenestration & Waterproofing Systems',
+      'Turnkey Civil, Structural, Plumbing & Electrical Execution'
     ],
     deliverables: [
-      'Full technical architectural drawing set',
-      'Civil & structural tender documents',
-      'Daylight & solar angle simulation diagrams',
-      'On-site milestone coordination audits'
+      'Comprehensive structural blueprints and architectural drawings',
+      'Certified material test reports (cement, steel, concrete cubes)',
+      'Milestone-based progress schedules with digital site reports',
+      'Comprehensive structural warranty and as-built documentation'
     ],
-    idealFor: 'New residential builds, bare-shell villas, and gut renovations requiring structural transformation.',
-    timeline: '8 – 16 Weeks'
+    idealFor: 'Families and investors planning custom villas, independent luxury homes, and premium residential properties in Hyderabad.',
+    timeline: '8 – 16 Months',
+    image: '/images/service_residential.jpg'
   },
   {
-    id: 'full-scope-interior-design',
+    id: 'commercial-construction',
     number: '02',
-    title: 'Full-Scope Interior Design',
-    tagline: 'A harmonious orchestration of materiality, joinery, and custom living environments.',
-    description: 'Our signature end-to-end design discipline. We translate your lifestyle into tactile materiality, custom architectural millwork, bespoke bathrooms, gourmet kitchens, and timeless living spaces tailored to your daily rituals.',
+    title: 'Commercial Construction',
+    tagline: 'Modern corporate headquarters, retail facilities and high-traffic commercial spaces.',
+    description: 'Delivering robust, scalable commercial buildings engineered for productivity, energy efficiency, and long-term durability. We specialize in structural steel, high-performance curtain walls, MEP systems, and LEED / IGBC-compliant green building practices.',
     scope: [
-      'Bespoke Millwork, Wardrobe & Kitchen Cabinetry Design',
-      'Tactile Material Curation (Natural Stone, Timbers, Plasters)',
-      'High-Fidelity 3D Photorealistic Renderings',
-      'Sanitaryware, Hardware & Fixture Specification',
-      'Comprehensive Material Finishes Schedules & BoQs'
+      'Corporate Headquarters, Retail Complexes & Office Towers',
+      'Structural Steel Frameworks & Advanced Curtain Wall Facades',
+      'Comprehensive MEP, HVAC & Certified Fire Safety Coordination',
+      'Green Building Compliance (LEED & IGBC Standards)',
+      'Flexible Open-Span Spatial Planning & Acoustic Treatments'
     ],
     deliverables: [
-      'Physical tactile material & finish presentation box',
-      'Millwork fabrication shop drawings (1:20 & 1:5 details)',
-      'Complete itemized Bill of Quantities (BoQ)',
-      'Procurement oversight & vendor management'
+      'Structural design calculations & municipal approval drawings',
+      'MEP integration master plans and fire safety NOC files',
+      'Quality assurance audit dossiers and safety compliance logs',
+      'Complete occupancy certification assistance and facility handover'
     ],
-    idealFor: 'Homeowners seeking a completely cohesive, turn-key designer residence from concept to completion.',
-    timeline: '16 – 28 Weeks'
+    idealFor: 'Enterprises, developers, and institutional clients seeking high-spec commercial spaces and office facilities.',
+    timeline: '12 – 24 Months',
+    image: '/images/service_commercial_facade.jpg'
   },
   {
-    id: 'bespoke-furniture-curation',
+    id: 'interior-design',
     number: '03',
-    title: 'Bespoke Furniture & Lighting Curation',
-    tagline: 'Artisanal furniture, vintage collectors pieces, and custom commissioned lighting.',
-    description: 'We believe furniture should be heirloom-grade art. We design one-of-a-kind dining tables, sculptured coffee tables, and tailored upholstery with master craftsmen, while sourcing rare vintage European design icons and sculptural lighting fixtures worldwide.',
+    title: 'Interior Design',
+    tagline: 'Bespoke living environments shaped by tactile materiality and acoustic serenity.',
+    description: 'From concept to turnkey delivery, we curate luxurious, highly functional interiors. We design custom architectural millwork, bespoke cabinetry, layered architectural lighting, and select premium materials that resonate with your personal rituals.',
     scope: [
-      'Custom Furniture Design & Prototyping',
-      'Exclusive Fabric & Textile Sourcing (Linen, Mohair, Bouclé)',
-      'Sculptural Lighting Selection & Dimming Architecture',
-      'International Freight, Customs & White-Glove Logistics',
-      'Artisanal Rug & Handwoven Carpet Commissioning'
+      'Complete Interior Space Planning & Micro-Zoning',
+      'Custom Architectural Cabinetry, Wardrobes & Kitchen Millwork',
+      'Layered Architectural Lighting Design & Scene Automation',
+      'Premium Material Curation (Natural Stone, Timbers, Plasters)',
+      'Acoustic Planning, Bespoke Furniture & Soft Furnishing Curation'
     ],
     deliverables: [
-      'Curated Furniture & Lighting FF&E Master Book',
-      'Bespoke workshop prototype approvals & wood finish samples',
-      'Comprehensive procurement budget matrix',
-      'White-glove uncrating, placement, and installation supervision'
+      'High-fidelity 3D photorealistic visualization package',
+      'Detailed millwork fabrication shop drawings (1:20 & 1:5 scale)',
+      'Itemized Bill of Quantities (BoQ) with brand specifications',
+      'Full white-glove site installation and styling supervision'
     ],
-    idealFor: 'Discerning clients wishing to curate unique heirloom furnishings, collector pieces, and tactile textiles.',
-    timeline: '10 – 18 Weeks'
+    idealFor: 'Homeowners, penthouses, luxury apartments, and corporate offices desiring bespoke, turn-key interior atmospheres.',
+    timeline: '8 – 16 Weeks',
+    image: '/images/service_interior_design.jpg'
   },
   {
-    id: 'heritage-renovation',
+    id: 'renovation-remodeling',
     number: '04',
-    title: 'Heritage Renovation & Adaptive Reuse',
-    tagline: 'Honoring historical architecture while instilling modern ease and acoustic serenity.',
-    description: 'We have a deep reverence for old homes, ancestral bungalows, and historical structures. We carefully preserve weathered lime washes, hand-carved pillars, and original stonework while quietly integrating concealed smart infrastructure, acoustic double glazing, and modern climate conditioning.',
+    title: 'Renovation & Remodeling',
+    tagline: 'Transforming existing structures into modern, energy-efficient spaces.',
+    description: 'We revitalize aging homes, commercial units, and villas with structural reinforcement, upgraded MEP infrastructure, facade modernization, and open-plan transformations—executed with strict dust, noise, and safety controls.',
     scope: [
-      'Architectural Historical Documentation & Condition Audits',
-      'Vernacular Material Conservation (Lime, Laterite, Teak)',
-      'Discrete Smart Home & Hidden HVAC Integration',
-      'Moisture Remediation & Traditional Plaster Restoration',
-      'Courtyard Microclimate & Passive Cooling Re-activation'
+      'Load-Bearing Wall Alterations & Structural Reinforcement',
+      'Floor-Plan Reconfigurations & Modern Open-Plan Layouts',
+      'Complete Facade Modernization & Exterior Weatherproofing',
+      'Comprehensive MEP Upgrades (Plumbing, Electrical, HVAC)',
+      'Active Dust Containment, Debris Removal & Site Safety Protocols'
     ],
     deliverables: [
-      'Historical preservation strategy report',
-      'Restoration specifications for artisan masons and carpenters',
-      'Adaptive reuse modernization architectural plans',
-      'Before & After archival documentation portfolio'
+      'Structural condition audit and feasibility assessment',
+      'As-built vs. Proposed architectural modification layouts',
+      'Phase-wise demolition and reconstruction timetable',
+      'Refurbished structural warranty and post-renovation documentation'
     ],
-    idealFor: 'Historic villas in Goa, ancestral bungalows in Bangalore/Hyderabad, and legacy urban properties.',
-    timeline: '20 – 36 Weeks'
-  },
-  {
-    id: 'styling-art-advisory',
-    number: '05',
-    title: 'Turnkey Styling & Art Advisory',
-    tagline: 'The final, poetic layer that transforms architecture into an evocative home.',
-    description: 'The difference between a finished space and an alive home is the art, the ceramics, the botanicals, and the personal ephemera. Our styling team hand-selects contemporary Indian and international fine art, ceramic vessels, vintage books, and custom botanical arrangements.',
-    scope: [
-      'Contemporary Art Curation & Gallery Acquisitions',
-      'Studio Ceramic, Stoneware & Sculptural Vessel Selection',
-      'Tactile Bedding, Table Linens & Hand-Bound Library Styling',
-      'Biophilic Botanical Planting & Terracotta Planter Styling',
-      'Final Reveal Staging with Curated Scent & Lighting Moods'
-    ],
-    deliverables: [
-      'Curated Art & Object Acquisition Portfolio with provenance',
-      'Final placement map and hanging elevations',
-      'Artisanal floral and living botanical curation guide',
-      'White-glove Turnkey Welcome Evening reveal'
-    ],
-    idealFor: 'Completed residences needing the ultimate refined editorial layer of art, objects, and atmosphere.',
-    timeline: '4 – 8 Weeks'
+    idealFor: 'Owners of existing villas, penthouses, and commercial spaces seeking modern aesthetics and structural upgrades.',
+    timeline: '6 – 18 Weeks',
+    image: '/images/service_renovation.jpg'
   }
 ];

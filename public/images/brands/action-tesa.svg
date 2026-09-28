@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <rect width="200" height="60" rx="6" fill="#FFFFFF"/>
+  <rect x="14" y="16" width="34" height="28" rx="3" fill="#003399"/>
+  <polygon points="20,38 31,18 42,38" fill="#FFCC00"/>
+  <text x="56" y="32" font-family="Arial, sans-serif" font-size="17" font-weight="900" fill="#003399">Action</text>
+  <text x="110" y="32" font-family="Arial, sans-serif" font-size="17" font-weight="900" fill="#E52421">TESA</text>
+  <text x="56" y="46" font-family="Arial, sans-serif" font-size="9" font-weight="700" fill="#555555" letter-spacing="1.5">BOARDS &amp; DOORS</text>
+</svg>

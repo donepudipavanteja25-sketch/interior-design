@@ -12,6 +12,10 @@ import { ServicesPage } from './pages/ServicesPage';
 import { ProcessPage } from './pages/ProcessPage';
 import { JournalPage } from './pages/JournalPage';
 import { ContactPage } from './pages/ContactPage';
+import { ConstructionSolutionsPage } from './pages/ConstructionSolutionsPage';
+import { TestimonialsPage } from './pages/TestimonialsPage';
+import { PrivacyPage } from './pages/PrivacyPage';
+import { TermsPage } from './pages/TermsPage';
 import { useScrollReveal } from './hooks/useScrollReveal';
 
 export const App: React.FC = () => {
@@ -58,11 +62,28 @@ export const App: React.FC = () => {
             }
           />
           <Route
+            path="/about"
+            element={<StudioPage onOpenConsultation={() => handleOpenConsultation()} />}
+          />
+          <Route
             path="/studio"
             element={<StudioPage onOpenConsultation={() => handleOpenConsultation()} />}
           />
           <Route
+            path="/construction-solutions"
+            element={<ConstructionSolutionsPage onOpenConsultation={() => handleOpenConsultation()} />}
+          />
+          <Route
             path="/projects"
+            element={
+              <ProjectsPage
+                onStartProjectWithRef={handleStartProjectWithRef}
+                onOpenConsultation={() => handleOpenConsultation()}
+              />
+            }
+          />
+          <Route
+            path="/projects/:id"
             element={
               <ProjectsPage
                 onStartProjectWithRef={handleStartProjectWithRef}
@@ -85,8 +106,21 @@ export const App: React.FC = () => {
             }
           />
           <Route
+            path="/services/:id"
+            element={
+              <ServicesPage
+                onSelectServiceForInquiry={handleSelectServiceForInquiry}
+                onOpenConsultation={() => handleOpenConsultation()}
+              />
+            }
+          />
+          <Route
             path="/process"
             element={<ProcessPage onOpenConsultation={() => handleOpenConsultation()} />}
+          />
+          <Route
+            path="/testimonials"
+            element={<TestimonialsPage onOpenConsultation={() => handleOpenConsultation()} />}
           />
           <Route
             path="/journal"
@@ -95,6 +129,14 @@ export const App: React.FC = () => {
           <Route
             path="/contact"
             element={<ContactPage initialPreset={inquiryPreset} />}
+          />
+          <Route
+            path="/privacy"
+            element={<PrivacyPage />}
+          />
+          <Route
+            path="/terms"
+            element={<TermsPage />}
           />
           {/* Catch-all redirect to Home */}
           <Route path="*" element={<Navigate to="/" replace />} />

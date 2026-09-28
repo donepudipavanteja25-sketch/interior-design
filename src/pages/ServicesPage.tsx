@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
-import { Services } from '../components/Services';
+import React, { useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { ArrowRight, Check, Clock, Home, Building2, Palette, Hammer } from 'lucide-react';
+import { servicesData } from '../data/services';
 import '../styles/pages.css';
 
 interface ServicesPageProps {
@@ -13,117 +13,146 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   onSelectServiceForInquiry,
   onOpenConsultation
 }) => {
-  const deliverablePillars = [
-    {
-      num: '01',
-      title: 'Architectural Blueprint Package',
-      items: [
-        'Site solar orientation & microclimate audit',
-        '2D spatial restructuring & partition demolition plans',
-        'Reflected ceiling & architectural lighting plans',
-        'Floor finishes & transition thresholds schedule'
-      ]
-    },
-    {
-      num: '02',
-      title: 'Photorealistic Visualizations',
-      items: [
-        'High-fidelity 3D atmospheric perspective renders',
-        'Accurate sun position & shadow study renders',
-        'Physical tactile material & finish boards',
-        'Virtual walk-through spatial simulations'
-      ]
-    },
-    {
-      num: '03',
-      title: 'Technical Millwork Details',
-      items: [
-        '1:10 & 1:5 scale joinery & cabinetry working drawings',
-        'Stone stone-cladding & dry-fixing engineering sets',
-        'Concealed mechanical, HVAC & smart electrical layouts',
-        'Comprehensive tender documentation & bill of quantities'
-      ]
-    },
-    {
-      num: '04',
-      title: 'Artisan Sourcing & Turnkey Handover',
-      items: [
-        'Direct quarry stone block selection & dry-lay inspection',
-        'Custom furniture prototyping with master craftsmen',
-        'White-glove uncrating, alignment & artwork installation',
-        'Client care guide for generational material maintenance'
-      ]
+  const { id } = useParams<{ id?: string }>();
+
+  useEffect(() => {
+    if (id) {
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
     }
-  ];
+  }, [id]);
+  const iconsMap: Record<string, React.ReactNode> = {
+    'residential-construction': <Home size={24} />,
+    'commercial-construction': <Building2 size={24} />,
+    'interior-design': <Palette size={24} />,
+    'renovation-remodeling': <Hammer size={24} />
+  };
 
   return (
-    <div className="services-page-container">
-      {/* Page Header */}
-      <section className="page-header">
+    <div className="subpage services-page-wrapper">
+      {/* Hero */}
+      <section className="page-hero-section">
         <div className="container">
-          <div className="page-header-content">
-            <nav className="page-breadcrumb" aria-label="Breadcrumb">
-              <Link to="/">Home</Link>
-              <span className="page-breadcrumb-sep">/</span>
-              <span>Services</span>
-            </nav>
-            <h1 className="page-header-title">Architectural & Interior Disciplines</h1>
-            <p className="page-header-lead">
-              We guide residential projects from initial spatial zoning to white-glove turnkey completion,
-              acting as architect, interior designer, and meticulous material curator.
+          <div className="page-hero-content reveal reveal-up">
+            <span className="section-tag">SERVICES & DISCIPLINES</span>
+            <h1 className="page-hero-title">Complete Turnkey Solutions Under One Roof</h1>
+            <p className="page-hero-lead">
+              From bespoke architectural villas to corporate headquarters, interior styling, and structural renovations—Vriksha brings design, engineering, and execution together with total accountability.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Interactive Disciplines Accordion Component */}
-      <Services onSelectServiceForInquiry={onSelectServiceForInquiry} />
-
-      {/* Comprehensive Deliverables Matrix */}
-      <section className="services-deliverables-section">
+      {/* Detailed Service Sections */}
+      <section className="section-padding" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="container">
-          <div className="section-header-block">
-            <span className="section-tag">Deliverables</span>
-            <h2 className="section-title">What You Receive</h2>
-            <p className="section-lead">
-              Our documentation leaves zero room for ambiguity on site, ensuring master craftspeople execute with millimeter precision.
-            </p>
-          </div>
+          <div className="services-detailed-list">
+            {servicesData.map((service, idx) => {
+              const isEven = idx % 2 === 1;
+              return (
+                <div
+                  key={service.id}
+                  id={service.id}
+                  className={`service-detail-block reveal reveal-up ${isEven ? 'detail-reversed' : ''}`}
+                >
+                  <div className="service-detail-visual">
+                    <div className="service-image-holder">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="service-detail-img"
+                        loading="lazy"
+                      />
+                      <span className="service-detail-num">{service.number}</span>
+                    </div>
+                  </div>
 
-          <div className="deliverables-cards-grid">
-            {deliverablePillars.map((pillar) => (
-              <div key={pillar.num} className="deliverable-card">
-                <span className="deliverable-number">{pillar.num}</span>
-                <h3 className="deliverable-title">{pillar.title}</h3>
-                <ul className="deliverable-list">
-                  {pillar.items.map((item, idx) => (
-                    <li key={idx} className="deliverable-item">
-                      <span className="deliverable-dot"></span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+                  <div className="service-detail-info">
+                    <div className="service-icon-header">
+                      <div className="service-icon-pill">
+                        {iconsMap[service.id] || <Home size={22} />}
+                      </div>
+                      <span className="service-timeline-tag">
+                        <Clock size={13} style={{ display: 'inline', marginRight: 4 }} />
+                        Timeline: {service.timeline}
+                      </span>
+                    </div>
+
+                    <h2 className="service-title-h2">{service.title}</h2>
+                    <p className="service-tagline-p">{service.tagline}</p>
+                    <p className="service-description-p">{service.description}</p>
+
+                    <div className="service-scope-deliverables-grid">
+                      <div className="service-box">
+                        <h4 className="service-box-title">Key Scope of Work</h4>
+                        <ul className="service-check-ul">
+                          {service.scope.map((item, i) => (
+                            <li key={i}>
+                              <Check size={14} className="service-check-icon" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="service-box">
+                        <h4 className="service-box-title">Core Deliverables</h4>
+                        <ul className="service-check-ul">
+                          {service.deliverables.map((item, i) => (
+                            <li key={i}>
+                              <Check size={14} className="service-check-icon" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="service-action-row">
+                      <button
+                        type="button"
+                        onClick={() => onSelectServiceForInquiry(service.title)}
+                        className="btn-primary"
+                      >
+                        Get a Quote for this Service <ArrowRight size={15} />
+                      </button>
+
+                      <a href="tel:+919989382877" className="btn-secondary">
+                        Call +91 99893 82877
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Bottom CTA Banner */}
-      <section className="page-cta-banner">
-        <div className="container">
-          <div className="page-cta-inner">
-            <span className="page-cta-tag">Inquire About Scope</span>
-            <h2 className="page-cta-heading">Discuss Your Architectural Project</h2>
-            <p className="page-cta-desc">
-              Every commission begins with an open conversation about your lifestyle rituals, property blueprints, and timeline expectations.
+      {/* Final Quote CTA */}
+      <section className="section-padding final-page-cta">
+        <div className="container text-center">
+          <div className="reveal reveal-up" style={{ maxWidth: 750, margin: '0 auto' }}>
+            <h2 className="section-title" style={{ color: '#FFFFFF' }}>
+              Have a space in mind? Let’s build it well.
+            </h2>
+            <p style={{ color: '#DCE4E9', fontSize: '1.05rem', margin: '1rem 0 2rem' }}>
+              Discuss your plot, commercial facility, or interior remodel directly with our Hyderabad engineering leaders.
             </p>
-            <div className="page-cta-buttons">
-              <button onClick={onOpenConsultation} className="btn-light">
-                Request Preliminary Scope Review <ArrowUpRight size={16} />
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <button
+                type="button"
+                onClick={onOpenConsultation}
+                className="btn-primary"
+              >
+                Get a Quote <ArrowRight size={15} />
               </button>
-              <Link to="/process" className="btn-secondary" style={{ borderColor: 'var(--ivory)', color: 'var(--ivory)' }}>
-                Learn About Our 4-Phase Process
+              <Link to="/contact" className="btn-secondary">
+                Visit Hyderabad Office
               </Link>
             </div>
           </div>

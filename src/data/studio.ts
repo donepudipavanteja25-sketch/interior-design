@@ -11,84 +11,75 @@ export interface StudioLocation {
 export const studioLocations: StudioLocation[] = [
   {
     city: 'Hyderabad',
-    name: 'Jubilee Hills Atelier & Material Archive',
-    address: 'Plot 412, Road No. 36, Jubilee Hills',
+    name: 'Vriksha Headquarters & Design Center',
+    address: 'Road No. 36, Jubilee Hills & Hitec City Corridor',
     district: 'Hyderabad, Telangana 500033',
-    phone: '+91 (40) 2980 4421',
-    email: 'hyderabad@verdeform.com',
-    hours: 'Mon – Fri: 10:00 AM – 6:30 PM (By Appointment)'
+    phone: '+91 99893 82877',
+    email: 'contact@vrikshaconstructions.com',
+    hours: 'Monday – Saturday: 9:00 AM – 7:00 PM IST'
   },
   {
-    city: 'Mumbai',
-    name: 'Kala Ghoda Design Studio',
-    address: '34 Forbes Street, Heritage Precinct, Kala Ghoda, Fort',
-    district: 'Mumbai, Maharashtra 400001',
-    phone: '+91 (22) 2284 9102',
-    email: 'mumbai@verdeform.com',
-    hours: 'Mon – Fri: 10:00 AM – 7:00 PM (By Appointment)'
-  },
-  {
-    city: 'Goa',
-    name: 'Assagao Design Lounge & Pavilion',
-    address: 'Badem Road, Near Assagao Church',
-    district: 'Assagao, North Goa 403507',
-    phone: '+91 (832) 227 6590',
-    email: 'goa@verdeform.com',
-    hours: 'Tue – Sat: 10:30 AM – 5:30 PM (By Appointment)'
+    city: 'Hitec City',
+    name: 'Commercial & Site Operations Hub',
+    address: 'Cyber Hills, Hitec City Phase II',
+    district: 'Hyderabad, Telangana 500081',
+    phone: '+91 99893 82877',
+    email: 'inquiry@vrikshaconstructions.com',
+    hours: 'Monday – Saturday: 9:00 AM – 7:00 PM IST'
   }
 ];
 
 export const processSteps = [
   {
     number: '01',
-    title: 'Inquiry & Visioning',
+    title: 'Consultation',
     tag: 'Phase One',
-    timeline: 'Weeks 1 – 3',
-    summary: 'Listening to your lifestyle rituals, conducting structural and daylight audits of the site, and establishing the project manifesto.',
+    timeline: '1–2 Weeks',
+    summary: 'Understand your needs, spatial requirements, budget parameters and personal vision for the project.',
     details: [
-      'Lifestyle & ritual discovery interview',
-      'Solar orientation, breeze study & climate analysis',
-      'Structural feasibility & spatial zoning audit',
-      'Budget allocation & timeline framework'
+      'Client brief & lifestyle requirements mapping',
+      'Topographical survey & on-site feasibility study',
+      'Soil testing & structural foundation feasibility',
+      'Transparent budget forecasting & timeline schedule'
     ]
   },
   {
     number: '02',
-    title: 'Spatial Concept & Tactile Palette',
+    title: 'Design & Plan',
     tag: 'Phase Two',
-    timeline: 'Weeks 4 – 8',
-    summary: 'Sculpting volumetric layouts and curating the physical material board—natural stones, timber grains, plasters, and architectural light wells.',
+    timeline: '3–6 Weeks',
+    summary: 'Create tailored designs and detailed plans combining aesthetics, structural engineering and sustainability.',
     details: [
-      '2D architectural space planning & circulation studies',
-      'Physical material palette sample curation',
-      'Reflected ceiling & architectural lighting strategy',
-      'Photorealistic 3D spatial concept visualizations'
+      'Schematic layouts & bioclimatic orientation design',
+      'High-fidelity 3D photorealistic architectural visualizations',
+      'Comprehensive MEP, plumbing & electrical coordination',
+      'Municipal approvals & statutory documentation'
     ]
   },
   {
     number: '03',
-    title: 'Materiality & Technical Documentation',
+    title: 'Build & Execute',
     tag: 'Phase Three',
-    timeline: 'Weeks 9 – 16',
-    summary: 'Translating design intent into precise millwork fabrication drawings, MEP coordinates, and comprehensive material procurement schedules.',
+    timeline: '6–14 Months',
+    summary: 'Bring your vision to life with expert execution, durable shuttering systems and daily engineering supervision.',
     details: [
-      'Complete architectural working drawing package',
-      'Custom joinery & millwork shop details (1:10 & 1:5 scale)',
-      'Plumbing, HVAC, and discreet smart-lighting engineering',
-      'Tender documentation & artisan contractor procurement'
+      'Precision MS Box & PVC shuttering structural casting',
+      'Rigorous material testing (cement, TMT steel, aggregates)',
+      'Uncompromising daily site supervision & safety protocols',
+      'Transparent milestone reports & weekly video progress updates'
     ]
   },
   {
     number: '04',
-    title: 'Artisanal Execution & Turnkey Reveal',
+    title: 'Handover',
     tag: 'Phase Four',
-    timeline: 'Weeks 17 – Completion',
-    summary: 'Hands-on site supervision, bespoke furniture prototyping, white-glove installation, and curating art, ceramics, and florals for the final handover.',
+    timeline: '2–3 Weeks',
+    summary: 'Deliver a high-performing space you will love for years, backed by warranties and complete as-built documentation.',
     details: [
-      'Rigorous milestone site quality supervision',
-      'Bespoke furniture prototyping & artisan approvals',
-      'White-glove uncrating & custom placement styling',
-      'Turnkey handover with private client welcome evening'
+      'Comprehensive multi-point quality audit & snag rectification',
+      'Deep professional architectural cleaning & polish',
+      'As-built drawings, maintenance manuals & structural warranty',
+      'Seamless turnkey possession & post-handover support'
     ]
   }
 ];

@@ -4,7 +4,7 @@ export interface Project {
   title: string;
   subtitle: string;
   location: string;
-  category: 'Residential' | 'Holiday Residence' | 'Apartment' | 'Heritage Renovation';
+  category: 'Residential' | 'Commercial' | 'Interior Design' | 'Renovation';
   year: string;
   area: string;
   leadArchitect: string;
@@ -24,136 +24,105 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
-    id: 'willow-residence',
+    id: 'modern-villa',
     number: '01',
-    title: 'THE WILLOW RESIDENCE',
-    subtitle: 'A sanctuary of cast concrete, courtyard reflections, and filtered sunlight.',
-    location: 'Hyderabad, India',
+    title: 'Modern Villa',
+    subtitle: 'A contemporary luxury residence sculpted with cantilevered concrete and infinity horizons.',
+    location: 'Hyderabad, Telangana',
     category: 'Residential',
-    year: '2025',
-    area: '6,400 sq. ft',
-    leadArchitect: 'Ananya Varma, Studio Principal',
-    description: 'Designed as an antidote to urban density, The Willow Residence unfolds around a central courtyard anchored by a serene reflecting pool. Smooth board-formed concrete walls are balanced by handcrafted teak timber screens that pivot to moderate sunlight and cross-ventilation.',
-    architecturalPhilosophy: 'A study in monastic calm. The architecture uses heavy thermal mass to cool the interior microclimate while allowing floor-to-ceiling glass to dissolve boundaries between the living pavilion and lush indigenous flora.',
+    year: '2024',
+    area: '8,500 sq.ft',
+    leadArchitect: 'Vriksha Architectural Team',
+    description: 'A striking contemporary villa combining expansive structural glazing, cantilevered concrete overhangs, and climate-responsive natural daylighting. Built using high-precision MS Box shuttering, the villa integrates rainwater harvesting, greywater recycling, and lush landscaped buffer zones for optimal thermal comfort.',
+    architecturalPhilosophy: 'Sustainable engineering meeting architectural poetry. Large overhangs shield the interiors from harsh Hyderabad summer heat while floor-to-ceiling glass captures prevailing cross-breezes and sweeping skyline views.',
     materials: [
-      'Board-Formed Architectural Concrete',
-      'Reclaimed Teak Wood Slats',
-      'Honed Roman Travertine',
-      'Belgian Raw Linen Drapery',
-      'Hand-Spun Jute Floor Coverings'
+      'Engineered MS Box Shuttering Concrete',
+      'Structural Double-Glazed Low-E Glass',
+      'Italian Statuario Marble Surfaces',
+      'Thermal-Treated Weather-Resistant Teak',
+      'Permeable Stone Paving & Rainwater Trenches'
     ],
     features: [
-      'Reflective courtyard shallow pool with natural filtration',
-      'Full-height operable teak privacy screens',
-      'Sunken fireside conversational pit',
-      'Continuous microcement floor finish across indoors and terraces'
+      'Cantilevered concrete living pavilion with infinity edge pool',
+      'Complete rainwater harvesting & greywater bio-filtration',
+      'Bioclimatic daylight orientation reducing artificial lighting',
+      'Integrated smart automation & concealed architectural lighting'
     ],
-    image: '/images/willow.jpg',
-    secondaryImage: '/images/hero.jpg',
+    image: '/images/hero_hillside_infinity_villa.jpg',
+    secondaryImage: '/images/hero_modern_villa.jpg',
     aspectClass: 'span-col-2 span-row-2',
     clientStory: {
-      quote: 'Living here feels like taking a deep breath after years of noise. Every morning the way the light filters through the teak slats onto the stone floor creates quiet moments of daily poetry.',
-      author: 'Vikram & Priya Reddy',
-      role: 'Private Homeowners'
+      quote: 'Vriksha delivered our dream home exactly as we envisioned. The design, quality and attention to detail were exceptional.',
+      author: 'Ramesh Kumar',
+      role: 'Home Owner, Modern Villa'
     }
   },
   {
-    id: 'casa-terra',
+    id: 'corporate-office',
     number: '02',
-    title: 'CASA TERRA',
-    subtitle: 'Vernacular tropical modernism sculpted from native laterite stone and lime plaster.',
-    location: 'Goa, India',
-    category: 'Holiday Residence',
+    title: 'Corporate Office',
+    subtitle: 'High-performance commercial headquarters designed for collaborative productivity.',
+    location: 'Hitec City, Hyderabad',
+    category: 'Commercial',
     year: '2024',
-    area: '4,800 sq. ft',
-    leadArchitect: 'Devin D’Souza, Lead Interior Architect',
-    description: 'Perched amidst dense canopy in Assagao, Casa Terra explores the tactile relationship between earth and shadow. The residence centers around a sunken living lounge framed by exposed laterite masonry and hand-troweled lime plaster, opening directly to a tropical rain garden.',
-    architecturalPhilosophy: 'True luxury lies in harmony with climate. We celebrated local building traditions with deep terracotta eave overhangs, natural cross-draft breezeways, and porous stone surfaces that cool the spaces without constant mechanical conditioning.',
+    area: '34,000 sq.ft',
+    leadArchitect: 'Vriksha Commercial Infrastructure Division',
+    description: 'An iconic corporate headquarters featuring an advanced steel exoskeleton and a high-performance blue glass curtain wall. Designed around open, flexible office planning, the building incorporates a rooftop solar photovoltaic array, acoustic double glazing, and LEED-oriented energy systems.',
+    architecturalPhilosophy: 'Productivity driven by bioclimatic intelligence. Maximizing natural light penetration through high-performance fenestration while minimizing solar heat gain through optimized building orientation and automated shading.',
     materials: [
-      'Locally Quarried Laterite Stone',
-      'Tadelakt Lime Plaster (Earthy Ivory)',
-      'Terracotta Hand-Made Roof Tiles',
-      'Rosewood Vintage Furniture Accents',
-      'Unbleached Heavy Textured Cottons'
+      'Structural High-Strength Steel Exoskeleton',
+      'Blue Performance Acoustic Curtain Wall',
+      'Precast Concrete & PVC Shuttering Slabs',
+      'Low-VOC Acoustic Ceiling & Wall Panels',
+      'High-Efficiency Rooftop Photovoltaic Modules'
     ],
     features: [
-      'Sculptural sunken conversation lounge',
-      'Seamless pavilion indoor-outdoor threshold',
-      'Monsoon courtyards with native broadleaf vegetation',
-      'Handcrafted terracotta water spouts'
+      'Flexible open-span collaborative workspaces and breakout lounges',
+      'Rooftop solar photovoltaic array providing 35% building power',
+      'Acoustic glazing delivering 42dB noise attenuation',
+      'Integrated BMS controlling HVAC, lighting and indoor air quality'
     ],
-    image: '/images/casa-terra.jpg',
+    image: '/images/project_corporate_office.jpg',
+    secondaryImage: '/images/hero_commercial_foundation.jpg',
     aspectClass: 'span-col-1 span-row-2',
     clientStory: {
-      quote: 'Verdé & Form captured the true spirit of Goa. It feels rooted, calm, and exquisitely crafted without a single drop of ostentation.',
-      author: 'Rohit & Natasha Mehta',
-      role: 'Holiday Residence Commissioners'
+      quote: 'The team was professional, creative and delivered our office project on time. Highly recommended!',
+      author: 'Priya S',
+      role: 'Business Owner, Corporate Office'
     }
   },
   {
-    id: 'the-courtyard-house',
+    id: 'luxury-apartment',
     number: '03',
-    title: 'THE COURTYARD HOUSE',
-    subtitle: 'An introspective sanctuary carved in wire-cut brick and polished Kota stone.',
-    location: 'Bengaluru, India',
-    category: 'Residential',
+    title: 'Luxury Apartment',
+    subtitle: 'A high-rise penthouse sanctuary with panoramic glass and bespoke craftsmanship.',
+    location: 'Jubilee Hills, Hyderabad',
+    category: 'Interior Design',
     year: '2024',
-    area: '5,200 sq. ft',
-    leadArchitect: 'Karan Mehra, Associate Director',
-    description: 'An introspective urban home that turns inward toward a sun-washed multi-level atrium courtyard. Wire-cut clay bricks form a textured backdrop against soft sage greenery, while cool grey Kota stone slabs guide feet through unhurried living volumes.',
-    architecturalPhilosophy: 'Reinterpreting the traditional South Indian Thotti Mane courtyard house for the 21st century. The central skywell acts as a natural air funnel, bathing the communal core with natural illumination all day.',
+    area: '5,400 sq.ft',
+    leadArchitect: 'Vriksha Interior Design Studio',
+    description: 'A luxurious duplex penthouse showcasing panoramic floor-to-ceiling glass, serene muted blue and ivory tones, book-matched Italian marble, and bespoke millwork. Every piece of furniture and architectural lighting fixture was custom designed to deliver understated elegance and acoustic calm.',
+    architecturalPhilosophy: 'Atmosphere shaped by tactile luxury and restraint. The spatial narrative balances expansive panoramic views of Hyderabad with warm, intimate zones for contemplation, reading, and entertaining.',
     materials: [
-      'Exposed Wire-Cut Brick Masonry',
-      'Grey Leather-Finish Kota Stone',
-      'Sustainably Harvested Sal Wood Pillars',
-      'Blackened Steel Structural Glass Roof',
-      'Natural Wool & Jute Kilims'
+      'Book-Matched Calacatta Gold Marble',
+      'Acoustic Engineered Oak Timber Flooring',
+      'Handcrafted Fluted Wall Paneling',
+      'Muted Sea-Blue Architectural Textiles',
+      'Custom Architectural Brass Hardware'
     ],
     features: [
-      'Biophilic double-height atrium with weeping fig canopy',
-      'Mezzanine cantilevered reading gallery',
-      'Integrated rainwater harvest reflection cistern',
-      'Passive stack ventilation through roof louvers'
+      'Panoramic 360-degree city views with motorized sheer drapery',
+      'Bespoke architectural cabinetry and hidden walk-in master suite',
+      'Acoustic wall isolation ensuring quiet urban retreat',
+      'Multi-scene architectural lighting with brass accent fixtures'
     ],
-    image: '/images/courtyard.jpg',
+    image: '/images/project_penthouse_luxury.jpg',
+    secondaryImage: '/images/service_interior_design.jpg',
     aspectClass: 'span-col-1 span-row-1',
     clientStory: {
-      quote: 'Even in the heart of Bengaluru, our house feels like an ancient monastery. The courtyard brings birds, rain, and daylight directly into our everyday routine.',
-      author: 'Dr. Srinivas & Malini Rao',
-      role: 'Homeowners'
-    }
-  },
-  {
-    id: 'stone-and-sage',
-    number: '04',
-    title: 'STONE & SAGE',
-    subtitle: 'A high-rise oceanfront haven balancing fluted travertine and muted botanical tones.',
-    location: 'Mumbai, India',
-    category: 'Apartment',
-    year: '2025',
-    area: '3,100 sq. ft',
-    leadArchitect: 'Ananya Varma & Tanya Sen',
-    description: 'Overlooking the Arabian Sea along Marine Drive, Stone & Sage elevates apartment living into a calm gallery of tactile luxury. Monumental fluted travertine marble panels contrast with muted sage velvets, brushed brass details, and soft curved bouclé lounge seating.',
-    architecturalPhilosophy: 'Framing panoramic horizon views while buffering city bustle. We softened geometric urban lines through gentle organic contours, custom fluted stone millwork, and sound-absorbing acoustic linen drapes.',
-    materials: [
-      'Fluted Roman Travertine Marble',
-      'Muted Sage Green Mohair & Velvet',
-      'Brushed Champagne Brass Accents',
-      'White Oak Herringbone Parquetry',
-      'Italian Bouclé Upholstery'
-    ],
-    features: [
-      'Custom floor-to-ceiling fluted stone fireplace facade',
-      'Acoustic double-glazed floor-to-ceiling sea panorama',
-      'Concealed architectural joinery with push-latch walnut storage',
-      'Curated contemporary art collection lighting scheme'
-    ],
-    image: '/images/stone-sage.jpg',
-    aspectClass: 'span-col-2 span-row-1',
-    clientStory: {
-      quote: 'When you step off the elevator and into the apartment, the entire frenzy of Mumbai simply vanishes. The muted sage and warm travertine feel restorative.',
-      author: 'Aaditya & Rhea Singhania',
-      role: 'Apartment Owners'
+      quote: 'Our home interiors turned out beautiful. Their design sense and execution are top-notch.',
+      author: 'Anil Verma',
+      role: 'Apartment Owner, Luxury Apartment'
     }
   }
 ];

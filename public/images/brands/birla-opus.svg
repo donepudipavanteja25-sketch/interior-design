@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <rect width="200" height="60" rx="6" fill="#FFFFFF"/>
+  <circle cx="24" cy="28" r="10" fill="#FF6B00"/>
+  <circle cx="34" cy="24" r="8" fill="#00A859"/>
+  <circle cx="32" cy="34" r="8" fill="#0066B3"/>
+  <text x="52" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="800" fill="#333333">BIRLA</text>
+  <text x="52" y="46" font-family="Arial, sans-serif" font-size="18" font-weight="900" fill="#FF6B00" letter-spacing="1">OPUS</text>
+</svg>

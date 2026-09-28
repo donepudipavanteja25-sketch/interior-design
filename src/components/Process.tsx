@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Clock } from 'lucide-react';
 import { processSteps } from '../data/studio';
 import '../styles/process.css';
 
@@ -11,10 +11,10 @@ export const Process: React.FC = () => {
         <div className="process-header reveal reveal-up">
           <span className="section-tag">OUR METHODOLOGY</span>
           <h2 className="section-title">
-            From raw inquiry to turnkey sanctuary.
+            A clear path from idea to handover
           </h2>
-          <p className="section-lead" style={{ marginTop: '1rem' }}>
-            A disciplined four-phase progression that marries architectural rigor with intimate listening and artisanal execution.
+          <p className="section-lead" style={{ marginTop: '0.75rem' }}>
+            A disciplined four-phase progression that marries architectural rigor with transparent execution and reliable engineering.
           </p>
         </div>
 
@@ -29,10 +29,13 @@ export const Process: React.FC = () => {
               </div>
 
               <div className="process-card-bottom">
-                <div className="process-timeline-badge">Timeline: {step.timeline}</div>
+                <div className="process-timeline-badge">
+                  <Clock size={13} style={{ display: 'inline', marginRight: 4 }} />
+                  Duration: {step.timeline}
+                </div>
                 <ul className="process-detail-list">
-                  {step.details.slice(0, 3).map((detail, idx) => (
-                    <li key={idx} className="process-detail-item">
+                  {step.details.slice(0, 3).map((detail, i) => (
+                    <li key={i} className="process-detail-item">
                       <span className="process-bullet" />
                       <span>{detail}</span>
                     </li>

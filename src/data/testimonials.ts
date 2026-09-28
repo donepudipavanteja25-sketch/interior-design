@@ -2,9 +2,11 @@ export interface Testimonial {
   id: string;
   quote: string;
   clientName: string;
+  clientRole?: string;
   projectTitle: string;
   location: string;
   year: string;
+  image?: string;
 }
 
 export interface PressMention {
@@ -17,53 +19,59 @@ export interface PressMention {
 export const testimonialsData: Testimonial[] = [
   {
     id: 'test-1',
-    quote: 'Verdé & Form didn’t just design our house—they changed how our entire family lives. The balance of raw concrete and warm teak creates an enduring quietness that makes returning home the most treasured part of our day.',
-    clientName: 'Vikram & Priya Reddy',
-    projectTitle: 'The Willow Residence',
+    quote: 'Vriksha delivered our dream home exactly as we envisioned. The design, quality and attention to detail were exceptional.',
+    clientName: 'Ramesh Kumar',
+    clientRole: 'Home Owner',
+    projectTitle: 'Modern Villa',
     location: 'Hyderabad',
-    year: '2025'
+    year: '2024',
+    image: '/images/hero_hillside_infinity_villa.jpg'
   },
   {
     id: 'test-2',
-    quote: 'Their deep understanding of climate, vernacular laterite stone, and natural ventilation turned what could have been a standard holiday villa into a sacred tropical pavilion. Every guest who walks in is struck by the serenity.',
-    clientName: 'Rohit & Natasha Mehta',
-    projectTitle: 'Casa Terra',
-    location: 'Assagao, Goa',
-    year: '2024'
+    quote: 'The team was professional, creative and delivered our office project on time. Highly recommended!',
+    clientName: 'Priya S',
+    clientRole: 'Business Owner',
+    projectTitle: 'Corporate Office',
+    location: 'Hyderabad',
+    year: '2024',
+    image: '/images/project_corporate_office.jpg'
   },
   {
     id: 'test-3',
-    quote: 'In a bustling city like Mumbai, having a home anchored in fluted travertine and muted sage tones is the greatest luxury imaginable. The craftsmanship in their custom millwork is unmatched.',
-    clientName: 'Aaditya Singhania',
-    projectTitle: 'Stone & Sage',
-    location: 'Marine Drive, Mumbai',
-    year: '2025'
+    quote: 'Our home interiors turned out beautiful. Their design sense and execution are top-notch.',
+    clientName: 'Anil Verma',
+    clientRole: 'Apartment Owner',
+    projectTitle: 'Luxury Apartment',
+    location: 'Hyderabad',
+    year: '2024',
+    image: '/images/project_penthouse_luxury.jpg'
   }
 ];
 
 export const pressMentions: PressMention[] = [
   {
-    publication: 'Architectural Digest',
-    acclaim: 'Top 50 Architecture & Interior Studios',
-    quote: 'Verdé & Form defines modern tropical minimalism—creating spaces where raw stone and sunlight converse in effortless luxury.',
+    publication: 'Construction World',
+    acclaim: 'Excellence in Sustainable Building & Shuttering',
+    quote: 'Vriksha sets the benchmark in Hyderabad with precision MS Box & PVC formwork and climate-responsive engineering.',
+    issue: 'Infrastructure Review'
+  },
+  {
+    publication: 'Architectural Heritage',
+    acclaim: 'Top Turnkey Residential & Commercial Studio',
+    quote: 'A rare contractor-designer practice combining structural mastery with bespoke interior luxury under one accountable team.',
     issue: 'Annual Design Issue'
   },
   {
-    publication: 'Elle Décor',
-    acclaim: 'Best Residential Transformation',
-    quote: 'A masterclass in restraint. Their interiors whisper instead of shouting, celebrating the quiet poetry of natural materials.',
-    issue: 'Design Vanguard'
+    publication: 'Telangana Real Estate & Architecture',
+    acclaim: 'Best Contemporary Villa Construction',
+    quote: 'End-to-end reliability from soil testing and shuttering to custom millwork and handover.',
+    issue: 'Excellence Awards'
   },
   {
-    publication: 'Dezeen Awards',
-    acclaim: 'Residential Interior of the Year Shortlist',
-    quote: 'An introspective sanctuary demonstrating how vernacular South Asian architecture can inform contemporary luxury living.',
-    issue: 'International Jury'
-  },
-  {
-    publication: 'Wallpaper*',
-    acclaim: 'Architectural Atelier to Watch',
-    quote: 'Tactile, earthy, and uncompromisingly sophisticated. Verdé & Form crafts interiors with genuine permanence.',
-    issue: 'Design Directory'
+    publication: 'Green Building Council Digest',
+    acclaim: 'Pioneer in Sustainable Base Build',
+    quote: 'Championing passive solar planning, material efficiency, and low-waste execution across Telangana.',
+    issue: 'Sustainability Spotlight'
   }
 ];
