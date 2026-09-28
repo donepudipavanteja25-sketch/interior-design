@@ -44,8 +44,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
       <header className={`navbar-header ${isScrolled || isSubpage ? 'scrolled' : ''}`}>
         <div className="container navbar-container">
           <Link to="/" className="brand-logo" aria-label="Verdé & Form Home">
-            <span className="brand-name">VERDÉ & FORM</span>
-            <span className="brand-sub">Architectural Interiors</span>
+            <span className="brand-name">
+              VERDÉ & FORM <span className="brand-accent-dot">•</span>
+            </span>
+            <span className="brand-sub">Interiors & Construction</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -70,9 +72,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                 onClick={onOpenConsultation}
                 className="nav-cta"
                 id="start-project-nav-btn"
-                aria-label="Start a Project Consultation"
+                aria-label="Get Free Consultation"
               >
-                Start a Project
+                Get Free Consultation <ArrowUpRight size={14} style={{ display: 'inline' }} />
               </button>
             </div>
           </nav>

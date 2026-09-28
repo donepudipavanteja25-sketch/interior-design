@@ -123,6 +123,77 @@
   font-weight: 500;
 }
 
+/* Studio Floating Stats Card */
+.studio-floating-stats {
+  position: absolute;
+  top: 50%;
+  left: -2rem;
+  transform: translateY(-50%);
+  background-color: #ffffff;
+  padding: 1.75rem 2rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 15px 40px rgba(15, 23, 42, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 10;
+  min-width: 240px;
+}
+
+@media (max-width: 991px) {
+  .studio-floating-stats {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin-top: 1.5rem;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+.studio-stat-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.studio-stat-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: var(--accent-subtle);
+  border: 1px solid rgba(242, 101, 34, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.studio-stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.studio-stat-val {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  line-height: 1.15;
+}
+
+.studio-stat-lbl {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--earth-light);
+  font-weight: 500;
+}
+
 /* Right Image Column */
 .studio-image-col {
   position: relative;
@@ -131,44 +202,19 @@
 .studio-image-frame {
   position: relative;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 6px;
   box-shadow: var(--shadow-card);
   background-color: var(--cream);
+  border: 1px solid var(--border-light);
 }
 
 .studio-image {
   width: 100%;
-  height: clamp(340px, 45vw, 560px);
+  height: clamp(360px, 45vw, 560px);
   object-fit: cover;
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .studio-image-frame:hover .studio-image {
   transform: scale(1.03);
-}
-
-.studio-image-badge {
-  position: absolute;
-  bottom: 1.25rem;
-  left: 1.25rem;
-  background-color: var(--ivory);
-  padding: 0.85rem 1.25rem;
-  border-radius: 2px;
-  border-left: 2px solid var(--sage);
-  max-width: calc(100% - 2.5rem);
-}
-
-.studio-badge-title {
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--charcoal);
-  margin-bottom: 0.2rem;
-}
-
-.studio-badge-desc {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  color: var(--earth);
-  line-height: 1.4;
 }

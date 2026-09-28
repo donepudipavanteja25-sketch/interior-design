@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowDown } from 'lucide-react';
+import { ArrowRight, ArrowDown, Compass, ShieldCheck, Users } from 'lucide-react';
 import '../styles/hero.css';
 
 interface HeroProps {
@@ -25,32 +25,32 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
       <div className="container hero-content">
         <div className="hero-inner">
           <div className="hero-tagline-label reveal reveal-down">
-            Architecture & Interior Design Studio
+            INTERIORS / CONSTRUCTION / BETTER LIVING
           </div>
 
           <h1 className="hero-heading reveal reveal-up delay-1">
-            <span>INTERIORS</span>
-            <span>THAT FEEL</span>
-            <span>LIKE <em>HOME.</em></span>
+            <span>Spaces Designed</span>
+            <span>for a Brighter</span>
+            <span><em>Tomorrow</em></span>
           </h1>
 
           <div className="hero-bottom-grid reveal reveal-up delay-2">
             <div>
               <p className="hero-description">
-                Thoughtful spaces, natural materials, and timeless details designed around the way you live.
+                We create beautiful, functional spaces through thoughtful design and reliable construction, turning your vision into reality.
               </p>
 
               <div className="hero-actions">
-                <Link to="/projects" className="hero-btn-primary" id="hero-explore-work-btn">
-                  Explore Our Work <ArrowRight size={15} />
-                </Link>
                 <button
                   onClick={onOpenConsultation}
-                  className="hero-btn-secondary"
-                  id="hero-start-project-btn"
+                  className="hero-btn-primary"
+                  id="hero-get-consultation-btn"
                 >
-                  Start a Project
+                  Get Free Consultation <ArrowRight size={15} />
                 </button>
+                <Link to="/projects" className="hero-btn-secondary" id="hero-view-work-btn">
+                  View Our Work
+                </Link>
               </div>
             </div>
 
@@ -61,6 +61,39 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
                   <ArrowDown size={14} />
                 </span>
               </Link>
+            </div>
+          </div>
+
+          {/* Key Value Props Bar from Nexora Design */}
+          <div className="hero-value-props reveal reveal-up delay-3">
+            <div className="hero-prop-item">
+              <div className="hero-prop-icon">
+                <Compass size={18} />
+              </div>
+              <div className="hero-prop-text">
+                <strong>Creative Design</strong>
+                <span>Tailored to You</span>
+              </div>
+            </div>
+            <div className="hero-prop-divider" />
+            <div className="hero-prop-item">
+              <div className="hero-prop-icon">
+                <ShieldCheck size={18} />
+              </div>
+              <div className="hero-prop-text">
+                <strong>Quality Construction</strong>
+                <span>Built to Last</span>
+              </div>
+            </div>
+            <div className="hero-prop-divider" />
+            <div className="hero-prop-item">
+              <div className="hero-prop-icon">
+                <Users size={18} />
+              </div>
+              <div className="hero-prop-text">
+                <strong>End-to-End Support</strong>
+                <span>From Concept to Completion</span>
+              </div>
             </div>
           </div>
         </div>

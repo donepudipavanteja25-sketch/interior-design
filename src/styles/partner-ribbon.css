@@ -1,0 +1,79 @@
+/* Partner / Brand Logos Ribbon */
+.partner-ribbon-section {
+  background-color: var(--cream);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  padding: 1.75rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.partner-ribbon-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.partner-arrow-nav {
+  color: var(--earth-light);
+  opacity: 0.6;
+  transition: opacity var(--transition-fast), color var(--transition-fast);
+  cursor: pointer;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .partner-arrow-nav {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.partner-arrow-nav:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.partner-logos-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: clamp(1.5rem, 3.5vw, 3.5rem);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0.25rem 0;
+}
+
+.partner-logos-track::-webkit-scrollbar {
+  display: none;
+}
+
+.partner-logo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--earth-light);
+  font-family: var(--font-sans);
+  font-size: clamp(0.78rem, 1vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.75;
+  transition: all var(--transition-fast);
+  cursor: default;
+}
+
+.partner-logo-item svg {
+  color: var(--accent);
+  opacity: 0.85;
+}
+
+.partner-logo-item:hover {
+  opacity: 1;
+  color: var(--charcoal);
+  transform: translateY(-1px);
+}

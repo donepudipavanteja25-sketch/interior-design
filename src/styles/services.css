@@ -55,9 +55,10 @@
 }
 
 .service-num {
-  font-family: var(--font-serif);
-  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
-  color: var(--taupe);
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  font-weight: 700;
+  color: var(--accent);
   min-width: 28px;
 }
 
@@ -71,7 +72,7 @@
 }
 
 .service-accordion-item:hover .service-main-heading {
-  color: var(--earth);
+  color: var(--accent);
 }
 
 .service-icon-box {
@@ -87,10 +88,17 @@
   flex-shrink: 0;
 }
 
+.service-accordion-item:hover .service-icon-box {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 .service-accordion-item.open .service-icon-box {
-  background-color: var(--charcoal);
-  color: var(--ivory);
+  background-color: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
   transform: rotate(45deg);
+  box-shadow: 0 4px 12px rgba(242, 101, 34, 0.3);
 }
 
 /* Expanded Service Drawer */

@@ -1,0 +1,108 @@
+/* 3-Pillar Architectural Disciplines Showcase (Matching Reference Design) */
+.pillars-showcase-section {
+  background-color: var(--ivory);
+  padding: clamp(3.5rem, 6vw, 6rem) 0;
+  position: relative;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .pillars-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+.pillar-showcase-card {
+  background-color: var(--cream);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.pillar-showcase-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--border-medium);
+}
+
+.pillar-card-image-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10.5;
+  overflow: hidden;
+  background-color: var(--sand);
+}
+
+.pillar-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pillar-showcase-card:hover .pillar-card-img {
+  transform: scale(1.05);
+}
+
+.pillar-card-body {
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.pillar-card-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 1.8vw, 1.65rem);
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.pillar-card-desc {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--earth-light);
+  margin-bottom: 1.75rem;
+  flex-grow: 1;
+}
+
+.pillar-card-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.6rem;
+  background-color: var(--accent);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.78125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  box-shadow: 0 4px 14px rgba(242, 101, 34, 0.28);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  width: fit-content;
+  cursor: pointer;
+  border: none;
+}
+
+.pillar-card-btn:hover {
+  background-color: var(--accent-hover);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(242, 101, 34, 0.4);
+}

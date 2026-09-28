@@ -1,7 +1,9 @@
 import React from 'react';
 import { Hero } from '../components/Hero';
-import { StudioIntro } from '../components/StudioIntro';
+import { PartnerRibbon } from '../components/PartnerRibbon';
+import { PillarsShowcase } from '../components/PillarsShowcase';
 import { Projects } from '../components/Projects';
+import { StudioIntro } from '../components/StudioIntro';
 import { Philosophy } from '../components/Philosophy';
 import { Services } from '../components/Services';
 import { VisualBreak } from '../components/VisualBreak';
@@ -26,11 +28,17 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* Cinematic Hero */}
       <Hero onOpenConsultation={() => onOpenConsultation()} />
 
-      {/* Studio Introduction */}
-      <StudioIntro />
+      {/* Brand & Client Partner Ribbon */}
+      <PartnerRibbon />
 
-      {/* Selected Work / Projects */}
+      {/* 3-Pillar Architectural Disciplines Showcase */}
+      <PillarsShowcase onSelectServiceForInquiry={onSelectServiceForInquiry} />
+
+      {/* Selected Work / Featured Projects */}
       <Projects onStartProjectWithRef={onStartProjectWithRef} />
+
+      {/* About the Studio & Experience Stats */}
+      <StudioIntro />
 
       {/* Design Philosophy & Tactile Materials */}
       <Philosophy />

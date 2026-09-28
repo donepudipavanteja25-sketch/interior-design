@@ -1,21 +1,31 @@
 :root {
-  /* Warm Sandstone & Travertine Palette (Default) */
-  --ivory: #DFD5C4;
-  --cream: #D2C4B0;
-  --sand: #C2B198;
-  --stone: #AC9A81;
-  --taupe: #86745F;
-  --sage: #6E775F;
-  --sage-light: #8A947B;
-  --sage-subtle: #D3D7CB;
-  --earth: #372D24;
-  --earth-light: #524538;
-  --charcoal: #1D1A17;
-  --charcoal-soft: #2C2723;
-  --white: #E9E2D4;
-  --border-light: rgba(55, 45, 36, 0.16);
-  --border-subtle: rgba(55, 45, 36, 0.09);
-  --border-dark: rgba(223, 213, 196, 0.16);
+  /* Nexora Architectural Slate & Vibrant Orange Palette (Default) */
+  --accent: #F26522;
+  --accent-hover: #D9480F;
+  --accent-light: #FF8542;
+  --accent-subtle: #FFF4ED;
+  --accent-glow: 0 4px 20px rgba(242, 101, 34, 0.3);
+
+  /* Surfaces & Canvas */
+  --ivory: #F8FAFC;         /* Clean, luminous light slate page background */
+  --cream: #FFFFFF;         /* Pure crisp white card/surface background */
+  --sand: #F1F5F9;          /* Subtle light slate neutral surface */
+  --stone: #E2E8F0;         /* Fine border & divider tone */
+  --taupe: #F26522;         /* Vibrant orange accent for tags & highlights */
+  --sage: #F26522;          /* Accent orange for badges, checkmarks & active states */
+  --sage-light: #FB923C;
+  --sage-subtle: #FFF4ED;
+  --earth: #334155;         /* Crisp slate body text */
+  --earth-light: #64748B;   /* Slate secondary/muted text */
+  --charcoal: #0F172A;      /* Deep modern architectural slate */
+  --charcoal-soft: #1E293B; /* Secondary dark slate */
+  --white: #FFFFFF;
+
+  /* Borders */
+  --border-light: #E2E8F0;
+  --border-medium: #CBD5E1;
+  --border-subtle: #F1F5F9;
+  --border-dark: rgba(255, 255, 255, 0.15);
 
   /* Typography */
   --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
@@ -49,9 +59,9 @@
   --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Elevations */
-  --shadow-subtle: 0 4px 20px rgba(29, 26, 23, 0.05);
-  --shadow-card: 0 10px 30px rgba(29, 26, 23, 0.08);
-  --shadow-modal: 0 25px 60px rgba(29, 26, 23, 0.22);
+  --shadow-subtle: 0 4px 20px rgba(15, 23, 42, 0.04);
+  --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-modal: 0 25px 60px rgba(15, 23, 42, 0.25);
 
   /* Layout */
   --container-max: 1380px;
@@ -62,29 +72,69 @@
 
 /* Theme: Moody Architectural Dark */
 [data-theme="moody-dark"] {
-  --ivory: #1E1C19;
-  --cream: #272420;
-  --sand: #3A352F;
-  --stone: #554E46;
-  --taupe: #9B9184;
-  --sage: #8A9878;
-  --sage-light: #A1AD8E;
-  --sage-subtle: #2D3228;
-  --earth: #DCD4C7;
-  --earth-light: #B8ADA0;
-  --charcoal: #F5EFE6;
-  --charcoal-soft: #E2DBD0;
-  --white: #272420;
-  --border-light: rgba(245, 239, 230, 0.14);
-  --border-subtle: rgba(245, 239, 230, 0.08);
-  --border-dark: rgba(245, 239, 230, 0.2);
-  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.2);
-  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.35);
-  --shadow-modal: 0 25px 60px rgba(0, 0, 0, 0.6);
+  --accent: #F26522;
+  --accent-hover: #D9480F;
+  --accent-light: #FF8542;
+  --accent-subtle: rgba(242, 101, 34, 0.15);
+  --accent-glow: 0 4px 20px rgba(242, 101, 34, 0.45);
+  --ivory: #0B1320;
+  --cream: #111827;
+  --sand: #1E293B;
+  --stone: #334155;
+  --taupe: #F26522;
+  --sage: #F26522;
+  --sage-light: #FB923C;
+  --sage-subtle: #1C1917;
+  --earth: #E2E8F0;
+  --earth-light: #94A3B8;
+  --charcoal: #FFFFFF;
+  --charcoal-soft: #F8FAFC;
+  --white: #111827;
+  --border-light: rgba(255, 255, 255, 0.12);
+  --border-medium: rgba(255, 255, 255, 0.2);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-dark: rgba(255, 255, 255, 0.22);
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --shadow-modal: 0 25px 60px rgba(0, 0, 0, 0.7);
+}
+
+/* Theme: Warm Sandstone & Travertine */
+[data-theme="warm-sandstone"] {
+  --accent: #86745F;
+  --accent-hover: #524538;
+  --accent-light: #AC9A81;
+  --accent-subtle: rgba(134, 116, 95, 0.12);
+  --accent-glow: 0 4px 20px rgba(55, 45, 36, 0.2);
+  --ivory: #DFD5C4;
+  --cream: #D2C4B0;
+  --sand: #C2B198;
+  --stone: #AC9A81;
+  --taupe: #86745F;
+  --sage: #6E775F;
+  --sage-light: #8A947B;
+  --sage-subtle: #D3D7CB;
+  --earth: #372D24;
+  --earth-light: #524538;
+  --charcoal: #1D1A17;
+  --charcoal-soft: #2C2723;
+  --white: #E9E2D4;
+  --border-light: rgba(55, 45, 36, 0.16);
+  --border-medium: rgba(55, 45, 36, 0.28);
+  --border-subtle: rgba(55, 45, 36, 0.09);
+  --border-dark: rgba(223, 213, 196, 0.16);
+  --shadow-subtle: 0 4px 20px rgba(29, 26, 23, 0.05);
+  --shadow-card: 0 10px 30px rgba(29, 26, 23, 0.08);
+  --shadow-modal: 0 25px 60px rgba(29, 26, 23, 0.22);
 }
 
 /* Theme: Muted Sage & Olive Mineral */
 [data-theme="muted-sage"] {
+  --accent: #535F48;
+  --accent-hover: #3E4736;
+  --accent-light: #6C7A60;
+  --accent-subtle: #E2E6DD;
+  --accent-glow: 0 4px 20px rgba(83, 95, 72, 0.25);
   --ivory: #D6DAD0;
   --cream: #C8CEC0;
   --sand: #B8BFAD;
@@ -99,19 +149,25 @@
   --charcoal-soft: #283023;
   --white: #E2E6DD;
   --border-light: rgba(47, 54, 42, 0.16);
+  --border-medium: rgba(47, 54, 42, 0.28);
   --border-subtle: rgba(47, 54, 42, 0.08);
   --border-dark: rgba(214, 218, 208, 0.2);
 }
 
 /* Theme: Warm Terracotta & Sand */
 [data-theme="terracotta"] {
+  --accent: #E05D2B;
+  --accent-hover: #B84719;
+  --accent-light: #F07E52;
+  --accent-subtle: #EDE0D7;
+  --accent-glow: 0 4px 20px rgba(224, 93, 43, 0.28);
   --ivory: #DAC9BE;
   --cream: #CEBAAD;
   --sand: #BEA798;
   --stone: #A98E7E;
   --taupe: #836758;
-  --sage: #7A695C;
-  --sage-light: #9B8678;
+  --sage: #E05D2B;
+  --sage-light: #F07E52;
   --sage-subtle: #EDE0D7;
   --earth: #3F2B21;
   --earth-light: #5A4033;
@@ -119,6 +175,7 @@
   --charcoal-soft: #38251D;
   --white: #E8D9CF;
   --border-light: rgba(63, 43, 33, 0.16);
+  --border-medium: rgba(63, 43, 33, 0.28);
   --border-subtle: rgba(63, 43, 33, 0.08);
   --border-dark: rgba(218, 201, 190, 0.2);
 }

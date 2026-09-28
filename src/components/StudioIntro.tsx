@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles, Users, Building2 } from 'lucide-react';
 import '../styles/studio.css';
 
 export const StudioIntro: React.FC = () => {
@@ -10,56 +10,69 @@ export const StudioIntro: React.FC = () => {
         <div className="studio-grid">
           {/* Left Text Block */}
           <div className="studio-text-col reveal reveal-left">
-            <span className="section-tag">THE STUDIO</span>
+            <span className="section-tag">ABOUT VERDÉ & FORM</span>
 
             <h2 className="studio-heading">
-              We design spaces with a sense of place, purpose, and permanence.
+              Designing Spaces.<br />Building Lifestyles.
             </h2>
 
             <p className="studio-paragraph">
-              Verdé & Form is an interior design studio creating refined residential and boutique spaces through a thoughtful balance of architecture, material, light, and everyday life.
+              We are a full-service interiors and construction company, passionate about creating inspiring spaces that blend aesthetics, functionality, and lasting value.
             </p>
 
             <p className="studio-secondary-text">
-              Founded on the belief that environment shapes human emotion, we reject trend-driven clutter in favor of quiet architectural proportions, tactile natural stones, and unvarnished timbers that deepen in character alongside the people who inhabit them.
+              From foundational architecture and bespoke masonry to turn-key styling and lighting atmospheres, we turn visionary sketches into extraordinary, lived-in realities.
             </p>
 
-            <Link to="/studio" className="studio-cta" id="discover-studio-cta">
-              Discover the Studio <ArrowRight size={15} />
-            </Link>
-
-            {/* Metrics Bar */}
-            <div className="studio-metrics-row">
-              <div className="metric-item reveal reveal-up delay-1">
-                <div className="metric-number">14+</div>
-                <div className="metric-label">Years of Practice</div>
-              </div>
-              <div className="metric-item reveal reveal-up delay-2">
-                <div className="metric-number">68</div>
-                <div className="metric-label">Completed Sanctuaries</div>
-              </div>
-              <div className="metric-item reveal reveal-up delay-3">
-                <div className="metric-number">03</div>
-                <div className="metric-label">Design Ateliers</div>
-              </div>
+            <div style={{ marginTop: '0.5rem' }}>
+              <Link to="/studio" className="btn-primary" id="discover-studio-cta">
+                More About Us <ArrowRight size={15} />
+              </Link>
             </div>
           </div>
 
-          {/* Right Architectural Visual */}
+          {/* Right Architectural Visual with Floating Stats Card */}
           <div className="studio-image-col reveal reveal-right delay-2">
+            {/* Floating Stats Card matching Nexora screenshot */}
+            <div className="studio-floating-stats">
+              <div className="studio-stat-row">
+                <div className="studio-stat-icon-box">
+                  <Sparkles size={20} />
+                </div>
+                <div className="studio-stat-info">
+                  <span className="studio-stat-val">10+</span>
+                  <span className="studio-stat-lbl">Years of Experience</span>
+                </div>
+              </div>
+
+              <div className="studio-stat-row">
+                <div className="studio-stat-icon-box">
+                  <Users size={20} />
+                </div>
+                <div className="studio-stat-info">
+                  <span className="studio-stat-val">250+</span>
+                  <span className="studio-stat-lbl">Happy Clients</span>
+                </div>
+              </div>
+
+              <div className="studio-stat-row">
+                <div className="studio-stat-icon-box">
+                  <Building2 size={20} />
+                </div>
+                <div className="studio-stat-info">
+                  <span className="studio-stat-val">500+</span>
+                  <span className="studio-stat-lbl">Projects Delivered</span>
+                </div>
+              </div>
+            </div>
+
             <div className="studio-image-frame">
               <img
                 src="/images/studio.jpg"
-                alt="Verdé & Form Design Studio and Material Archive"
+                alt="Verdé & Form Contemporary Dining and Living Space"
                 className="studio-image"
                 loading="lazy"
               />
-              <div className="studio-image-badge">
-                <div className="studio-badge-title">Material Archive & Atelier</div>
-                <div className="studio-badge-desc">
-                  Where tactile stone, timber, and daylight studies convene.
-                </div>
-              </div>
             </div>
           </div>
         </div>

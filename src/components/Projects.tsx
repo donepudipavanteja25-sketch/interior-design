@@ -22,36 +22,46 @@ export const Projects: React.FC<ProjectsProps> = ({ onStartProjectWithRef }) => 
   return (
     <section className="projects-section section-padding" id="projects">
       <div className="container">
-        {/* Section Header with Category Filters */}
+        {/* Section Header with Category Filters & View All Button */}
         <div className="projects-header-wrapper reveal reveal-up">
           <div className="projects-intro-left">
-            <span className="section-tag">SELECTED WORK</span>
+            <span className="section-tag">OUR WORK</span>
             <h2 className="section-title">
-              Spaces designed to evolve beautifully over time.
+              Featured Projects
             </h2>
           </div>
 
-          <div className="projects-filter-bar reveal reveal-up delay-1" role="tablist" aria-label="Project Categories">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                role="tab"
-                aria-selected={activeCategory === cat}
-                className={`filter-btn ${activeCategory === cat ? 'active' : ''}`}
-                onClick={() => setActiveCategory(cat)}
-              >
-                {cat}
-              </button>
-            ))}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '1rem', maxWidth: 440 }}>
+            <p style={{ fontSize: '0.88rem', color: 'var(--earth-light)', lineHeight: 1.6 }}>
+              Explore a selection of our latest projects, from stylish interiors to large-scale construction, each crafted with care and precision.
+            </p>
+            <Link to="/projects" className="btn-secondary" style={{ padding: '0.65rem 1.4rem', fontSize: '0.75rem' }}>
+              View All Projects <ArrowUpRight size={14} />
+            </Link>
           </div>
         </div>
 
-        {/* Even 2-Column Architectural Grid */}
+        {/* Category Filters Bar */}
+        <div className="projects-filter-bar reveal reveal-up delay-1" role="tablist" aria-label="Project Categories" style={{ marginBottom: '2.5rem' }}>
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              role="tab"
+              aria-selected={activeCategory === cat}
+              className={`filter-btn ${activeCategory === cat ? 'active' : ''}`}
+              onClick={() => setActiveCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* 4-Column Architectural Grid */}
         <div className="projects-editorial-grid">
           {filteredProjects.map((project, idx) => (
             <article
               key={project.id}
-              className={`project-card reveal reveal-up delay-${(idx % 2) + 1}`}
+              className={`project-card reveal reveal-up delay-${(idx % 4) + 1}`}
               onClick={() => setSelectedProject(project)}
               role="button"
               tabIndex={0}
@@ -79,28 +89,19 @@ export const Projects: React.FC<ProjectsProps> = ({ onStartProjectWithRef }) => 
               <div className="project-meta-box">
                 <div className="project-header-row">
                   <h3 className="project-title">{project.title}</h3>
-                  <span className="project-location">{project.location}</span>
+                  <div className="project-arrow-circle" aria-hidden="true">
+                    <ArrowUpRight size={14} />
+                  </div>
                 </div>
 
-                <p className="project-subtitle">{project.subtitle}</p>
-
-                <div className="project-tag-row">
+                <div className="project-tag-row" style={{ marginTop: '0.25rem' }}>
                   <span>{project.category}</span>
                   <span className="project-tag-bullet" />
-                  <span>{project.area}</span>
-                  <span className="project-tag-bullet" />
-                  <span>{project.year}</span>
+                  <span>{project.location.split(',')[0]}</span>
                 </div>
               </div>
             </article>
           ))}
-        </div>
-
-        {/* View All Projects Link */}
-        <div style={{ textAlign: 'center', marginTop: '4rem' }}>
-          <Link to="/projects" className="btn-secondary">
-            View All Architectural Works <ArrowUpRight size={15} />
-          </Link>
         </div>
       </div>
 

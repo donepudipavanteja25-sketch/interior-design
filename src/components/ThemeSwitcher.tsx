@@ -10,19 +10,20 @@ interface ThemeOption {
 }
 
 const themes: ThemeOption[] = [
+  { id: 'nexora-modern', name: 'Nexora Slate', color: '#F26522', description: 'Deep slate, crisp white & architectural orange' },
   { id: 'warm-sandstone', name: 'Sandstone', color: '#DFD5C4', description: 'Warm sand & honed travertine' },
-  { id: 'moody-dark', name: 'Dark Atelier', color: '#272420', description: 'Deep charcoal & bronze' },
-  { id: 'muted-sage', name: 'Muted Sage', color: '#D6DAD0', description: 'Botanical stone & olive' },
-  { id: 'terracotta', name: 'Terracotta', color: '#DAC9BE', description: 'Sun-baked clay & walnut' }
+  { id: 'moody-dark', name: 'Dark Atelier', color: '#0B1320', description: 'Deep midnight slate & vibrant orange' },
+  { id: 'muted-sage', name: 'Muted Sage', color: '#535F48', description: 'Botanical stone & olive' },
+  { id: 'terracotta', name: 'Terracotta', color: '#E05D2B', description: 'Sun-baked clay & walnut' }
 ];
 
 export const ThemeSwitcher: React.FC = () => {
-  const [activeTheme, setActiveTheme] = useState<string>('warm-sandstone');
+  const [activeTheme, setActiveTheme] = useState<string>('nexora-modern');
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (activeTheme === 'warm-sandstone') {
+    if (activeTheme === 'nexora-modern') {
       document.documentElement.removeAttribute('data-theme');
     } else {
       document.documentElement.setAttribute('data-theme', activeTheme);
