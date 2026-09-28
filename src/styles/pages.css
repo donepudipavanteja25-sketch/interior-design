@@ -2,13 +2,21 @@
   padding-top: 88px;
 }
 
-/* Common Page Header */
+/* Common Page Header - Architectural Sea Blue */
 .page-hero-section {
   position: relative;
   padding: clamp(4.5rem, 8vw, 6.5rem) 0 clamp(3rem, 5vw, 4.5rem);
-  background-color: var(--cream);
-  border-bottom: 1px solid var(--border-light);
+  background: linear-gradient(135deg, #006994 0%, #063F57 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   overflow: hidden;
+  color: #FFFFFF;
+}
+
+.page-hero-section .section-tag {
+  color: #FF8542;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
 }
 
 .page-hero-content {
@@ -20,7 +28,7 @@
   font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 800;
   line-height: 1.1;
-  color: var(--charcoal);
+  color: #FFFFFF;
   letter-spacing: -0.025em;
   margin: 0.75rem 0 1.25rem;
 }
@@ -28,7 +36,7 @@
 .page-hero-lead {
   font-family: var(--font-sans);
   font-size: clamp(1.05rem, 1.3vw, 1.2rem);
-  color: var(--earth-light);
+  color: #DCEDF4;
   line-height: 1.7;
   max-width: 760px;
 }

@@ -8,31 +8,32 @@
   --accent-glow: 0 4px 20px rgba(229, 90, 34, 0.3);
 
   /* Primary Blue Brand Tokens */
-  --brand-blue: #075F82;
-  --brand-sea-blue: #006994;
-  --brand-dark-blue: #063F57;
-  --brand-hover-blue: #064F6C;
+  --brand-blue: #006994;          /* Official Sea Blue (#006994) */
+  --brand-sea-blue: #006994;      /* Official Sea Blue */
+  --brand-dark-blue: #063F57;     /* Deep sea dark blue */
+  --brand-hover-blue: #064F6C;    /* Sea blue hover */
+  --brand-sea-light: #0080B0;     /* Sea blue bright highlight */
 
-  /* Surfaces & Canvas */
-  --ivory: #F5F8FA;         /* Light architectural background */
-  --cream: #FFFFFF;         /* Crisp white surface/card */
-  --sand: #EDF3F7;          /* Soft slate blue-tinted surface */
-  --stone: #DCE4E9;         /* Light border & divider tone */
-  --taupe: #E55A22;         /* Vibrant orange accent */
-  --sage: #075F82;          /* Primary blue for badges, checkmarks & active states */
-  --sage-light: #006994;    /* Sea blue */
-  --sage-subtle: #EBF4F8;
-  --earth: #0F172A;         /* Main text */
-  --earth-light: #475569;   /* Secondary text */
-  --charcoal: #063F57;      /* Deep brand dark blue */
-  --charcoal-soft: #0F172A; /* Secondary deep tone */
+  /* Surfaces & Canvas - Infused with Sea Blue (#006994) */
+  --ivory: #E8F4F8;               /* Architectural sea blue tint canvas */
+  --cream: #EFF7FA;               /* Soft sea blue surface tone */
+  --sand: #DCEDF4;                /* Distinct sea blue surface */
+  --stone: #BDDEEB;               /* Light sea blue border & divider */
+  --taupe: #E55A22;               /* Vibrant orange accent */
+  --sage: #006994;                /* Sea blue for badges & highlights */
+  --sage-light: #0080B0;          /* Bright sea blue */
+  --sage-subtle: #DDF0F7;         /* Soft sea blue badge background */
+  --earth: #0F172A;               /* Main text */
+  --earth-light: #334E68;         /* Secondary text with slate-blue tint */
+  --charcoal: #063F57;            /* Deep brand dark blue */
+  --charcoal-soft: #006994;       /* Sea blue tone */
   --white: #FFFFFF;
 
   /* Borders */
-  --border-light: #DCE4E9;
-  --border-medium: #CBD5E1;
-  --border-subtle: #EDF3F7;
-  --border-dark: rgba(255, 255, 255, 0.15);
+  --border-light: #BDDEEB;
+  --border-medium: #8AC4DC;
+  --border-subtle: #DDF0F7;
+  --border-dark: rgba(255, 255, 255, 0.2);
 
   /* Typography */
   --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;

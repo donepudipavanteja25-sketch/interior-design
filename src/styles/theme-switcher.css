@@ -5,55 +5,57 @@
 }
 
 /* Compact Single Toggle Button */
+/* Compact Single Toggle Button on Sea Blue Header */
 .theme-dropdown-toggle {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
   padding: 0.5rem 0.85rem;
-  background-color: var(--ivory, #F5F8FA);
-  border: 1px solid var(--border-light, #DCE4E9);
+  background-color: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 4px;
   font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #0F172A !important;
+  color: #FFFFFF !important;
   cursor: pointer;
   transition: all var(--transition-fast);
   white-space: nowrap;
 }
 
-.navbar-header.scrolled .theme-dropdown-toggle,
-.theme-dropdown-toggle {
-  color: #0F172A !important;
-}
-
 .theme-dropdown-toggle:hover {
-  background-color: #FFFFFF;
-  border-color: var(--accent, #E55A22);
-  color: var(--accent, #E55A22) !important;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+  background-color: rgba(255, 255, 255, 0.28);
+  border-color: #FFFFFF;
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .theme-dropdown-toggle.open {
   background-color: #FFFFFF;
-  border-color: var(--brand-blue, #075F82);
-  color: var(--brand-blue, #075F82) !important;
-  box-shadow: 0 4px 12px rgba(7, 95, 130, 0.12);
+  border-color: #FFFFFF;
+  color: #006994 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-header.scrolled .theme-dropdown-toggle {
+  background-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #FFFFFF !important;
 }
 
 .navbar-header.scrolled .theme-dropdown-toggle:hover {
-  background-color: #FFFFFF;
-  border-color: var(--accent, #E55A22);
-  color: var(--accent, #E55A22) !important;
+  background-color: rgba(255, 255, 255, 0.28);
+  border-color: #FFFFFF;
+  color: #FFFFFF !important;
 }
 
 .theme-current-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1.5px solid #FFFFFF;
   display: inline-block;
   flex-shrink: 0;
 }

@@ -263,12 +263,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  background-color: rgba(6, 63, 87, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(0, 105, 148, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 6px;
   padding: 1.25rem 2rem;
   backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 12px 35px rgba(0, 105, 148, 0.35);
 }
 
 .hero-prop-item {

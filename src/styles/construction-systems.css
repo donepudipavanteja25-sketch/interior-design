@@ -1,6 +1,6 @@
 /* Construction Systems Styles */
 .construction-systems-section {
-  background-color: var(--cream);
+  background-color: var(--ivory);
   position: relative;
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
@@ -25,13 +25,13 @@
 }
 
 .system-card {
-  background-color: var(--ivory);
+  background-color: #FFFFFF;
   border: 1px solid var(--border-light);
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 4px 18px rgba(0, 105, 148, 0.08);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
