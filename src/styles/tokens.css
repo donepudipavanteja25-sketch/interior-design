@@ -15,7 +15,7 @@
   --brand-sea-light: #0080B0;     /* Sea blue bright highlight */
 
   /* Surfaces & Canvas - Rich, Undeniable Sea Blue (#006994) */
-  --ivory: #D6EDF6;               /* Rich architectural Sea Blue canvas (no plain white) */
+  --ivory: #D6EDF6;               /* Rich architectural Sea Blue canvas */
   --cream: #C5E5F2;               /* Distinct Sea Blue surface tone */
   --sand: #B0DCF0;                /* Deeper Sea Blue surface */
   --stone: #86C4E0;               /* Sea Blue border & divider */
@@ -29,12 +29,52 @@
   --charcoal-soft: #006994;       /* Official Sea Blue tone */
   --white: #D6EDF6;               /* Set surface default to Sea Blue */
   --pure-white: #FFFFFF;          /* Reserved strictly for text on dark sea blue */
+  --card-bg: #C5E5F2;             /* Sea Blue surface for cards */
 
   /* Borders */
   --border-light: #8DC7E2;
   --border-medium: #5FAECF;
   --border-subtle: #AEE0F5;
   --border-dark: rgba(4, 40, 56, 0.25);
+
+  /* Navbar & Chrome Tokens - Official Sea Blue */
+  --navbar-bg: #006994;
+  --navbar-bg-scrolled: #063F57;
+  --navbar-text: #FFFFFF;
+  --navbar-text-hover: #FF8542;
+  --navbar-active-text: #FFFFFF;
+  --navbar-active-bar: #E55A22;
+  --navbar-border: rgba(255, 255, 255, 0.15);
+  --navbar-logo-bg: #FFFFFF;
+  --navbar-logo-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  --navbar-phone-bg: rgba(255, 255, 255, 0.12);
+  --navbar-phone-border: rgba(255, 255, 255, 0.35);
+  --navbar-phone-text: #FFFFFF;
+  --navbar-phone-hover-bg: #E55A22;
+  --navbar-phone-hover-text: #FFFFFF;
+  --navbar-phone-icon-color: #FF8542;
+  --navbar-divider: rgba(255, 255, 255, 0.3);
+  --theme-toggle-bg: rgba(255, 255, 255, 0.16);
+  --theme-toggle-border: rgba(255, 255, 255, 0.35);
+  --theme-toggle-text: #FFFFFF;
+  --theme-toggle-open-bg: #063F57;
+  --theme-toggle-open-text: #FFFFFF;
+  --theme-dropdown-bg: #063F57;
+  --theme-dropdown-border: rgba(255, 255, 255, 0.25);
+  --theme-dropdown-text: #FFFFFF;
+  --theme-dropdown-header: #A5D5E8;
+  --theme-dropdown-hover-bg: rgba(255, 255, 255, 0.14);
+  --theme-dropdown-hover-text: #FFFFFF;
+  --theme-dropdown-active-bg: rgba(229, 90, 34, 0.3);
+  --theme-dropdown-active-text: #FF8542;
+  --mobile-menu-bg: #063F57;
+  --mobile-menu-text: #FFFFFF;
+  --page-hero-bg: linear-gradient(135deg, #006994 0%, #063F57 100%);
+  --page-hero-title: #FFFFFF;
+  --page-hero-lead: #DCEDF4;
+  --page-hero-border: rgba(255, 255, 255, 0.15);
+  --page-hero-tag-color: #FF8542;
+  --page-hero-tag-bg: rgba(255, 255, 255, 0.15);
 
   /* Typography */
   --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
@@ -79,7 +119,7 @@
   --header-height-scrolled: 72px;
 }
 
-/* Theme: Nexora Architectural Slate & Orange */
+/* Theme: Nexora Architectural Slate & Orange (Original Clean Modern) */
 [data-theme="nexora-modern"] {
   --accent: #F26522;
   --accent-hover: #D9480F;
@@ -103,16 +143,57 @@
   --charcoal: #0F172A;
   --charcoal-soft: #1E293B;
   --white: #FFFFFF;
+  --card-bg: #FFFFFF;
   --border-light: #E2E8F0;
   --border-medium: #CBD5E1;
   --border-subtle: #F1F5F9;
   --border-dark: rgba(255, 255, 255, 0.15);
+
+  /* Original White Navbar & Chrome */
+  --navbar-bg: #FFFFFF;
+  --navbar-bg-scrolled: #FFFFFF;
+  --navbar-text: #0F172A;
+  --navbar-text-hover: #F26522;
+  --navbar-active-text: #F26522;
+  --navbar-active-bar: #F26522;
+  --navbar-border: #E2E8F0;
+  --navbar-logo-bg: transparent;
+  --navbar-logo-shadow: none;
+  --navbar-phone-bg: #F8FAFC;
+  --navbar-phone-border: #CBD5E1;
+  --navbar-phone-text: #0F172A;
+  --navbar-phone-hover-bg: #F26522;
+  --navbar-phone-hover-text: #FFFFFF;
+  --navbar-phone-icon-color: #F26522;
+  --navbar-divider: #E2E8F0;
+  --theme-toggle-bg: #F1F5F9;
+  --theme-toggle-border: #CBD5E1;
+  --theme-toggle-text: #0F172A;
+  --theme-toggle-open-bg: #FFFFFF;
+  --theme-toggle-open-text: #F26522;
+  --theme-dropdown-bg: #FFFFFF;
+  --theme-dropdown-border: #E2E8F0;
+  --theme-dropdown-text: #0F172A;
+  --theme-dropdown-header: #64748B;
+  --theme-dropdown-hover-bg: #F1F5F9;
+  --theme-dropdown-hover-text: #0F172A;
+  --theme-dropdown-active-bg: #FFF4ED;
+  --theme-dropdown-active-text: #F26522;
+  --mobile-menu-bg: #FFFFFF;
+  --mobile-menu-text: #0F172A;
+  --page-hero-bg: var(--cream);
+  --page-hero-title: var(--charcoal);
+  --page-hero-lead: var(--earth-light);
+  --page-hero-border: var(--border-light);
+  --page-hero-tag-color: var(--accent);
+  --page-hero-tag-bg: var(--accent-subtle);
+
   --shadow-subtle: 0 4px 20px rgba(15, 23, 42, 0.04);
   --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.08);
   --shadow-modal: 0 25px 60px rgba(15, 23, 42, 0.25);
 }
 
-/* Theme: Moody Architectural Dark */
+/* Theme: Moody Architectural Dark (Original Deep Midnight) */
 [data-theme="moody-dark"] {
   --accent: #F26522;
   --accent-hover: #D9480F;
@@ -132,16 +213,57 @@
   --charcoal: #FFFFFF;
   --charcoal-soft: #F8FAFC;
   --white: #111827;
+  --card-bg: #111827;
   --border-light: rgba(255, 255, 255, 0.12);
   --border-medium: rgba(255, 255, 255, 0.2);
   --border-subtle: rgba(255, 255, 255, 0.06);
   --border-dark: rgba(255, 255, 255, 0.22);
+
+  /* Original Midnight Dark Navbar & Chrome */
+  --navbar-bg: #0B1320;
+  --navbar-bg-scrolled: #060C14;
+  --navbar-text: #FFFFFF;
+  --navbar-text-hover: #FF8542;
+  --navbar-active-text: #FF8542;
+  --navbar-active-bar: #F26522;
+  --navbar-border: rgba(255, 255, 255, 0.12);
+  --navbar-logo-bg: #FFFFFF;
+  --navbar-logo-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  --navbar-phone-bg: #111827;
+  --navbar-phone-border: rgba(255, 255, 255, 0.2);
+  --navbar-phone-text: #FFFFFF;
+  --navbar-phone-hover-bg: #F26522;
+  --navbar-phone-hover-text: #FFFFFF;
+  --navbar-phone-icon-color: #FF8542;
+  --navbar-divider: rgba(255, 255, 255, 0.15);
+  --theme-toggle-bg: rgba(255, 255, 255, 0.12);
+  --theme-toggle-border: rgba(255, 255, 255, 0.25);
+  --theme-toggle-text: #FFFFFF;
+  --theme-toggle-open-bg: #111827;
+  --theme-toggle-open-text: #FFFFFF;
+  --theme-dropdown-bg: #111827;
+  --theme-dropdown-border: rgba(255, 255, 255, 0.2);
+  --theme-dropdown-text: #FFFFFF;
+  --theme-dropdown-header: #94A3B8;
+  --theme-dropdown-hover-bg: rgba(255, 255, 255, 0.1);
+  --theme-dropdown-hover-text: #FFFFFF;
+  --theme-dropdown-active-bg: rgba(242, 101, 34, 0.25);
+  --theme-dropdown-active-text: #FF8542;
+  --mobile-menu-bg: #0B1320;
+  --mobile-menu-text: #FFFFFF;
+  --page-hero-bg: var(--cream);
+  --page-hero-title: var(--charcoal);
+  --page-hero-lead: var(--earth-light);
+  --page-hero-border: var(--border-light);
+  --page-hero-tag-color: var(--accent);
+  --page-hero-tag-bg: var(--accent-subtle);
+
   --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.35);
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
   --shadow-modal: 0 25px 60px rgba(0, 0, 0, 0.7);
 }
 
-/* Theme: Warm Sandstone & Travertine */
+/* Theme: Warm Sandstone & Travertine (Original Honed Sandstone) */
 [data-theme="warm-sandstone"] {
   --accent: #86745F;
   --accent-hover: #524538;
@@ -161,16 +283,57 @@
   --charcoal: #1D1A17;
   --charcoal-soft: #2C2723;
   --white: #E9E2D4;
+  --card-bg: #D2C4B0;
   --border-light: rgba(55, 45, 36, 0.16);
   --border-medium: rgba(55, 45, 36, 0.28);
   --border-subtle: rgba(55, 45, 36, 0.09);
   --border-dark: rgba(223, 213, 196, 0.16);
+
+  /* Original Warm Sandstone Navbar & Chrome */
+  --navbar-bg: #DFD5C4;
+  --navbar-bg-scrolled: #D2C4B0;
+  --navbar-text: #1D1A17;
+  --navbar-text-hover: #86745F;
+  --navbar-active-text: #524538;
+  --navbar-active-bar: #86745F;
+  --navbar-border: rgba(55, 45, 36, 0.16);
+  --navbar-logo-bg: rgba(255, 255, 255, 0.88);
+  --navbar-logo-shadow: 0 2px 8px rgba(29, 26, 23, 0.08);
+  --navbar-phone-bg: #E9E2D4;
+  --navbar-phone-border: rgba(55, 45, 36, 0.2);
+  --navbar-phone-text: #1D1A17;
+  --navbar-phone-hover-bg: #86745F;
+  --navbar-phone-hover-text: #FFFFFF;
+  --navbar-phone-icon-color: #86745F;
+  --navbar-divider: rgba(55, 45, 36, 0.2);
+  --theme-toggle-bg: rgba(55, 45, 36, 0.08);
+  --theme-toggle-border: rgba(55, 45, 36, 0.2);
+  --theme-toggle-text: #1D1A17;
+  --theme-toggle-open-bg: #E9E2D4;
+  --theme-toggle-open-text: #1D1A17;
+  --theme-dropdown-bg: #E9E2D4;
+  --theme-dropdown-border: rgba(55, 45, 36, 0.2);
+  --theme-dropdown-text: #1D1A17;
+  --theme-dropdown-header: #524538;
+  --theme-dropdown-hover-bg: rgba(55, 45, 36, 0.08);
+  --theme-dropdown-hover-text: #1D1A17;
+  --theme-dropdown-active-bg: rgba(134, 116, 95, 0.2);
+  --theme-dropdown-active-text: #524538;
+  --mobile-menu-bg: #DFD5C4;
+  --mobile-menu-text: #1D1A17;
+  --page-hero-bg: var(--cream);
+  --page-hero-title: var(--charcoal);
+  --page-hero-lead: var(--earth-light);
+  --page-hero-border: var(--border-light);
+  --page-hero-tag-color: var(--accent);
+  --page-hero-tag-bg: var(--accent-subtle);
+
   --shadow-subtle: 0 4px 20px rgba(29, 26, 23, 0.05);
   --shadow-card: 0 10px 30px rgba(29, 26, 23, 0.08);
   --shadow-modal: 0 25px 60px rgba(29, 26, 23, 0.22);
 }
 
-/* Theme: Muted Sage & Olive Mineral */
+/* Theme: Muted Sage & Olive Mineral (Original Botanical Sage) */
 [data-theme="muted-sage"] {
   --accent: #535F48;
   --accent-hover: #3E4736;
@@ -190,13 +353,53 @@
   --charcoal: #1A2016;
   --charcoal-soft: #283023;
   --white: #E2E6DD;
+  --card-bg: #C8CEC0;
   --border-light: rgba(47, 54, 42, 0.16);
   --border-medium: rgba(47, 54, 42, 0.28);
   --border-subtle: rgba(47, 54, 42, 0.08);
   --border-dark: rgba(214, 218, 208, 0.2);
+
+  /* Original Sage Navbar & Chrome */
+  --navbar-bg: #D6DAD0;
+  --navbar-bg-scrolled: #C8CEC0;
+  --navbar-text: #1A2016;
+  --navbar-text-hover: #535F48;
+  --navbar-active-text: #3E4736;
+  --navbar-active-bar: #535F48;
+  --navbar-border: rgba(47, 54, 42, 0.16);
+  --navbar-logo-bg: rgba(255, 255, 255, 0.88);
+  --navbar-logo-shadow: 0 2px 8px rgba(26, 32, 22, 0.08);
+  --navbar-phone-bg: #E2E6DD;
+  --navbar-phone-border: rgba(47, 54, 42, 0.2);
+  --navbar-phone-text: #1A2016;
+  --navbar-phone-hover-bg: #535F48;
+  --navbar-phone-hover-text: #FFFFFF;
+  --navbar-phone-icon-color: #535F48;
+  --navbar-divider: rgba(47, 54, 42, 0.2);
+  --theme-toggle-bg: rgba(47, 54, 42, 0.08);
+  --theme-toggle-border: rgba(47, 54, 42, 0.2);
+  --theme-toggle-text: #1A2016;
+  --theme-toggle-open-bg: #E2E6DD;
+  --theme-toggle-open-text: #1A2016;
+  --theme-dropdown-bg: #E2E6DD;
+  --theme-dropdown-border: rgba(47, 54, 42, 0.2);
+  --theme-dropdown-text: #1A2016;
+  --theme-dropdown-header: #4A5543;
+  --theme-dropdown-hover-bg: rgba(47, 54, 42, 0.08);
+  --theme-dropdown-hover-text: #1A2016;
+  --theme-dropdown-active-bg: rgba(83, 95, 72, 0.2);
+  --theme-dropdown-active-text: #3E4736;
+  --mobile-menu-bg: #D6DAD0;
+  --mobile-menu-text: #1A2016;
+  --page-hero-bg: var(--cream);
+  --page-hero-title: var(--charcoal);
+  --page-hero-lead: var(--earth-light);
+  --page-hero-border: var(--border-light);
+  --page-hero-tag-color: var(--accent);
+  --page-hero-tag-bg: var(--accent-subtle);
 }
 
-/* Theme: Warm Terracotta & Sand */
+/* Theme: Warm Terracotta & Sand (Original Warm Clay) */
 [data-theme="terracotta"] {
   --accent: #E05D2B;
   --accent-hover: #B84719;
@@ -216,8 +419,48 @@
   --charcoal: #251812;
   --charcoal-soft: #38251D;
   --white: #E8D9CF;
+  --card-bg: #CEBAAD;
   --border-light: rgba(63, 43, 33, 0.16);
   --border-medium: rgba(63, 43, 33, 0.28);
   --border-subtle: rgba(63, 43, 33, 0.08);
   --border-dark: rgba(218, 201, 190, 0.2);
+
+  /* Original Terracotta Navbar & Chrome */
+  --navbar-bg: #DAC9BE;
+  --navbar-bg-scrolled: #CEBAAD;
+  --navbar-text: #251812;
+  --navbar-text-hover: #E05D2B;
+  --navbar-active-text: #B84719;
+  --navbar-active-bar: #E05D2B;
+  --navbar-border: rgba(63, 43, 33, 0.16);
+  --navbar-logo-bg: rgba(255, 255, 255, 0.88);
+  --navbar-logo-shadow: 0 2px 8px rgba(37, 24, 18, 0.08);
+  --navbar-phone-bg: #E8D9CF;
+  --navbar-phone-border: rgba(63, 43, 33, 0.2);
+  --navbar-phone-text: #251812;
+  --navbar-phone-hover-bg: #E05D2B;
+  --navbar-phone-hover-text: #FFFFFF;
+  --navbar-phone-icon-color: #E05D2B;
+  --navbar-divider: rgba(63, 43, 33, 0.2);
+  --theme-toggle-bg: rgba(63, 43, 33, 0.08);
+  --theme-toggle-border: rgba(63, 43, 33, 0.2);
+  --theme-toggle-text: #251812;
+  --theme-toggle-open-bg: #E8D9CF;
+  --theme-toggle-open-text: #251812;
+  --theme-dropdown-bg: #E8D9CF;
+  --theme-dropdown-border: rgba(63, 43, 33, 0.2);
+  --theme-dropdown-text: #251812;
+  --theme-dropdown-header: #5A4033;
+  --theme-dropdown-hover-bg: rgba(63, 43, 33, 0.08);
+  --theme-dropdown-hover-text: #251812;
+  --theme-dropdown-active-bg: rgba(224, 93, 43, 0.2);
+  --theme-dropdown-active-text: #B84719;
+  --mobile-menu-bg: #DAC9BE;
+  --mobile-menu-text: #251812;
+  --page-hero-bg: var(--cream);
+  --page-hero-title: var(--charcoal);
+  --page-hero-lead: var(--earth-light);
+  --page-hero-border: var(--border-light);
+  --page-hero-tag-color: var(--accent);
+  --page-hero-tag-bg: var(--accent-subtle);
 }

@@ -2,19 +2,19 @@
   padding-top: 88px;
 }
 
-/* Common Page Header - Architectural Sea Blue */
+/* Common Page Header - Adaptive Per Palette */
 .page-hero-section {
   position: relative;
   padding: clamp(4.5rem, 8vw, 6.5rem) 0 clamp(3rem, 5vw, 4.5rem);
-  background: linear-gradient(135deg, #006994 0%, #063F57 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--page-hero-bg, var(--cream));
+  border-bottom: 1px solid var(--page-hero-border, var(--border-light));
   overflow: hidden;
-  color: #FFFFFF;
+  color: var(--page-hero-title, var(--charcoal));
 }
 
 .page-hero-section .section-tag {
-  color: #FF8542;
-  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--page-hero-tag-color, var(--accent));
+  background-color: var(--page-hero-tag-bg, var(--accent-subtle));
   padding: 0.3rem 0.75rem;
   border-radius: 4px;
 }
@@ -28,7 +28,7 @@
   font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 800;
   line-height: 1.1;
-  color: #FFFFFF;
+  color: var(--page-hero-title, var(--charcoal));
   letter-spacing: -0.025em;
   margin: 0.75rem 0 1.25rem;
 }
@@ -36,7 +36,7 @@
 .page-hero-lead {
   font-family: var(--font-sans);
   font-size: clamp(1.05rem, 1.3vw, 1.2rem);
-  color: #DCEDF4;
+  color: var(--page-hero-lead, var(--earth-light));
   line-height: 1.7;
   max-width: 760px;
 }

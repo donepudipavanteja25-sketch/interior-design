@@ -24,11 +24,7 @@ export const ThemeSwitcher: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (activeTheme === 'vriksha-sea-blue') {
-      document.documentElement.removeAttribute('data-theme');
-    } else {
-      document.documentElement.setAttribute('data-theme', activeTheme);
-    }
+    document.documentElement.setAttribute('data-theme', activeTheme);
   }, [activeTheme]);
 
   useEffect(() => {
