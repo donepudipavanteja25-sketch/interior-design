@@ -39,7 +39,7 @@
 }
 
 .service-feature-card {
-  background-color: #FFFFFF;
+  background-color: var(--cream, #C5E5F2);
   border: 1px solid var(--border-light);
   border-radius: 6px;
   overflow: hidden;

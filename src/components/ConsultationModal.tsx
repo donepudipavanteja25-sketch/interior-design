@@ -90,10 +90,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
         className="modal-container"
         style={{
           maxWidth: 720,
-          backgroundColor: '#FFFFFF',
+          backgroundColor: 'var(--cream, #C5E5F2)',
           color: 'var(--earth)',
           borderRadius: '6px',
-          boxShadow: '0 25px 60px rgba(6, 63, 87, 0.35)'
+          boxShadow: '0 25px 60px rgba(6, 63, 87, 0.35)',
+          border: '1px solid var(--border-light)'
         }}
         onClick={(e) => e.stopPropagation()}
       >

@@ -213,3 +213,32 @@
   font-size: 0.72rem;
   color: var(--taupe);
 }
+
+/* Modal Form Inputs Scoping for Sea Blue surface */
+.modal-container .form-input,
+.modal-container .form-select,
+.modal-container .form-textarea {
+  background-color: #D6EDF6;
+  border: 1.5px solid var(--border-medium, #5FAECF);
+  color: var(--charcoal, #042838);
+}
+
+.modal-container .form-input:focus,
+.modal-container .form-select:focus,
+.modal-container .form-textarea:focus {
+  background-color: #E4F4FA;
+  border-color: var(--accent, #E55A22);
+  color: var(--charcoal, #042838);
+  box-shadow: 0 0 0 2px rgba(229, 90, 34, 0.25);
+}
+
+.modal-container .form-label {
+  color: var(--charcoal, #042838);
+  font-weight: 700;
+}
+
+.modal-container .form-select option {
+  background-color: #063F57;
+  color: #FFFFFF;
+}
+

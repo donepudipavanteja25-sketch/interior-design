@@ -31,7 +31,7 @@
 }
 
 .process-card {
-  background-color: #FFFFFF;
+  background-color: var(--cream, #C5E5F2);
   padding: clamp(1.75rem, 3vw, 2.5rem) clamp(1.25rem, 2.5vw, 1.75rem);
   border-radius: 4px;
   display: flex;

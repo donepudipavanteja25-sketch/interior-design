@@ -619,7 +619,7 @@
 }
 
 .service-box {
-  background-color: #FFFFFF;
+  background-color: var(--cream, #C5E5F2);
   border: 1px solid var(--border-light);
   border-radius: 4px;
   padding: 1.5rem;
@@ -703,7 +703,7 @@
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--brand-blue);
-  background-color: #FFFFFF;
+  background-color: var(--cream, #C5E5F2);
   padding: 0.35rem 0.75rem;
   border-radius: 3px;
   border: 1px solid var(--border-light);

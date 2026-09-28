@@ -33,10 +33,10 @@
 }
 
 .theme-dropdown-toggle.open {
-  background-color: #FFFFFF;
-  border-color: #FFFFFF;
-  color: #006994 !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: #063F57;
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-header.scrolled .theme-dropdown-toggle {
@@ -75,17 +75,17 @@
   transform: rotate(180deg);
 }
 
-/* Floating Dropdown Menu */
+/* Floating Dropdown Menu in Sea Blue */
 .theme-dropdown-menu {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
   min-width: 220px;
   max-width: min(300px, calc(100vw - 2rem));
-  background-color: #FFFFFF;
-  border: 1px solid var(--border-light, #DCE4E9);
+  background-color: #063F57;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 6px;
-  box-shadow: 0 10px 35px rgba(15, 23, 42, 0.14);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
   padding: 0.5rem;
   z-index: 250;
   display: flex;
@@ -101,8 +101,8 @@
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #475569;
-  border-bottom: 1px solid var(--border-subtle, #EDF3F7);
+  color: #A5D5E8;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   margin-bottom: 0.25rem;
 }
 
@@ -152,20 +152,20 @@
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: #0F172A;
+  color: #FFFFFF;
   cursor: pointer;
   transition: all var(--transition-fast);
   text-align: left;
 }
 
 .theme-dropdown-item:hover {
-  background-color: var(--sand, #EDF3F7);
-  color: var(--brand-blue, #075F82);
+  background-color: rgba(255, 255, 255, 0.14);
+  color: #FFFFFF;
 }
 
 .theme-dropdown-item.active {
-  background-color: #FFF2EB;
-  color: #E55A22;
+  background-color: rgba(229, 90, 34, 0.3);
+  color: #FF8542;
   font-weight: 700;
 }
 
