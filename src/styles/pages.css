@@ -304,14 +304,10 @@
 }
 
 /* Active Navigation indicator */
-.nav-link.active {
-  color: var(--white);
-  font-weight: 600;
-}
-
+.nav-link.active,
 .navbar-header.scrolled .nav-link.active {
-  color: var(--charcoal);
-  font-weight: 600;
+  color: var(--brand-blue, #075F82) !important;
+  font-weight: 700;
 }
 
 .nav-link.active::after {
