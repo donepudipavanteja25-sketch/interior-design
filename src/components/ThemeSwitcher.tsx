@@ -99,6 +99,9 @@ export const ThemeSwitcher: React.FC = () => {
       {/* Floating Dropdown Selection */}
       {isOpen && (
         <div className="theme-dropdown-menu" role="listbox" aria-label="Color Palettes">
+          <div className="theme-dropdown-header">
+            <span>Color Palettes</span>
+          </div>
           {themes.map((theme) => {
             const isSelected = activeTheme === theme.id;
             return (
@@ -117,7 +120,7 @@ export const ThemeSwitcher: React.FC = () => {
                   />
                   <span>{theme.name}</span>
                 </div>
-                {isSelected && <Check size={14} style={{ color: 'var(--charcoal)' }} />}
+                {isSelected && <Check size={14} style={{ color: 'var(--accent, #E55A22)' }} />}
               </button>
             );
           })}
